@@ -127,6 +127,16 @@
     /* К-поп видео */
     .video-placeholder { margin-top: 48px; background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 48px; min-height: 200px; display: flex; align-items: center; justify-content: center; color: var(--color-muted); font-size: 14px; }
 
+    /* ══ FAQ ══════════════════════════════════════════════════════ */
+    .faq-block { border-top: 1px solid var(--color-border); padding-top: 48px; }
+    .faq-item { border-bottom: 1px solid var(--color-border); }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 20px 0; background: none; border: none; text-align: left; font-family: var(--font-body); font-size: 16px; font-weight: 600; color: var(--color-text); cursor: pointer; gap: 16px; }
+    .faq-q::after { content: '+'; font-family: var(--font-display); font-size: 22px; color: var(--color-accent); flex-shrink: 0; transition: transform 200ms; }
+    .faq-q[aria-expanded="true"]::after { transform: rotate(45deg); }
+    .faq-a { display: none; padding: 0 0 20px; }
+    .faq-a.is-open { display: block; }
+    .faq-a p { font-size: 15px; color: var(--color-muted); line-height: 1.7; }
+
     /* ══ ВКЛАДКИ ══════════════════════════════════════════════════ */
     .tabs-layout {
       display: grid;
@@ -221,7 +231,7 @@
       <button class="tab-btn" data-tab="heels">Хилсы</button>
       <button class="tab-btn" data-tab="stretching">Растяжка</button>
       <button class="tab-btn" data-tab="zumba">Зумба</button>
-      <button class="tab-btn" data-tab="kpop-intensive">К-поп интенсивы</button>
+      <button class="tab-btn" data-tab="kpop-intensive">К-поп МК</button>
       <button class="tab-btn" data-tab="kpop-course">К-поп спецкурсы</button>
       <button class="tab-btn" data-tab="individual">Индивидуальные занятия</button>
       <button class="tab-btn" data-tab="from-scratch">Курсы с нуля <span class="soon-tag">Скоро</span></button>
@@ -535,19 +545,19 @@
     </div>
   </div>
 
-  <!-- ══ К-ПОП ИНТЕНСИВЫ ══════════════════════════════════════ -->
+  <!-- ══ К-ПОП МК ══════════════════════════════════════ -->
   <div class="tab-panel" data-panel="kpop-intensive">
     <div class="container">
       <span class="section-label" data-animate>Взрослые · разово</span>
-      <h2 class="section-title" data-animate data-delay="1">К-поп интенсивы</h2>
-      <p style="color:var(--color-muted);margin-top:12px;font-size:15px;" data-animate data-delay="2">Один час, один трек, один хореограф. Разучиваем танец айдолов без обязательств — просто приходи и танцуй.</p>
+      <h2 class="section-title" data-animate data-delay="1">К-поп МК</h2>
+      <p style="color:var(--color-muted);margin-top:12px;font-size:15px;" data-animate data-delay="2">Полтора часа, один трек, один хореограф. Разучиваем танец айдолов без обязательств — просто приходи и танцуй.</p>
       <div class="dir-grid dir-grid--2">
         <div class="dir-card" data-animate>
           <div class="dir-card__preview">
             <svg class="dir-card__star" width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true"><polygon points="40,4 48,30 76,30 54,48 62,74 40,58 18,74 26,48 4,30 32,30" fill="#febad0"/></svg>
             <span class="dir-card__num">01</span>
-            <h3 class="dir-card__title">К-поп интенсивы</h3>
-            <p class="dir-card__intro">Один час, один трек, один хореограф. Разучиваем танец айдолов без обязательств — просто приходи и танцуй.</p>
+            <h3 class="dir-card__title">К-поп МК</h3>
+            <p class="dir-card__intro">Полтора часа, один трек, один хореограф. Разучиваем танец айдолов без обязательств — просто приходи и танцуй.</p>
             <button class="dir-card__open-btn" aria-expanded="false">Подробнее</button>
           </div>
           <div class="dir-card__details">
@@ -555,7 +565,7 @@
             <div class="dir-details-grid">
               <div class="dir-detail-block">
                 <p class="dir-detail-block__label">Формат</p>
-                <p class="dir-detail-block__value">1 час · открытая группа<br>Можно прийти разово</p>
+                <p class="dir-detail-block__value">1,5 часа · открытая группа<br>Можно прийти разово</p>
               </div>
               <div class="dir-detail-block">
                 <p class="dir-detail-block__label">Расписание</p>
@@ -646,6 +656,53 @@
         <a href="https://www.youtube.com/@souldancemsk" class="btn-secondary" target="_blank" rel="noopener noreferrer">Смотреть каверы на YouTube</a>
         <button class="btn-primary" data-modal="messenger">Записаться на спецкурс</button>
       </div>
+
+      <!-- FAQ -->
+      <div class="faq-block" data-animate style="margin-top:64px;">
+        <h2 class="section-title" style="margin-bottom:32px;">Частые вопросы</h2>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Нужно ли уметь танцевать, чтобы прийти на спецкурс?</button>
+          <div class="faq-a">
+            <p>Нет. На спецкурс берём с любым уровнем — от абсолютного нуля. Хореограф строит занятие так, чтобы каждый успевал за темпом. Главное — желание.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Что такое съёмка кавера и как она проходит?</button>
+          <div class="faq-a">
+            <p>В конце курса вся группа снимает профессиональный видеоролик — кавер на трек, который разучивали. Съёмка проходит в студии с профессиональным светом и оператором. Готовое видео отдаём каждому участнику — можно выкладывать куда угодно.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Можно ли пропустить занятие?</button>
+          <div class="faq-a">
+            <p>Стоимость пропущенного занятия не возвращается. Один раз за курс можно взять заморозку до 7 дней без объяснений — срок действия курса продлевается на это время.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Сколько длится занятие и сколько человек в группе?</button>
+          <div class="faq-a">
+            <p>Каждое занятие — 2 часа. Группы небольшие: мы специально ограничиваем количество мест, чтобы хореограф мог уделить внимание каждому.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Что взять с собой?</button>
+          <div class="faq-a">
+            <p>Удобную одежду для движения и сменную обувь (кроссовки). Воду — тоже не забудь. Всё остальное — на месте.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Как записаться?</button>
+          <div class="faq-a">
+            <p>Напиши нам — уточним расписание актуальных групп и свободные места. Запись через виджет YClients или через Telegram. Стоимость курса оплачивается при записи.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -703,22 +760,14 @@
         </div>
       </div>
 
-      <div class="trial-highlight" data-animate>
-        <div>
-          <p class="trial-highlight__label">Первое занятие</p>
-          <p class="trial-highlight__value">600 ₽</p>
-          <p class="trial-highlight__note">Первое занятие для взрослых</p>
-        </div>
-      </div>
-
       <div class="single-price-block" data-animate>
         <p class="single-price-block__label">Разовое занятие</p>
         <div class="price-row">
-          <span class="price-row__type">Хореограф студии</span>
+          <span class="price-row__type">Хореограф</span>
           <span class="price-row__amount">2 800 ₽</span>
         </div>
         <div class="price-row">
-          <span class="price-row__type">Старший хореограф</span>
+          <span class="price-row__type">ТОП хореограф</span>
           <span class="price-row__amount">3 300 ₽</span>
         </div>
       </div>
@@ -728,21 +777,21 @@
         <div class="abon-card" data-animate>
           <p class="abon-card__name">4 занятия</p>
           <p class="abon-card__validity">Срок действия — 30 дней</p>
-          <div class="abon-price-row"><span>Хореограф студии</span><span>10 400 ₽</span></div>
-          <div class="abon-price-row"><span>Старший хореограф</span><span>12 400 ₽</span></div>
+          <div class="abon-price-row"><span>Хореограф</span><span>10 400 ₽</span></div>
+          <div class="abon-price-row"><span>ТОП хореограф</span><span>12 400 ₽</span></div>
         </div>
         <div class="abon-card abon-card--featured" data-animate data-delay="1">
           <span class="abon-card__badge">Самый популярный</span>
           <p class="abon-card__name">8 занятий</p>
           <p class="abon-card__validity">Срок действия — 60 дней</p>
-          <div class="abon-price-row"><span>Хореограф студии</span><span>19 600 ₽</span></div>
-          <div class="abon-price-row"><span>Старший хореограф</span><span>23 600 ₽</span></div>
+          <div class="abon-price-row"><span>Хореограф</span><span>19 600 ₽</span></div>
+          <div class="abon-price-row"><span>ТОП хореограф</span><span>23 600 ₽</span></div>
         </div>
         <div class="abon-card" data-animate data-delay="2">
           <p class="abon-card__name">16 занятий</p>
           <p class="abon-card__validity">Срок действия — 90 дней</p>
-          <div class="abon-price-row"><span>Хореограф студии</span><span>36 800 ₽</span></div>
-          <div class="abon-price-row"><span>Старший хореограф</span><span>44 800 ₽</span></div>
+          <div class="abon-price-row"><span>Хореограф</span><span>36 800 ₽</span></div>
+          <div class="abon-price-row"><span>ТОП хореограф</span><span>44 800 ₽</span></div>
         </div>
       </div>
       <p class="pricing-note" data-animate>Отмена менее чем за 24 часа — следующая запись по 100% предоплате. Стоимость за 1 человека.</p>
@@ -888,6 +937,18 @@
   } else {
     activate(btns[0].dataset.tab);
   }
+})();
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      var answer = btn.nextElementSibling;
+      if (answer) answer.classList.toggle('is-open', !expanded);
+    });
+  });
 })();
 </script>
 </body>
