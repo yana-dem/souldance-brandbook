@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Аренда танцевального зала в Москве — Soul Dance</title>
+  <meta name="description" content="7 залов с высокими потолками и большими окнами. Бесплатная парковка. 8 минут от метро Шоссе Энтузиастов.">
+  <link rel="canonical" href="https://yana-dem.github.io/souldance-site/rental.html">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://yana-dem.github.io/souldance-site/rental.html">
+  <meta property="og:title"       content="Аренда танцевального зала в Москве — Soul Dance">
+  <meta property="og:description" content="7 залов с высокими потолками и большими окнами. Бесплатная парковка. 8 минут от метро Шоссе Энтузиастов.">
+  <meta property="og:locale"      content="ru_RU">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Montserrat:wght@400;500;600;700&display=swap"></noscript>
+
+  <link rel="stylesheet" href="src/css/variables.css">
+  <link rel="stylesheet" href="src/css/base.css">
+  <link rel="stylesheet" href="src/css/components.css">
+  <link rel="stylesheet" href="src/css/layout.css">
+
+  <style>
+    /* ══ HERO ══════════════════════════════════════════════ */
+    .rental-hero {
+      padding: 96px 0 80px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .rental-hero__eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 16px;
+      font-family: var(--font-body);
+    }
+
+    .rental-hero__title {
+      font-family: var(--font-display);
+      font-size: 80px;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .rental-hero__sub {
+      font-size: 20px;
+      color: var(--color-muted);
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+
+    @media (max-width: 768px) {
+      .rental-hero { padding: 64px 0 48px; }
+      .rental-hero__title { font-size: 48px; }
+      .rental-hero__sub { font-size: 17px; }
+    }
+
+    /* ══ ПРЕИМУЩЕСТВА ═══════════════════════════════════════ */
+    .perks-strip {
+      padding: 40px 0;
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-surface-1);
+    }
+
+    .perks-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .perk-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      border-radius: 100px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .perk-chip::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    /* ══ ЗАЛЫ — СЕТКА ═══════════════════════════════════════ */
+    .halls-section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .halls-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .hall-card {
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 200ms, transform 200ms;
+    }
+
+    .hall-card:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-3px);
+    }
+
+    .hall-card__img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      background: var(--color-surface-2);
+    }
+
+    .hall-card__body {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .hall-card__name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hall-card__meta {
+      font-size: 12px;
+      color: var(--color-muted);
+    }
+
+    .hall-card__gallery-icon {
+      color: var(--color-muted);
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: color 150ms;
+    }
+
+    .hall-card:hover .hall-card__gallery-icon { color: var(--color-accent); }
+
+    @media (max-width: 1024px) { .halls-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px)  { .halls-grid { grid-template-columns: 1fr; } }
+
+    /* ══ ГАЛЕРЕЯ ЗАЛА — МОДАЛКА ═════════════════════════════ */
+    .hall-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 700;
+      background: rgba(13,13,13,0.95);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 250ms ease;
+    }
+
+    .hall-modal-overlay.is-open { opacity: 1; pointer-events: auto; }
+
+    .hall-modal {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transform: translateY(20px);
+      transition: transform 250ms ease;
+    }
+
+    .hall-modal-overlay.is-open .hall-modal { transform: translateY(0); }
+
+    .hall-modal__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .hall-modal__title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hall-modal__close {
+      background: none;
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      color: var(--color-muted);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: border-color 150ms, color 150ms;
+    }
+
+    .hall-modal__close:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+    /* Слайдер */
+    .hall-modal__slider {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: var(--color-surface-2);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .hall-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 300ms ease;
+    }
+
+    .hall-slide.is-active { opacity: 1; }
+
+    .hall-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hall-modal__arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(13,13,13,0.6);
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      color: var(--color-text);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background 150ms, border-color 150ms;
+    }
+
+    .hall-modal__arrow:hover { background: var(--color-accent-soft); border-color: var(--color-accent); }
+    .hall-modal__arrow--prev { left: 12px; }
+    .hall-modal__arrow--next { right: 12px; }
+
+    .hall-modal__dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hall-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-border);
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      transition: background 150ms, transform 150ms;
+    }
+
+    .hall-dot.is-active { background: var(--color-accent); transform: scale(1.3); }
+
+    .hall-modal__counter {
+      position: absolute;
+      bottom: 12px;
+      right: 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(240,236,234,0.6);
+      background: rgba(13,13,13,0.5);
+      border-radius: 100px;
+      padding: 3px 10px;
+    }
+
+    /* ══ BOOKING ════════════════════════════════════════════ */
+    .booking-section {
+      padding: 64px 0;
+    }
+
+    .booking-section__widget {
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-muted);
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    .booking-consents {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 600px;
+    }
+
+    @media (max-width: 768px) {
+      .booking-section__widget { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="assets/logo/logo-white.png" alt="Soul Dance" height="40">
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+        <a href="about.html" class="nav-link">О нас</a>
+        <a href="kids/" class="nav-link">Дети</a>
+        <a href="adults/" class="nav-link">Взрослые</a>
+        <a href="prices/" class="nav-link">Цены</a>
+        <a href="rental.html" class="nav-link is-active">Аренда залов</a>
+        <a href="contacts.html" class="nav-link">Контакты</a>
+      </nav>
+
+      <a href="#booking" class="btn-primary header-cta">Забронировать зал</a>
+
+      <button class="burger-btn" id="burger-btn" aria-label="Открыть меню" aria-expanded="false">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<main>
+
+  <!-- ══ SEC-01 | HERO ═════════════════════════════════════ -->
+  <section class="rental-hero">
+    <div class="container">
+      <p class="rental-hero__eyebrow" data-animate>Аренда зала</p>
+      <h1 class="rental-hero__title" data-animate data-delay="1">7 залов<br>на выбор</h1>
+      <p class="rental-hero__sub" data-animate data-delay="2">Высокие потолки, большие окна, бесплатная парковка</p>
+      <a href="#booking" class="btn-primary" data-animate data-delay="3">Забронировать зал</a>
+    </div>
+  </section>
+
+  <!-- ══ SEC-02 | ПРЕИМУЩЕСТВА ═════════════════════════════ -->
+  <div class="perks-strip">
+    <div class="container">
+      <div class="perks-list">
+        <span class="perk-chip" data-animate>8 минут от метро Шоссе Энтузиастов</span>
+        <span class="perk-chip" data-animate data-delay="1">Кулер с водой</span>
+        <span class="perk-chip" data-animate data-delay="2">Bluetooth колонки</span>
+        <span class="perk-chip" data-animate data-delay="3">Зона ожидания</span>
+        <span class="perk-chip" data-animate data-delay="4">Добрые менеджеры</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEC-03 | ЗАЛЫ ═════════════════════════════════════ -->
+  <section class="halls-section" aria-labelledby="halls-title">
+    <div class="container">
+      <span class="section-label" data-animate>Залы</span>
+      <h2 id="halls-title" class="section-title" data-animate data-delay="1">Выбери зал</h2>
+
+      <div class="halls-grid" id="halls-grid">
+
+        <div class="hall-card" data-animate data-hall="1" role="button" tabindex="0" aria-label="Открыть галерею Зала 1">
+          <img class="hall-card__img" src="assets/сайт/studio/halls/1/1зал1.JPG" alt="Зал 1" loading="lazy">
+          <div class="hall-card__body">
+            <div>
+              <p class="hall-card__name">Зал 1</p>
+              <p class="hall-card__meta">[УТОЧНИТЬ] м²</p>
+            </div>
+            <span class="hall-card__gallery-icon">Смотреть фото →</span>
+          </div>
+        </div>
+
+        <div class="hall-card" data-animate data-delay="1" data-hall="2" role="button" tabindex="0" aria-label="Открыть галерею Зала 2">
+          <img class="hall-card__img" src="assets/сайт/studio/halls/2/2зал1.jpeg" alt="Зал 2" loading="lazy">
+          <div class="hall-card__body">
+            <div>
+              <p class="hall-card__name">Зал 2</p>
+              <p class="hall-card__meta">[УТОЧНИТЬ] м²</p>
+            </div>
+            <span class="hall-card__gallery-icon">Смотреть фото →</span>
+          </div>
+        </div>
+
+        <div class="hall-card" data-animate data-delay="2" data-hall="3" role="button" tabindex="0" aria-label="Открыть галерею Зала 3">
+          <img class="hall-card__img" src="assets/сайт/studio/halls/3/3зал0.jpeg" alt="Зал 3" loading="lazy">
+          <div class="hall-card__body">
+            <div>
+              <p class="hall-card__name">Зал 3</p>
+              <p class="hall-card__meta">[УТОЧНИТЬ] м²</p>
+            </div>
+            <span class="hall-card__gallery-icon">Смотреть фото →</span>
+          </div>
+        </div>
+
+        <div class="hall-card" data-animate data-delay="3" data-hall="4" role="button" tabindex="0" aria-label="Открыть галерею Зала 4">
+          <img class="hall-card__img" src="assets/сайт/studio/halls/4/4зал1.JPG" alt="Зал 4" loading="lazy">
+          <div class="hall-card__body">
+            <div>
+              <p class="hall-card__name">Зал 4</p>
+              <p class="hall-card__meta">[УТОЧНИТЬ] м²</p>
+            </div>
+            <span class="hall-card__gallery-icon">Смотреть фото →</span>
+          </div>
+        </div>
+
+        <div class="hall-card" data-animate data-delay="4" data-hall="5" role="button" tabindex="0" aria-label="Открыть галерею Зала 5">
+          <img class="hall-card__img" src="assets/сайт/studio/halls/5/5зал1.jpeg" alt="Зал 5" loading="lazy">
+          <div class="hall-card__body">
+            <div>
+              <p class="hall-card__name">Зал 5</p>
+              <p class="hall-card__meta">[УТОЧНИТЬ] м²</p>
+            </div>
+            <span class="hall-card__gallery-icon">Смотреть фото →</span>
+          </div>
+        </div>
+
+        <div class="hall-card" data-animate data-delay="5" data-hall="6" role="button" tabindex="0" aria-label="Открыть галерею Зала 6">
+          <img class="hall-card__img" src="assets/сайт/studio/halls/6/6зал1.jpeg" alt="Зал 6" loading="lazy">
+          <div class="hall-card__body">
+            <div>
+              <p class="hall-card__name">Зал 6</p>
+              <p class="hall-card__meta">[УТОЧНИТЬ] м²</p>
+            </div>
+            <span class="hall-card__gallery-icon">Смотреть фото →</span>
+          </div>
+        </div>
+
+        <div class="hall-card" data-animate data-delay="6" data-hall="7" role="button" tabindex="0" aria-label="Открыть галерею Зала 7">
+          <img class="hall-card__img" src="assets/сайт/studio/halls/7/7зал1.jpeg" alt="Зал 7" loading="lazy">
+          <div class="hall-card__body">
+            <div>
+              <p class="hall-card__name">Зал 7</p>
+              <p class="hall-card__meta">[УТОЧНИТЬ] м²</p>
+            </div>
+            <span class="hall-card__gallery-icon">Смотреть фото →</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SEC-04 | BOOKING ══════════════════════════════════ -->
+  <section class="booking-section" id="booking" aria-labelledby="booking-title">
+    <div class="container">
+      <span class="section-label" data-animate>Бронирование</span>
+      <h2 id="booking-title" class="section-title" data-animate data-delay="1">Забронировать зал</h2>
+      <p style="font-size:16px;color:var(--color-muted);margin-bottom:32px;" data-animate data-delay="2">
+        Минимальное время аренды — 1 час
+      </p>
+
+      <div class="booking-section__widget" data-animate data-delay="3">
+        <!-- YCLIENTS_RENTAL_WIDGET -->
+        <span>[УТОЧНИТЬ] — здесь будет виджет онлайн-бронирования YClients</span>
+      </div>
+
+      <div class="booking-consents" data-animate data-delay="4">
+        <label class="checkbox-wrapper">
+          <input type="checkbox" name="consent-personal" id="consent-personal" required aria-required="true">
+          <span class="checkbox-custom" aria-hidden="true"></span>
+          <span class="checkbox-label">
+            Я даю согласие на
+            <a href="assets/сайт/legal/Политика_конфиденциальности_сайта_Soul_Dance.pdf" target="_blank" rel="noopener">обработку персональных данных</a>
+            в соответствии с Федеральным законом № 152-ФЗ
+          </span>
+        </label>
+
+        <label class="checkbox-wrapper">
+          <input type="checkbox" name="consent-offer" id="consent-offer" required aria-required="true">
+          <span class="checkbox-custom" aria-hidden="true"></span>
+          <span class="checkbox-label">
+            Я принимаю условия
+            <a href="assets/сайт/legal/Публичная_оферта_Soul_Dance.pdf" target="_blank" rel="noopener">публичной оферты</a>
+            и
+            <a href="assets/сайт/legal/Пользовательское_соглашение_Soul_Dance.pdf" target="_blank" rel="noopener">пользовательского соглашения</a>
+          </span>
+        </label>
+
+        <label class="checkbox-wrapper">
+          <input type="checkbox" name="consent-marketing" id="consent-marketing">
+          <span class="checkbox-custom" aria-hidden="true"></span>
+          <span class="checkbox-label">
+            Я согласен(-на) получать рекламные и информационные рассылки о мероприятиях студии
+          </span>
+        </label>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-col--brand">
+        <a href="index.html" class="footer-logo">
+          <img src="assets/logo/logo-white.png" alt="Soul Dance" height="36" loading="lazy">
+        </a>
+        <p class="footer-tagline">Студия танцев в Москве.<br>Собираем своих с 2019 года</p>
+      </div>
+      <nav class="footer-col footer-col--nav" aria-label="Навигация в подвале">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="kids/">Дети</a>
+        <a href="adults/">Взрослые</a>
+        <a href="prices/">Цены</a>
+        <a href="rental.html">Аренда залов</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <div class="footer-col footer-col--contacts">
+        <address>
+          <p>Москва, Шоссе Энтузиастов 54,<br>ТЦ «Мир Уюта», 2 этаж</p>
+          <p>Пн–Пт: 15:00–22:00<br>Сб–Вс: 10:00–22:00</p>
+        </address>
+        <div class="footer-social">
+          <a href="https://t.me/souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a href="https://max.ru/id743017545404_bot" class="footer-social-link" target="_blank" rel="noopener noreferrer">MAX</a>
+          <a href="https://vk.com/souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+          <a href="https://www.youtube.com/@souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://www.tiktok.com/@souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a href="mailto:souldancemsk@yandex.ru" class="footer-social-link">souldancemsk@yandex.ru</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal-info">ИП Попов Данила Андреевич · ИНН 743017545404 · ОГРНИП 324745600121280</p>
+      <div class="footer-legal-links">
+        <a href="assets/сайт/legal/Политика_конфиденциальности_сайта_Soul_Dance.pdf" target="_blank" rel="noopener">Политика конфиденциальности</a>
+        <a href="assets/сайт/legal/Публичная_оферта_Soul_Dance.pdf" target="_blank" rel="noopener">Публичная оферта</a>
+        <a href="assets/сайт/legal/Политика_Cookie_Soul_Dance.pdf" target="_blank" rel="noopener">Политика Cookie</a>
+        <a href="assets/сайт/legal/Пользовательское_соглашение_Soul_Dance.pdf" target="_blank" rel="noopener">Пользовательское соглашение</a>
+        <button class="btn-text" id="cookie-settings-btn">Настройки cookies</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- МОДАЛКА МЕССЕНДЖЕРА -->
+<div class="modal-overlay" id="messenger-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-dialog">
+    <button class="modal-close" id="modal-close-btn" aria-label="Закрыть">&times;</button>
+    <h3 class="modal-title" id="modal-title">Выбери удобный мессенджер</h3>
+    <div class="modal-actions">
+      <a href="https://t.me/souldancemsk" class="btn-primary modal-btn" target="_blank" rel="noopener noreferrer">Telegram @souldancemsk</a>
+      <a href="https://max.ru/id743017545404_bot" class="btn-secondary modal-btn" target="_blank" rel="noopener noreferrer">MAX</a>
+    </div>
+  </div>
+</div>
+
+<!-- МОДАЛКА ГАЛЕРЕИ ЗАЛА -->
+<div class="hall-modal-overlay" id="hall-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="hall-modal-title">
+  <div class="hall-modal">
+    <div class="hall-modal__header">
+      <h2 class="hall-modal__title" id="hall-modal-title"></h2>
+      <button class="hall-modal__close" id="hall-modal-close" aria-label="Закрыть">&times;</button>
+    </div>
+
+    <div class="hall-modal__slider" id="hall-modal-slider">
+      <button class="hall-modal__arrow hall-modal__arrow--prev" id="hall-prev" aria-label="Предыдущее фото">&#8592;</button>
+      <button class="hall-modal__arrow hall-modal__arrow--next" id="hall-next" aria-label="Следующее фото">&#8594;</button>
+      <div class="hall-modal__counter" id="hall-counter"></div>
+    </div>
+
+    <div class="hall-modal__dots" id="hall-dots"></div>
+  </div>
+</div>
+
+<!-- COOKIE-БАННЕР -->
+<div class="cookie-banner" id="cookie-banner" hidden>
+  <div class="container">
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">
+        Мы используем cookies для корректной работы сайта.
+        <a href="assets/сайт/legal/Политика_Cookie_Soul_Dance.pdf" target="_blank" rel="noopener">Политика Cookie</a>
+      </p>
+      <div class="cookie-banner__actions">
+        <button class="btn-primary" id="cookie-accept-all">Принять все</button>
+        <button class="btn-secondary" id="cookie-accept-minimal">Только необходимые</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="src/js/main.js"></script>
+<script src="src/js/modal.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var HALLS = {
+    '1': {
+      name: 'Зал 1',
+      photos: [
+        'assets/сайт/studio/halls/1/1зал1.JPG',
+        'assets/сайт/studio/halls/1/1зал2.JPG',
+        'assets/сайт/studio/halls/1/1зал3.JPG',
+        'assets/сайт/studio/halls/1/1зал4.JPG',
+        'assets/сайт/studio/halls/1/1зал5.JPG',
+        'assets/сайт/studio/halls/1/1зал6.JPG'
+      ]
+    },
+    '2': {
+      name: 'Зал 2',
+      photos: [
+        'assets/сайт/studio/halls/2/2зал1.jpeg',
+        'assets/сайт/studio/halls/2/2зал2.JPG',
+        'assets/сайт/studio/halls/2/2зал3.JPG',
+        'assets/сайт/studio/halls/2/2зал4.JPG',
+        'assets/сайт/studio/halls/2/2зал5.JPG'
+      ]
+    },
+    '3': {
+      name: 'Зал 3',
+      photos: [
+        'assets/сайт/studio/halls/3/3зал0.jpeg',
+        'assets/сайт/studio/halls/3/3зал1.JPG',
+        'assets/сайт/studio/halls/3/3зал2.JPG',
+        'assets/сайт/studio/halls/3/3зал3.JPG',
+        'assets/сайт/studio/halls/3/3зал4.JPG',
+        'assets/сайт/studio/halls/3/3зал5.JPG'
+      ]
+    },
+    '4': {
+      name: 'Зал 4',
+      photos: [
+        'assets/сайт/studio/halls/4/4зал1.JPG',
+        'assets/сайт/studio/halls/4/4зал2.JPG',
+        'assets/сайт/studio/halls/4/4зал3.JPG',
+        'assets/сайт/studio/halls/4/4зал4.JPG',
+        'assets/сайт/studio/halls/4/4зал5.JPG'
+      ]
+    },
+    '5': {
+      name: 'Зал 5',
+      photos: [
+        'assets/сайт/studio/halls/5/5зал1.jpeg',
+        'assets/сайт/studio/halls/5/5зал2.JPG',
+        'assets/сайт/studio/halls/5/5зал3.jpeg',
+        'assets/сайт/studio/halls/5/5зал4.jpeg',
+        'assets/сайт/studio/halls/5/5зал5.jpeg'
+      ]
+    },
+    '6': {
+      name: 'Зал 6',
+      photos: [
+        'assets/сайт/studio/halls/6/6зал1.jpeg',
+        'assets/сайт/studio/halls/6/6зал2.jpeg',
+        'assets/сайт/studio/halls/6/6зал3.jpeg',
+        'assets/сайт/studio/halls/6/6зал4.jpeg',
+        'assets/сайт/studio/halls/6/6зал5.jpeg'
+      ]
+    },
+    '7': {
+      name: 'Зал 7',
+      photos: [
+        'assets/сайт/studio/halls/7/7зал1.jpeg',
+        'assets/сайт/studio/halls/7/7зал2.jpeg',
+        'assets/сайт/studio/halls/7/7зал3.jpeg',
+        'assets/сайт/studio/halls/7/7зал4.jpeg',
+        'assets/сайт/studio/halls/7/7зал5.JPG'
+      ]
+    }
+  };
+
+  var overlay     = document.getElementById('hall-modal-overlay');
+  var slider      = document.getElementById('hall-modal-slider');
+  var dotsEl      = document.getElementById('hall-dots');
+  var counterEl   = document.getElementById('hall-counter');
+  var titleEl     = document.getElementById('hall-modal-title');
+  var closeBtn    = document.getElementById('hall-modal-close');
+  var prevBtn     = document.getElementById('hall-prev');
+  var nextBtn     = document.getElementById('hall-next');
+
+  var currentSlides = [];
+  var currentIdx    = 0;
+  var lastFocus     = null;
+
+  function setSlide(idx) {
+    currentIdx = (idx + currentSlides.length) % currentSlides.length;
+    currentSlides.forEach(function (s, i) { s.classList.toggle('is-active', i === currentIdx); });
+    dotsEl.querySelectorAll('.hall-dot').forEach(function (d, i) { d.classList.toggle('is-active', i === currentIdx); });
+    counterEl.textContent = (currentIdx + 1) + ' / ' + currentSlides.length;
+  }
+
+  function openHallModal(hallId) {
+    var hall = HALLS[hallId];
+    if (!hall) return;
+    lastFocus = document.activeElement;
+
+    titleEl.textContent = hall.name;
+
+    /* Удаляем старые слайды */
+    currentSlides.forEach(function (s) { s.remove(); });
+    currentSlides = [];
+    dotsEl.innerHTML = '';
+
+    hall.photos.forEach(function (src, i) {
+      var slide = document.createElement('div');
+      slide.className = 'hall-slide';
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = hall.name + ', фото ' + (i + 1);
+      img.loading = i === 0 ? 'eager' : 'lazy';
+      slide.appendChild(img);
+      slider.insertBefore(slide, prevBtn);
+      currentSlides.push(slide);
+
+      var dot = document.createElement('button');
+      dot.className = 'hall-dot';
+      dot.setAttribute('aria-label', 'Фото ' + (i + 1));
+      dot.addEventListener('click', function () { setSlide(i); });
+      dotsEl.appendChild(dot);
+    });
+
+    setSlide(0);
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () { closeBtn.focus(); }, 50);
+  }
+
+  function closeHallModal() {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  closeBtn.addEventListener('click', closeHallModal);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeHallModal(); });
+  prevBtn.addEventListener('click', function () { setSlide(currentIdx - 1); });
+  nextBtn.addEventListener('click', function () { setSlide(currentIdx + 1); });
+
+  document.addEventListener('keydown', function (e) {
+    if (!overlay.classList.contains('is-open')) return;
+    if (e.key === 'Escape')     { closeHallModal(); }
+    if (e.key === 'ArrowLeft')  { setSlide(currentIdx - 1); }
+    if (e.key === 'ArrowRight') { setSlide(currentIdx + 1); }
+  });
+
+  /* Карточки залов */
+  document.querySelectorAll('.hall-card[data-hall]').forEach(function (card) {
+    function open() { openHallModal(card.dataset.hall); }
+    card.addEventListener('click', open);
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>

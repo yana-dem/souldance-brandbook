@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — Soul Dance, Москва</title>
+  <meta name="description" content="Soul Dance: Москва, Шоссе Энтузиастов 54, ТЦ Мир Уюта, 2 этаж. 8 минут от метро. Пн-Пт 15-22, Сб-Вс 10-22.">
+  <link rel="canonical" href="https://yana-dem.github.io/souldance-site/contacts.html">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://yana-dem.github.io/souldance-site/contacts.html">
+  <meta property="og:title"       content="Контакты — Soul Dance, Москва">
+  <meta property="og:description" content="Soul Dance: Москва, Шоссе Энтузиастов 54, ТЦ Мир Уюта, 2 этаж. 8 минут от метро. Пн-Пт 15-22, Сб-Вс 10-22.">
+  <meta property="og:locale"      content="ru_RU">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Montserrat:wght@400;500;600;700&display=swap"></noscript>
+
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="src/css/variables.css">
+  <link rel="stylesheet" href="src/css/base.css">
+  <link rel="stylesheet" href="src/css/components.css">
+  <link rel="stylesheet" href="src/css/layout.css">
+
+  <style>
+    /* ══ HERO ══════════════════════════════════════════════ */
+    .contacts-hero {
+      padding: 96px 0 64px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .contacts-hero__eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 16px;
+      font-family: var(--font-body);
+    }
+
+    .contacts-hero__title {
+      font-family: var(--font-display);
+      font-size: 80px;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .contacts-hero { padding: 64px 0 48px; }
+      .contacts-hero__title { font-size: 48px; }
+    }
+
+    /* ══ КОНТАКТЫ + КАРТА ═══════════════════════════════════ */
+    .contacts-section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .contacts-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contacts-col__title {
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .contact-item:last-of-type { border-bottom: none; }
+
+    .contact-item__icon {
+      width: 36px;
+      height: 36px;
+      background: var(--color-surface-2);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--color-accent);
+      font-size: 18px;
+    }
+
+    .contact-item__label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 4px;
+    }
+
+    .contact-item__value {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .contact-item__value a {
+      color: var(--color-text);
+      transition: color 150ms;
+    }
+
+    .contact-item__value a:hover { color: var(--color-accent); }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 20px;
+      margin-top: 6px;
+    }
+
+    .hours-day { color: var(--color-muted); font-size: 14px; }
+    .hours-time { font-size: 14px; font-weight: 600; }
+
+    /* Карта */
+    .map-col { display: flex; flex-direction: column; gap: 16px; }
+
+    .map-embed {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      aspect-ratio: 4/3;
+    }
+
+    .map-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    @media (max-width: 1024px) {
+      .contacts-layout { grid-template-columns: 1fr; }
+      .map-embed { aspect-ratio: 16/9; }
+    }
+
+    /* ══ КАК ДОБРАТЬСЯ ══════════════════════════════════════ */
+    .route-section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .route-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 48px;
+    }
+
+    /* Горизонтальный скролл фото */
+    .route-slider {
+      position: sticky;
+      top: 96px;
+    }
+
+    .route-photos {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      border-radius: var(--radius-xl);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .route-photos::-webkit-scrollbar { display: none; }
+
+    .route-photo {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--color-surface-2);
+    }
+
+    .route-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .route-slider__nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 12px;
+    }
+
+    .route-slider__arrows { display: flex; gap: 8px; }
+
+    .route-arrow {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 150ms, background 150ms;
+    }
+
+    .route-arrow:hover { border-color: var(--color-accent); background: var(--color-accent-soft); }
+
+    .route-slider__counter {
+      font-size: 12px;
+      color: var(--color-muted);
+      font-weight: 600;
+    }
+
+    /* Шаги */
+    .route-steps { display: flex; flex-direction: column; gap: 0; }
+
+    .route-step {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--color-border);
+      cursor: pointer;
+      transition: opacity 150ms;
+    }
+
+    .route-step:last-child { border-bottom: none; }
+    .route-step.is-active .route-step__num { background: var(--color-accent); color: #0d0d0d; }
+    .route-step:not(.is-active) { opacity: 0.55; }
+    .route-step:hover { opacity: 1; }
+
+    .route-step__num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      font-family: var(--font-display);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 200ms, color 200ms;
+      color: var(--color-muted);
+    }
+
+    .route-step__text {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.55;
+      padding-top: 4px;
+    }
+
+    @media (max-width: 1024px) {
+      .route-layout { grid-template-columns: 1fr; }
+      .route-slider { position: static; }
+    }
+
+    /* ══ СОЦСЕТИ ════════════════════════════════════════════ */
+    .socials-section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-surface-1);
+    }
+
+    .socials-grid {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 16px 24px;
+      text-decoration: none;
+      color: var(--color-text);
+      transition: border-color 200ms, transform 200ms;
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .social-card:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    .social-card__icon {
+      font-size: 24px;
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    .social-card__name {
+      font-family: var(--font-display);
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ══ ФОРМА ══════════════════════════════════════════════ */
+    .feedback-section {
+      padding: 64px 0;
+    }
+
+    .feedback-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .feedback-intro__title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1.25;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .feedback-intro__sub {
+      font-size: 15px;
+      color: var(--color-muted);
+      line-height: 1.6;
+    }
+
+    .feedback-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .feedback-form .input {
+      width: 100%;
+    }
+
+    .feedback-form textarea.input {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-success {
+      display: none;
+      padding: 24px;
+      background: var(--color-accent-soft);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-xl);
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    @media (max-width: 1024px) {
+      .feedback-layout { grid-template-columns: 1fr; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="assets/logo/logo-white.png" alt="Soul Dance" height="40">
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+        <a href="about.html" class="nav-link">О нас</a>
+        <a href="kids/" class="nav-link">Дети</a>
+        <a href="adults/" class="nav-link">Взрослые</a>
+        <a href="prices/" class="nav-link">Цены</a>
+        <a href="rental.html" class="nav-link">Аренда залов</a>
+        <a href="contacts.html" class="nav-link is-active">Контакты</a>
+      </nav>
+
+      <button class="btn-primary header-cta" data-modal="messenger">Написать нам</button>
+
+      <button class="burger-btn" id="burger-btn" aria-label="Открыть меню" aria-expanded="false">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<main>
+
+  <!-- ══ SEC-01 | HERO ═════════════════════════════════════ -->
+  <section class="contacts-hero">
+    <div class="container">
+      <p class="contacts-hero__eyebrow" data-animate>Студия танцев в Москве</p>
+      <h1 class="contacts-hero__title" data-animate data-delay="1">Мы здесь</h1>
+    </div>
+  </section>
+
+  <!-- ══ SEC-02 | КОНТАКТЫ + КАРТА ════════════════════════ -->
+  <section class="contacts-section">
+    <div class="container">
+      <div class="contacts-layout">
+
+        <!-- Левая колонка — данные -->
+        <div data-animate>
+          <p class="contacts-col__title">Контакты</p>
+
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="ph ph-map-pin"></i></div>
+            <div>
+              <p class="contact-item__label">Адрес</p>
+              <p class="contact-item__value">Москва, Шоссе Энтузиастов 54,<br>ТЦ «Мир Уюта», 2 этаж</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="ph ph-train-simple"></i></div>
+            <div>
+              <p class="contact-item__label">Метро</p>
+              <p class="contact-item__value">Шоссе Энтузиастов — 8 минут пешком</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="ph ph-car"></i></div>
+            <div>
+              <p class="contact-item__label">Парковка</p>
+              <p class="contact-item__value">Бесплатная, без заявки — просто приезжайте</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="ph ph-phone"></i></div>
+            <div>
+              <p class="contact-item__label">Телефон</p>
+              <p class="contact-item__value">
+                <a href="tel:+79197604404">+7 919 760 44-04</a>
+                <br><span style="font-size:12px;color:var(--color-muted);">звонки и мессенджеры</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="ph ph-paper-plane-tilt"></i></div>
+            <div>
+              <p class="contact-item__label">Telegram</p>
+              <p class="contact-item__value">
+                <a href="https://t.me/souldancemsk" target="_blank" rel="noopener noreferrer">@souldancemsk</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="ph ph-chat-circle-dots"></i></div>
+            <div>
+              <p class="contact-item__label">MAX</p>
+              <p class="contact-item__value">
+                <a href="https://max.ru/id743017545404_bot" target="_blank" rel="noopener noreferrer">Написать в MAX</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="ph ph-envelope-simple"></i></div>
+            <div>
+              <p class="contact-item__label">Email</p>
+              <p class="contact-item__value">
+                <a href="mailto:souldancemsk@yandex.ru">souldancemsk@yandex.ru</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="ph ph-clock"></i></div>
+            <div>
+              <p class="contact-item__label">Режим работы</p>
+              <div class="hours-grid">
+                <span class="hours-day">Пн–Пт</span><span class="hours-time">15:00–22:00</span>
+                <span class="hours-day">Сб–Вс</span><span class="hours-time">10:00–22:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая колонка — карта -->
+        <div class="map-col" data-animate data-delay="1">
+          <div class="map-embed">
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?ll=37.779500%2C55.754200&z=16&pt=37.779500%2C55.754200%2Cpm2rdm&l=map"
+              title="Soul Dance на карте"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <a
+            href="https://yandex.ru/maps/-/CPTPVF7S"
+            class="btn-secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="text-align:center;"
+          >Открыть в Яндекс.Картах</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SEC-03 | КАК ДОБРАТЬСЯ ════════════════════════════ -->
+  <section class="route-section" aria-labelledby="route-title">
+    <div class="container">
+      <span class="section-label" data-animate>Навигация</span>
+      <h2 id="route-title" class="section-title" data-animate data-delay="1">Как добраться</h2>
+
+      <div class="route-layout">
+
+        <!-- Слайдер фото -->
+        <div class="route-slider" data-animate>
+          <div class="route-photos" id="route-photos">
+            <div class="route-photo">
+              <img src="assets/сайт/route/маршрут1.png" alt="Шаг 1 — выход из метро" loading="lazy">
+            </div>
+            <div class="route-photo">
+              <img src="assets/сайт/route/маршрут2.png" alt="Шаг 2 — светофор и Тануки" loading="lazy">
+            </div>
+            <div class="route-photo">
+              <img src="assets/сайт/route/маршрут3.png" alt="Шаг 3 — ТЦ Мир Уюта" loading="lazy">
+            </div>
+            <div class="route-photo">
+              <img src="assets/сайт/route/маршрут4.png" alt="Шаг 4 — поворот налево" loading="lazy">
+            </div>
+            <div class="route-photo">
+              <img src="assets/сайт/route/маршрут5.png" alt="Шаг 5 — подъём на 2 этаж" loading="lazy">
+            </div>
+            <div class="route-photo">
+              <img src="assets/сайт/route/маршрут6.png" alt="Шаг 6 — мы на месте" loading="lazy">
+            </div>
+          </div>
+
+          <div class="route-slider__nav">
+            <div class="route-slider__arrows">
+              <button class="route-arrow" id="route-prev" aria-label="Предыдущее фото">&#8592;</button>
+              <button class="route-arrow" id="route-next" aria-label="Следующее фото">&#8594;</button>
+            </div>
+            <span class="route-slider__counter" id="route-counter">1 / 6</span>
+          </div>
+        </div>
+
+        <!-- Шаги -->
+        <div class="route-steps" id="route-steps" data-animate data-delay="1">
+          <div class="route-step is-active" data-step="0">
+            <span class="route-step__num">1</span>
+            <p class="route-step__text">Выходим из метро «Шоссе Энтузиастов» (1 выход) и идём по прямой мимо храма</p>
+          </div>
+          <div class="route-step" data-step="1">
+            <span class="route-step__num">2</span>
+            <p class="route-step__text">Переходим светофор, идём мимо «Тануки» и «Дикси»</p>
+          </div>
+          <div class="route-step" data-step="2">
+            <span class="route-step__num">3</span>
+            <p class="route-step__text">Идём к ТЦ «Мир Уюта» и заходим через центральный вход</p>
+          </div>
+          <div class="route-step" data-step="3">
+            <span class="route-step__num">4</span>
+            <p class="route-step__text">Сразу поворачиваем налево и идём по прямой до лестницы</p>
+          </div>
+          <div class="route-step" data-step="4">
+            <span class="route-step__num">5</span>
+            <p class="route-step__text">Поднимаемся на 2 этаж</p>
+          </div>
+          <div class="route-step" data-step="5">
+            <span class="route-step__num">6</span>
+            <p class="route-step__text">Мы на месте!</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SEC-04 | СОЦСЕТИ ══════════════════════════════════ -->
+  <section class="socials-section" aria-labelledby="socials-title">
+    <div class="container">
+      <span class="section-label" data-animate>Мы в сети</span>
+      <h2 id="socials-title" class="section-title" data-animate data-delay="1">Соцсети</h2>
+
+      <div class="socials-grid">
+        <a href="https://t.me/souldancemsk" class="social-card" target="_blank" rel="noopener noreferrer" data-animate>
+          <i class="ph ph-paper-plane-tilt social-card__icon"></i>
+          <span class="social-card__name">Telegram</span>
+        </a>
+        <a href="https://max.ru/id743017545404_bot" class="social-card" target="_blank" rel="noopener noreferrer" data-animate data-delay="1">
+          <i class="ph ph-chat-circle-dots social-card__icon"></i>
+          <span class="social-card__name">MAX</span>
+        </a>
+        <a href="https://vk.com/souldancemsk" class="social-card" target="_blank" rel="noopener noreferrer" data-animate data-delay="2">
+          <i class="ph ph-users-three social-card__icon"></i>
+          <span class="social-card__name">ВКонтакте</span>
+        </a>
+        <a href="https://www.youtube.com/@souldancemsk" class="social-card" target="_blank" rel="noopener noreferrer" data-animate data-delay="3">
+          <i class="ph ph-youtube-logo social-card__icon"></i>
+          <span class="social-card__name">YouTube</span>
+        </a>
+        <a href="https://www.tiktok.com/@souldancemsk" class="social-card" target="_blank" rel="noopener noreferrer" data-animate data-delay="4">
+          <i class="ph ph-tiktok-logo social-card__icon"></i>
+          <span class="social-card__name">TikTok</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SEC-05 | ФОРМА ОБРАТНОЙ СВЯЗИ ════════════════════ -->
+  <section class="feedback-section" aria-labelledby="feedback-title">
+    <div class="container">
+      <div class="feedback-layout">
+
+        <div data-animate>
+          <span class="section-label">Обратная связь</span>
+          <h2 id="feedback-title" class="feedback-intro__title" style="margin-top:12px;">
+            Напиши нам всё что думаешь — и хорошее, и плохое<br>(лучше хорошее)
+          </h2>
+          <p class="feedback-intro__sub">
+            Мы читаем каждое сообщение и стараемся отвечать быстро.
+            Это честно помогает нам становиться лучше
+          </p>
+        </div>
+
+        <div data-animate data-delay="1">
+          <form class="feedback-form" id="feedback-form" novalidate>
+            <div>
+              <label for="fb-name" style="display:block;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-muted);margin-bottom:6px;">Имя</label>
+              <input
+                class="input"
+                type="text"
+                id="fb-name"
+                name="name"
+                placeholder="Как тебя зовут?"
+                autocomplete="given-name"
+                required
+              >
+            </div>
+
+            <div>
+              <label for="fb-contact" style="display:block;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-muted);margin-bottom:6px;">Контакт</label>
+              <input
+                class="input"
+                type="text"
+                id="fb-contact"
+                name="contact"
+                placeholder="Телефон или мессенджер"
+                required
+              >
+            </div>
+
+            <div>
+              <label for="fb-message" style="display:block;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-muted);margin-bottom:6px;">Сообщение</label>
+              <textarea
+                class="input"
+                id="fb-message"
+                name="message"
+                placeholder="Твоё сообщение..."
+                required
+              ></textarea>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <label class="checkbox-wrapper">
+                <input type="checkbox" name="consent-personal" id="fb-consent-personal" required aria-required="true">
+                <span class="checkbox-custom" aria-hidden="true"></span>
+                <span class="checkbox-label">
+                  Я даю согласие на
+                  <a href="assets/сайт/legal/Политика_конфиденциальности_сайта_Soul_Dance.pdf" target="_blank" rel="noopener">обработку персональных данных</a>
+                  в соответствии с Федеральным законом № 152-ФЗ
+                </span>
+              </label>
+
+              <label class="checkbox-wrapper">
+                <input type="checkbox" name="consent-offer" id="fb-consent-offer" required aria-required="true">
+                <span class="checkbox-custom" aria-hidden="true"></span>
+                <span class="checkbox-label">
+                  Я принимаю условия
+                  <a href="assets/сайт/legal/Публичная_оферта_Soul_Dance.pdf" target="_blank" rel="noopener">публичной оферты</a>
+                  и
+                  <a href="assets/сайт/legal/Пользовательское_соглашение_Soul_Dance.pdf" target="_blank" rel="noopener">пользовательского соглашения</a>
+                </span>
+              </label>
+
+              <label class="checkbox-wrapper">
+                <input type="checkbox" name="consent-marketing" id="fb-consent-marketing">
+                <span class="checkbox-custom" aria-hidden="true"></span>
+                <span class="checkbox-label">
+                  Я согласен(-на) получать рекламные и информационные рассылки о мероприятиях студии
+                </span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width:100%;">Отправить сообщение</button>
+
+            <div class="form-success" id="form-success" role="status" aria-live="polite">
+              Спасибо! Мы прочитаем и ответим
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-col--brand">
+        <a href="index.html" class="footer-logo">
+          <img src="assets/logo/logo-white.png" alt="Soul Dance" height="36" loading="lazy">
+        </a>
+        <p class="footer-tagline">Студия танцев в Москве.<br>Собираем своих с 2019 года</p>
+      </div>
+      <nav class="footer-col footer-col--nav" aria-label="Навигация в подвале">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="kids/">Дети</a>
+        <a href="adults/">Взрослые</a>
+        <a href="prices/">Цены</a>
+        <a href="rental.html">Аренда залов</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <div class="footer-col footer-col--contacts">
+        <address>
+          <p>Москва, Шоссе Энтузиастов 54,<br>ТЦ «Мир Уюта», 2 этаж</p>
+          <p>Пн–Пт: 15:00–22:00<br>Сб–Вс: 10:00–22:00</p>
+        </address>
+        <div class="footer-social">
+          <a href="https://t.me/souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a href="https://max.ru/id743017545404_bot" class="footer-social-link" target="_blank" rel="noopener noreferrer">MAX</a>
+          <a href="https://vk.com/souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+          <a href="https://www.youtube.com/@souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://www.tiktok.com/@souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a href="mailto:souldancemsk@yandex.ru" class="footer-social-link">souldancemsk@yandex.ru</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal-info">ИП Попов Данила Андреевич · ИНН 743017545404 · ОГРНИП 324745600121280</p>
+      <div class="footer-legal-links">
+        <a href="assets/сайт/legal/Политика_конфиденциальности_сайта_Soul_Dance.pdf" target="_blank" rel="noopener">Политика конфиденциальности</a>
+        <a href="assets/сайт/legal/Публичная_оферта_Soul_Dance.pdf" target="_blank" rel="noopener">Публичная оферта</a>
+        <a href="assets/сайт/legal/Политика_Cookie_Soul_Dance.pdf" target="_blank" rel="noopener">Политика Cookie</a>
+        <a href="assets/сайт/legal/Пользовательское_соглашение_Soul_Dance.pdf" target="_blank" rel="noopener">Пользовательское соглашение</a>
+        <button class="btn-text" id="cookie-settings-btn">Настройки cookies</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- МОДАЛКА МЕССЕНДЖЕРА -->
+<div class="modal-overlay" id="messenger-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-dialog">
+    <button class="modal-close" id="modal-close-btn" aria-label="Закрыть">&times;</button>
+    <h3 class="modal-title" id="modal-title">Выбери удобный мессенджер</h3>
+    <div class="modal-actions">
+      <a href="https://t.me/souldancemsk" class="btn-primary modal-btn" target="_blank" rel="noopener noreferrer">Telegram @souldancemsk</a>
+      <a href="https://max.ru/id743017545404_bot" class="btn-secondary modal-btn" target="_blank" rel="noopener noreferrer">MAX</a>
+    </div>
+  </div>
+</div>
+
+<!-- COOKIE-БАННЕР -->
+<div class="cookie-banner" id="cookie-banner" hidden>
+  <div class="container">
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">
+        Мы используем cookies для корректной работы сайта.
+        <a href="assets/сайт/legal/Политика_Cookie_Soul_Dance.pdf" target="_blank" rel="noopener">Политика Cookie</a>
+      </p>
+      <div class="cookie-banner__actions">
+        <button class="btn-primary" id="cookie-accept-all">Принять все</button>
+        <button class="btn-secondary" id="cookie-accept-minimal">Только необходимые</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="src/js/main.js"></script>
+<script src="src/js/modal.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ── Слайдер маршрута ── */
+  var photosEl  = document.getElementById('route-photos');
+  var stepsEl   = document.getElementById('route-steps');
+  var counterEl = document.getElementById('route-counter');
+  var prevBtn   = document.getElementById('route-prev');
+  var nextBtn   = document.getElementById('route-next');
+  var total     = 6;
+  var current   = 0;
+
+  function goToSlide(idx) {
+    current = Math.max(0, Math.min(idx, total - 1));
+    var photoW = photosEl.offsetWidth + 12;
+    photosEl.scrollTo({ left: current * photoW, behavior: 'smooth' });
+    counterEl.textContent = (current + 1) + ' / ' + total;
+    stepsEl.querySelectorAll('.route-step').forEach(function (s, i) {
+      s.classList.toggle('is-active', i === current);
+    });
+  }
+
+  prevBtn.addEventListener('click', function () { goToSlide(current - 1); });
+  nextBtn.addEventListener('click', function () { goToSlide(current + 1); });
+
+  /* Клик по шагу → переключить фото */
+  stepsEl.querySelectorAll('.route-step').forEach(function (step) {
+    step.addEventListener('click', function () {
+      goToSlide(parseInt(step.dataset.step, 10));
+    });
+  });
+
+  /* Синхронизация при ручном скролле */
+  var scrollTimer;
+  photosEl.addEventListener('scroll', function () {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function () {
+      var idx = Math.round(photosEl.scrollLeft / (photosEl.offsetWidth + 12));
+      if (idx !== current) {
+        current = idx;
+        counterEl.textContent = (current + 1) + ' / ' + total;
+        stepsEl.querySelectorAll('.route-step').forEach(function (s, i) {
+          s.classList.toggle('is-active', i === current);
+        });
+      }
+    }, 80);
+  });
+
+  /* ── Форма обратной связи ── */
+  var form       = document.getElementById('feedback-form');
+  var successMsg = document.getElementById('form-success');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    /* Здесь будет отправка (Formspree / YClients / и пр.) */
+    form.style.display = 'none';
+    successMsg.style.display = 'block';
+  });
+
+})();
+</script>
+</body>
+</html>

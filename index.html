@@ -3,1782 +3,1367 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soul Dance: Брендбук</title>
+  <title>Soul Dance — Студия танцев в Москве</title>
+  <meta name="description" content="Студия танцев в Москве. 8 направлений для детей и взрослых — с нуля и с опытом. Шоссе Энтузиастов 54.">
+  <link rel="canonical" href="https://yana-dem.github.io/souldance-site/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yana-dem.github.io/souldance-site/">
+  <meta property="og:title" content="Soul Dance — Студия танцев в Москве">
+  <meta property="og:description" content="Студия танцев в Москве. 8 направлений для детей и взрослых — с нуля и с опытом. Шоссе Энтузиастов 54.">
+  <meta property="og:image" content="https://yana-dem.github.io/souldance-site/assets/logo/logo-avatar.jpg">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "DanceSchool"],
+    "name": "Soul Dance",
+    "description": "Студия танцев в Москве",
+    "url": "https://yana-dem.github.io/souldance-site/",
+    "logo": "https://yana-dem.github.io/souldance-site/assets/logo/logo-white.png",
+    "image": "https://yana-dem.github.io/souldance-site/assets/logo/logo-avatar.jpg",
+    "telephone": "+79197604404",
+    "email": "souldancemsk@yandex.ru",
+    "foundingDate": "2019-10-24",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Шоссе Энтузиастов 54, ТЦ «Мир Уюта», 2 этаж",
+      "addressLocality": "Москва",
+      "addressCountry": "RU"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "15:00", "closes": "22:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "10:00", "closes": "22:00" }
+    ],
+    "sameAs": [
+      "https://t.me/souldancemsk",
+      "https://vk.com/souldancemsk",
+      "https://www.youtube.com/@souldancemsk",
+      "https://www.tiktok.com/@souldancemsk"
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Montserrat:wght@400;500;600;700&display=swap"></noscript>
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1" defer></script>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="src/css/variables.css">
+  <link rel="stylesheet" href="src/css/base.css">
+  <link rel="stylesheet" href="src/css/components.css">
+  <link rel="stylesheet" href="src/css/layout.css">
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
+    /* ══ TICKER ═════════════════════════════════════════════ */
+    .ticker {
+      position: relative;
+      z-index: 2;
+      background: var(--color-accent);
+      overflow: hidden;
+      padding: 10px 0;
+      flex-shrink: 0;
     }
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--color-bg);
-      color: var(--color-text);
-      font-family: var(--font-body);
-      font-size: 17px;
-      line-height: 1.6;
-      letter-spacing: -0.01em;
-    }
-
-    /* ── Контейнер ── */
-    .container {
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ── Навигация ── */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(13, 13, 13, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      gap: 24px;
-    }
-
-    .nav-logo {
-      font-family: var(--font-display);
-      font-size: 18px;
-      color: var(--color-text);
-      text-decoration: none;
+    .ticker-track {
+      display: inline-flex;
       white-space: nowrap;
-      letter-spacing: 0.04em;
+      animation: ticker-scroll 32s linear infinite;
     }
 
-    .nav-logo span { color: var(--color-accent); }
-
-    .nav-links {
-      display: flex;
-      gap: 4px;
-      list-style: none;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    .nav-links::-webkit-scrollbar { display: none; }
-
-    .nav-links a {
-      display: block;
-      padding: 6px 12px;
-      font-family: var(--font-body);
-      font-size: 12px;
-      font-weight: 600;
+    .ticker-item {
+      font-family: var(--font-display);
+      font-size: 13px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--color-muted);
-      text-decoration: none;
-      border-radius: var(--radius-sm);
-      transition: color 150ms ease, background 150ms ease;
-      white-space: nowrap;
+      color: #0d0d0d;
+      padding: 0 32px;
+      flex-shrink: 0;
     }
 
-    .nav-links a:hover {
-      color: var(--color-text);
-      background: var(--color-surface-1);
+    @keyframes ticker-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
     }
 
-    /* ── Hero ── */
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-track { animation: none; }
+    }
+
+    /* ══ HERO ════════════════════════════════════════════════ */
     .hero {
-      padding: 96px 0 64px;
       position: relative;
-      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: visible;
+      padding: 0;
     }
 
-    .hero-decor {
+    .hero-body {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 48px;
+      padding: 96px 0 128px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero::before {
+      content: '';
       position: absolute;
       inset: 0;
+      background:
+        radial-gradient(ellipse 50% 80% at 0% 50%, rgba(13,13,13,0.7) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 100% 50%, rgba(13,13,13,0.6) 0%, transparent 60%),
+        radial-gradient(ellipse 100% 40% at 50% 100%, rgba(13,13,13,0.9) 0%, transparent 60%);
       pointer-events: none;
-      overflow: hidden;
+      z-index: 1;
     }
 
-    .hero-glow {
-      position: absolute;
-      top: -120px;
-      right: -80px;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(254,186,208,0.12) 0%, transparent 70%);
-      border-radius: 50%;
-    }
+    .hero-text { position: relative; z-index: 3; }
 
-    .hero-glow-2 {
-      position: absolute;
-      bottom: -200px;
-      left: -100px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(254,186,208,0.06) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--color-accent-soft);
-      color: var(--color-accent);
-      font-family: var(--font-body);
+    .hero-eyebrow {
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: var(--radius-sm);
-      margin-bottom: 24px;
+      color: var(--color-accent);
+      margin-bottom: 16px;
+      font-family: var(--font-body);
     }
 
-    .hero h1 {
+    .hero-title {
       font-family: var(--font-display);
-      font-size: 56px;
-      line-height: 1.05;
+      font-size: 64px;
+      line-height: 1.0;
       letter-spacing: 0.02em;
       text-transform: uppercase;
-      max-width: 760px;
       margin-bottom: 24px;
-      position: relative;
     }
 
-    .hero h1 em {
-      font-style: normal;
-      color: var(--color-accent);
-    }
+    .hero-title .line-pink { color: var(--color-accent); }
 
-    .hero-desc {
-      font-size: 17px;
+    .hero-subtitle {
+      font-size: 18px;
       color: var(--color-muted);
-      max-width: 520px;
       line-height: 1.6;
+      margin-bottom: 40px;
+      max-width: 420px;
     }
 
-    /* ── Секции ── */
-    .section {
-      padding: 96px 0;
-      border-top: 1px solid var(--color-border);
-    }
-
-    .section-header {
+    .hero-actions {
       display: flex;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-
-    .section-number {
-      font-family: var(--font-display);
-      font-size: 13px;
-      color: var(--color-accent);
-      letter-spacing: 0.08em;
-    }
-
-    .section h2 {
-      font-family: var(--font-display);
-      font-size: 40px;
-      line-height: 1.1;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
-
-    .section-desc {
-      margin-top: 8px;
-      font-size: 15px;
-      color: var(--color-muted);
-      max-width: 600px;
-    }
-
-    /* ── Цвета ── */
-    .colors-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 16px;
-    }
-
-    .color-swatch {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--color-border);
-    }
-
-    .color-swatch-preview {
-      height: 96px;
-    }
-
-    .color-swatch-info {
-      background: var(--color-surface-1);
-      padding: 16px;
-    }
-
-    .color-swatch-name {
-      font-family: var(--font-body);
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--color-text);
-      letter-spacing: 0.04em;
-      margin-bottom: 4px;
-    }
-
-    .color-swatch-var {
-      font-size: 11px;
-      color: var(--color-muted);
-      font-family: 'Courier New', monospace;
-    }
-
-    .color-swatch-hex {
-      font-size: 11px;
-      color: var(--color-muted);
-      font-family: 'Courier New', monospace;
-      margin-top: 2px;
-    }
-
-    .colors-group-label {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-      margin-bottom: 16px;
-      margin-top: 40px;
-    }
-
-    .colors-group-label:first-child { margin-top: 0; }
-
-    /* ── Шрифты ── */
-    .type-block {
-      background: var(--color-surface-1);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      margin-bottom: 16px;
-    }
-
-    .type-meta {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
-    .type-tag {
-      background: var(--color-surface-2);
-      color: var(--color-muted);
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: var(--radius-sm);
-    }
-
-    .type-tag-accent {
-      background: var(--color-accent-soft);
-      color: var(--color-accent);
-    }
-
-    .type-scale {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .type-scale-row {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 24px;
-      align-items: baseline;
-    }
-
-    .type-scale-label {
-      font-size: 11px;
-      color: var(--color-muted);
-      font-family: 'Courier New', monospace;
-      line-height: 1.5;
-    }
-
-    /* ── Логотип ── */
-    .logo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-    }
-
-    .logo-card {
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-
-    .logo-card-preview {
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .hero-mascot-col {
       position: relative;
-    }
-
-    .logo-card-preview--dark { background: var(--color-bg); }
-    .logo-card-preview--light { background: #f5f0ee; }
-    .logo-card-preview--surface { background: var(--color-surface-1); }
-
-    .logo-placeholder {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .logo-placeholder-icon {
-      width: 120px;
-      height: 40px;
-      background: var(--color-border);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
       justify-content: center;
-    }
-
-    .logo-placeholder-text {
-      font-size: 11px;
-      color: var(--color-muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .logo-file-note {
-      font-size: 11px;
-      color: var(--color-accent);
-      font-family: 'Courier New', monospace;
-      margin-top: 4px;
-    }
-
-    .logo-card-info {
-      background: var(--color-surface-1);
-      padding: 16px 20px;
-    }
-
-    .logo-card-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--color-text);
-      margin-bottom: 4px;
-    }
-
-    .logo-card-desc {
-      font-size: 12px;
-      color: var(--color-muted);
-    }
-
-    /* Реальный логотип если файл существует */
-    .logo-card-preview img {
-      max-width: 80%;
-      max-height: 80%;
-      object-fit: contain;
-    }
-
-    /* ── Маскот ── */
-    .mascot-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 16px;
-    }
-
-    .mascot-card {
-      background: var(--color-surface-1);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 24px 16px 20px;
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 16px;
+      overflow: visible;
+      z-index: 3;
     }
 
-    .mascot-preview {
-      width: 120px;
-      height: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .hero-mascot-wrap {
       position: relative;
+      display: inline-flex;
+      transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+      overflow: visible;
     }
 
-    .mascot-preview img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      mix-blend-mode: screen;
-    }
-
-    .mascot-placeholder {
-      width: 80px;
-      height: 80px;
-      background: var(--color-surface-2);
+    .hero-mascot-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(254,186,208,0.14) 0%, transparent 70%);
+      pointer-events: none;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-muted);
-      font-size: 11px;
-      text-align: center;
-      padding: 8px;
     }
 
-    .mascot-name {
-      font-family: var(--font-display);
-      font-size: 12px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      text-align: center;
+    .hero-mascot-inner {
+      animation: mascot-float 3.2s ease-in-out infinite;
+      overflow: visible;
     }
 
-    .mascot-desc {
-      font-size: 11px;
-      color: var(--color-muted);
-      text-align: center;
-      line-height: 1.4;
-    }
-
-    /* ── Декоративные элементы ── */
-    .decor-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .decor-card {
-      background: var(--color-surface-1);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 32px 24px 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .decor-preview {
-      height: 96px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .decor-name {
-      font-family: var(--font-display);
-      font-size: 13px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    .decor-rule {
-      font-size: 12px;
-      color: var(--color-muted);
-      text-align: center;
-      line-height: 1.5;
-    }
-
-    /* ── Компоненты ── */
-    .comp-section {
-      margin-bottom: 48px;
-    }
-
-    .comp-section:last-child { margin-bottom: 0; }
-
-    .comp-label {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-      margin-bottom: 24px;
-    }
-
-    .comp-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .comp-card-demo {
-      background: var(--color-surface-1);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-    }
-
-    .comp-spec {
-      margin-top: 16px;
-      padding: 16px;
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-sm);
-    }
-
-    .comp-spec code {
-      font-family: 'Courier New', monospace;
-      font-size: 12px;
-      color: var(--color-muted);
-      line-height: 1.8;
+    .mascot-img {
+      width: 420px;
+      max-width: 100%;
+      mix-blend-mode: screen;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-drag: none;
       display: block;
     }
 
-    .comp-spec code strong { color: var(--color-accent); }
+    .hero-deco {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.2;
+    }
+    .hero-deco--tl { top: 120px; left: 40px; }
+    .hero-deco--tr { top: 100px; right: 60px; }
+    .hero-deco--bl { bottom: 160px; left: 80px; }
+    .hero-deco--br { bottom: 180px; right: 40px; }
 
-    /* ── Кнопки ── */
-    .btn-primary {
+    @keyframes mascot-float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-20px); }
+    }
+
+    @keyframes mascot-jump {
+      0%   { transform: translateY(0) scale(1); }
+      25%  { transform: translateY(-48px) scale(0.95); }
+      50%  { transform: translateY(-28px) scale(1.02); }
+      75%  { transform: translateY(-44px) scale(0.97); }
+      100% { transform: translateY(0) scale(1); }
+    }
+
+    .sparkle-particle {
+      position: fixed;
+      width: 10px;
+      height: 10px;
       background: var(--color-accent);
-      color: #0d0d0d;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      animation: sparkle-burst 0.65s ease-out forwards;
+    }
+
+    @keyframes sparkle-burst {
+      0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0.2); }
+    }
+
+    @media (max-width: 900px) { .hero-title { font-size: 44px; } }
+
+    @media (max-width: 768px) {
+      .hero-body {
+        grid-template-columns: 1fr;
+        padding: 48px 0 64px;
+        text-align: center;
+      }
+      .hero-mascot-col { order: -1; }
+      .hero-actions { justify-content: center; }
+      .hero-subtitle { max-width: 100%; }
+      .hero-title { font-size: 38px; }
+      .mascot-img { width: 260px; }
+      .hero-mascot-glow { width: 280px; height: 280px; }
+      .hero-deco { display: none; }
+    }
+
+    /* ══ STATS ═══════════════════════════════════════════════ */
+    .stats-strip {
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 48px 0;
+      background: var(--color-surface-1);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 0 32px;
+      border-right: 1px solid var(--color-border);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
       font-family: var(--font-display);
-      font-size: 15px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 16px 32px;
-      border-radius: var(--radius-md);
-      border: none;
-      cursor: pointer;
-      transition: background 150ms ease, transform 100ms ease;
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .btn-primary:hover  { background: var(--color-accent-hover); }
-    .btn-primary:active { transform: scale(0.98); }
-    .btn-primary:focus-visible {
-      outline: 2px solid var(--color-accent);
-      outline-offset: 3px;
-    }
-    .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--color-text);
-      border: 1px solid var(--color-border);
-      font-family: var(--font-display);
-      font-size: 15px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 16px 32px;
-      border-radius: var(--radius-md);
-      cursor: pointer;
-      transition: border-color 150ms ease, color 150ms ease;
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--color-accent);
+      font-size: 48px;
+      line-height: 1;
       color: var(--color-accent);
+      display: block;
+      margin-bottom: 8px;
     }
 
-    .btn-demo-disabled {
-      background: var(--color-accent);
-      color: #0d0d0d;
-      font-family: var(--font-display);
-      font-size: 15px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 16px 32px;
-      border-radius: var(--radius-md);
-      border: none;
-      min-height: 48px;
-      opacity: 0.4;
-      cursor: not-allowed;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    /* ── Теги ── */
-    .tag {
-      background: var(--color-surface-2);
+    .stat-label {
+      font-size: 13px;
       color: var(--color-muted);
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: var(--radius-sm);
-      display: inline-block;
+      font-weight: 500;
+      letter-spacing: 0.02em;
     }
 
-    .tag-accent {
-      background: var(--color-accent-soft);
-      color: var(--color-accent);
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--color-border); }
+      .stat-item { background: var(--color-surface-1); border-right: none; padding: 24px 16px; }
+      .stat-number { font-size: 36px; }
     }
 
-    /* ── Карточка ── */
-    .card {
+    /* ══ DIRECTIONS ══════════════════════════════════════════ */
+    /* ══ DIRECTIONS SWIPER ══════════════════════════════════ */
+    .directions-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .directions-graffiti {
+      position: absolute;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.055;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .directions-swiper {
+      display: flex;
+      gap: 16px;
+      margin-top: 48px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .directions-swiper::-webkit-scrollbar { display: none; }
+
+    .direction-card {
+      scroll-snap-align: start;
+      flex: 0 0 280px;
+      min-height: 240px;
       background: var(--color-surface-1);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
-      padding: 32px;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       transition: border-color 200ms ease;
+      text-decoration: none;
+      color: inherit;
     }
 
-    .card:hover { border-color: var(--color-accent-soft); }
+    .direction-card:hover { border-color: var(--color-accent); }
 
-    /* ── Поле ввода ── */
-    .input {
+    .direction-card--soon { opacity: 0.5; pointer-events: none; }
+
+    .direction-card__num {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .direction-card__title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .direction-card__text {
+      font-size: 14px;
+      color: var(--color-muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .directions-scroll-hint {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--color-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      position: relative;
+      z-index: 1;
+    }
+
+    .directions-scroll-hint::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--color-accent);
+    }
+
+    @media (max-width: 768px) {
+      .direction-card { flex: 0 0 78vw; }
+    }
+    @media (max-width: 480px) {
+      .direction-card { flex: 0 0 86vw; }
+    }
+
+    /* ══ VIDEO / RUMTOUR ═════════════════════════════════════ */
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: var(--color-surface-2);
+    }
+
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-placeholder-stub {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--color-muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .video-placeholder-stub__icon {
+      width: 56px;
+      height: 56px;
+      border: 2px solid var(--color-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    /* ══ TEAM CAROUSEL ═══════════════════════════════════════ */
+    .team-carousel-wrap { position: relative; margin-top: 48px; }
+
+    .team-carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 16px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-border) transparent;
+    }
+
+    .team-carousel::-webkit-scrollbar { height: 4px; }
+    .team-carousel::-webkit-scrollbar-track { background: transparent; }
+    .team-carousel::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 2px; }
+
+    .team-card { flex: 0 0 220px; scroll-snap-align: start; }
+
+    .team-card__photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: var(--radius-lg);
+      background: var(--color-surface-2);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .team-card__name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .team-card__role { font-size: 13px; color: var(--color-muted); font-weight: 500; }
+    .team-card__spec { font-size: 12px; color: var(--color-accent); margin-top: 4px; }
+
+    .team-carousel-footer { margin-top: 32px; text-align: center; }
+
+    /* ══ VIDEO REVIEWS ═══════════════════════════════════════ */
+    .video-reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .video-review-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
       background: var(--color-surface-1);
       border: 1px solid var(--color-border);
-      border-radius: var(--radius-sm);
-      color: var(--color-text);
-      font-family: var(--font-body);
-      font-size: 16px;
-      padding: 12px 16px;
+    }
+
+    .video-review-embed {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .video-review-embed iframe {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      transition: border-color 150ms ease;
+      height: 100%;
+      border: none;
     }
 
-    .input::placeholder { color: var(--color-muted); }
-    .input:focus {
-      outline: none;
-      border-color: var(--color-accent);
-    }
-    .input.error { border-color: var(--color-error); }
-
-    /* ── Чекбокс ── */
-    .checkbox-wrapper {
+    .video-review-stub {
+      position: absolute;
+      inset: 0;
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      cursor: pointer;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--color-muted);
+      font-size: 13px;
     }
 
-    .checkbox-wrapper input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      min-width: 20px;
-      accent-color: var(--color-accent);
-      cursor: pointer;
-      margin-top: 2px;
+    .video-review-stub__icon {
+      font-size: 28px;
+      opacity: 0.5;
     }
 
-    .checkbox-wrapper label {
+    .reviews-footer { margin-top: 32px; text-align: center; }
+
+    @media (max-width: 1024px) { .video-reviews-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px)  { .video-reviews-grid { grid-template-columns: 1fr; } }
+
+    /* ══ STEPS ═══════════════════════════════════════════════ */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: 64px;
+    }
+
+    .step { display: flex; flex-direction: column; gap: 16px; }
+
+    .step__num {
+      font-family: var(--font-display);
+      font-size: 56px;
+      line-height: 1;
+      -webkit-text-stroke: 1px var(--color-border);
+      color: transparent;
+    }
+
+    .step__title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .step__text { font-size: 15px; color: var(--color-muted); line-height: 1.6; }
+
+    .steps-footer { margin-top: 64px; text-align: center; }
+
+    @media (max-width: 768px) {
+      .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+      .step__num { font-size: 40px; }
+    }
+
+    /* ══ LEAD FORM ═══════════════════════════════════════════ */
+    .lead-form-section {
+      background: var(--color-surface-1);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 96px 0;
+    }
+
+    .lead-form-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      margin-top: 48px;
+    }
+
+    .lead-form-intro__title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .lead-form-intro__text {
+      font-size: 15px;
+      color: var(--color-muted);
+      line-height: 1.65;
+    }
+
+    .lead-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .lead-form .input { width: 100%; }
+
+    .lead-form__consent {
       font-size: 13px;
       color: var(--color-muted);
       line-height: 1.5;
-      cursor: pointer;
     }
 
-    .checkbox-wrapper a {
-      color: var(--color-accent);
-      text-decoration: underline;
-    }
+    .lead-form__consent a { color: var(--color-muted); text-decoration: underline; }
+    .lead-form__consent a:hover { color: var(--color-accent); }
 
-    /* ── Иконки ── */
-    .icons-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      gap: 8px;
-    }
+    .lead-form__btn { width: 100%; justify-content: center; }
 
-    .icon-cell {
-      background: var(--color-surface-1);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      padding: 20px 12px 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .icon-cell svg { color: var(--color-text); }
-    .icon-cell-accent svg { color: var(--color-accent); }
-    .icon-cell-muted svg { color: var(--color-muted); }
-
-    .icon-name {
-      font-size: 11px;
-      color: var(--color-muted);
-      text-align: center;
-      line-height: 1.3;
-    }
-
-    /* ── Правила ── */
-    .rules-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .rule-card {
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      border: 1px solid var(--color-border);
-    }
-
-    .rule-card--no { background: rgba(192, 84, 74, 0.08); border-color: rgba(192, 84, 74, 0.25); }
-    .rule-card--yes { background: rgba(76, 175, 125, 0.08); border-color: rgba(76, 175, 125, 0.25); }
-
-    .rule-card-title {
-      font-family: var(--font-display);
-      font-size: 13px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .rule-card--no .rule-card-title { color: var(--color-error); }
-    .rule-card--yes .rule-card-title { color: var(--color-success); }
-
-    .rule-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .rule-list li {
-      font-size: 14px;
-      color: var(--color-muted);
-      line-height: 1.4;
-    }
-
-    /* ── Отступы ── */
-    .spacing-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      align-items: flex-end;
-    }
-
-    .spacing-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .spacing-bar {
-      background: var(--color-accent-soft);
-      border: 1px solid var(--color-accent);
-      border-radius: 3px;
-      width: 32px;
-    }
-
-    .spacing-val {
-      font-family: 'Courier New', monospace;
-      font-size: 11px;
-      color: var(--color-muted);
-    }
-
-    /* ── Скругления ── */
-    .radius-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      align-items: flex-start;
-    }
-
-    .radius-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .radius-box {
-      width: 80px;
-      height: 80px;
-      background: var(--color-surface-1);
-      border: 1px solid var(--color-accent);
-    }
-
-    .radius-label {
-      font-family: 'Courier New', monospace;
-      font-size: 11px;
-      color: var(--color-muted);
-      text-align: center;
-      line-height: 1.4;
-    }
-
-    /* ── Запрещённые слова ── */
-    .stopwords-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .stopwords-table th,
-    .stopwords-table td {
-      padding: 12px 16px;
-      text-align: left;
-      font-size: 14px;
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .stopwords-table th {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-      padding-bottom: 16px;
-    }
-
-    .stopwords-table td:first-child {
-      color: var(--color-error);
-      font-weight: 600;
-      text-decoration: line-through;
-      text-decoration-color: var(--color-error);
-    }
-
-    .stopwords-table td:last-child {
-      color: var(--color-success);
-      font-weight: 600;
-    }
-
-    .stopwords-table tr:last-child td { border-bottom: none; }
-
-    /* ── Диагональный паттерн (демо) ── */
-    .pattern-demo {
-      width: 100%;
-      height: 80px;
-      border-radius: var(--radius-md);
-      background-color: var(--color-surface-1);
-      background-image: repeating-linear-gradient(
-        45deg,
-        rgba(254,186,208,0.07) 0px,
-        rgba(254,186,208,0.07) 1px,
-        transparent 1px,
-        transparent 16px
-      );
-      border: 1px solid var(--color-border);
-    }
-
-    /* ── Футер ── */
-    .footer {
-      padding: 48px 0;
-      border-top: 1px solid var(--color-border);
-      margin-top: 32px;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-note {
-      font-size: 13px;
-      color: var(--color-muted);
-    }
-
-    .footer-version {
-      font-family: 'Courier New', monospace;
+    .lead-form__hours {
       font-size: 12px;
       color: var(--color-muted);
+      text-align: center;
     }
 
-    /* ── Мобильная версия ── */
+    .lead-form__success {
+      padding: 32px 24px;
+      background: var(--color-accent-soft);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-xl);
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    @media (max-width: 1024px) { .lead-form-layout { grid-template-columns: 1fr; gap: 32px; } }
+
+    /* ══ SOCIALS ═════════════════════════════════════════════ */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .social-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 24px 32px;
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      color: var(--color-muted);
+      transition: border-color 150ms ease, color 150ms ease;
+      min-width: 100px;
+    }
+
+    .social-card:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    .social-card i { font-size: 32px; }
+    .social-card__label { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
+
+    .max-icon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: -0.05em;
+    }
+
+    /* ══ STICKY CTA ══════════════════════════════════════════ */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 400;
+      padding: 12px 16px;
+      background: rgba(13,13,13,0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .sticky-cta .btn-primary { width: 100%; justify-content: center; }
+
+    .sticky-cta.is-hidden {
+      transform: translateY(100%);
+      transition: transform 300ms ease;
+    }
+
     @media (max-width: 768px) {
-      .container { padding: 0 16px; }
-
-      .hero { padding: 64px 0 48px; }
-      .hero h1 { font-size: 34px; }
-
-      .section { padding: 64px 0; }
-      .section h2 { font-size: 30px; }
-
-      .type-scale-row {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .rules-grid { grid-template-columns: 1fr; }
-
-      .nav-links a { font-size: 11px; padding: 6px 8px; }
+      .sticky-cta { display: block; }
+      main { padding-bottom: 80px; }
     }
   </style>
 </head>
 <body>
 
-<!-- Навигация -->
-<nav class="nav">
+<!-- HEADER -->
+<header class="site-header" id="site-header">
   <div class="container">
-    <div class="nav-inner">
-      <a href="#top" class="nav-logo">SOUL<span>&nbsp;DANCE</span></a>
-      <ul class="nav-links">
-        <li><a href="#colors">Цвета</a></li>
-        <li><a href="#typography">Шрифты</a></li>
-        <li><a href="#logo">Логотип</a></li>
-        <li><a href="#mascot">Маскот</a></li>
-        <li><a href="#decor">Декор</a></li>
-        <li><a href="#components">Компоненты</a></li>
-        <li><a href="#icons">Иконки</a></li>
-        <li><a href="#voice">Голос</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="assets/logo/logo-white.png" alt="Soul Dance" height="40">
+      </a>
 
-<!-- Hero -->
-<header class="hero" id="top">
-  <div class="hero-decor">
-    <div class="hero-glow"></div>
-    <div class="hero-glow-2"></div>
-    <!-- Sparkle-звёздочки -->
-    <svg style="position:absolute;top:80px;right:260px;opacity:0.5" width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M8 0L9.2 6.8L16 8L9.2 9.2L8 16L6.8 9.2L0 8L6.8 6.8Z" fill="#febad0"/>
-    </svg>
-    <svg style="position:absolute;top:140px;right:200px;opacity:0.3" width="10" height="10" viewBox="0 0 16 16" fill="none">
-      <path d="M8 0L9.2 6.8L16 8L9.2 9.2L8 16L6.8 9.2L0 8L6.8 6.8Z" fill="#febad0"/>
-    </svg>
-    <svg style="position:absolute;top:60px;right:320px;opacity:0.25" width="24" height="24" viewBox="0 0 16 16" fill="none">
-      <path d="M8 0L9.2 6.8L16 8L9.2 9.2L8 16L6.8 9.2L0 8L6.8 6.8Z" fill="#f0ecea"/>
-    </svg>
-    <!-- Звёзды логотипа (5-конечные скруглённые) -->
-    <svg style="position:absolute;bottom:48px;right:120px;opacity:0.15" width="40" height="40" viewBox="0 0 40 40" fill="none">
-      <path d="M20 2C20 2 22 10 28 14C34 18 38 20 38 20C38 20 34 22 28 26C22 30 20 38 20 38C20 38 18 30 12 26C6 22 2 20 2 20C2 20 6 18 12 14C18 10 20 2 20 2Z" fill="#febad0"/>
-    </svg>
-    <svg style="position:absolute;bottom:64px;right:80px;opacity:0.1" width="24" height="24" viewBox="0 0 40 40" fill="none">
-      <path d="M20 2C20 2 22 10 28 14C34 18 38 20 38 20C38 20 34 22 28 26C22 30 20 38 20 38C20 38 18 30 12 26C6 22 2 20 2 20C2 20 6 18 12 14C18 10 20 2 20 2Z" fill="#febad0"/>
-    </svg>
-  </div>
+      <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+        <a href="about.html" class="nav-link">О нас</a>
+        <a href="kids/" class="nav-link">Дети</a>
+        <a href="adults/" class="nav-link">Взрослые</a>
+        <a href="prices/" class="nav-link">Цены</a>
+        <a href="rental.html" class="nav-link">Аренда залов</a>
+        <a href="contacts.html" class="nav-link">Контакты</a>
+      </nav>
 
-  <div class="container">
-    <div class="hero-label">
-      <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-        <path d="M8 0L9.2 6.8L16 8L9.2 9.2L8 16L6.8 9.2L0 8L6.8 6.8Z" fill="#febad0"/>
-      </svg>
-      Документация бренда
+      <button class="btn-primary header-cta" data-form-trigger>Оставить заявку</button>
+
+      <button class="burger-btn" id="burger-btn" aria-label="Открыть меню" aria-expanded="false">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
     </div>
-    <h1>Soul Dance<br><em>Брендбук</em></h1>
-    <p class="hero-desc">Дизайн-система, голос и правила бренда для дизайнеров, SMM-щиков и всей команды Soul Dance.</p>
   </div>
 </header>
 
-<!-- ── 01 ЦВЕТА ── -->
-<section class="section" id="colors">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-number">01</span>
-      <div>
-        <h2>Цвета</h2>
-        <p class="section-desc">Один акцентный цвет. Никаких вторых акцентов, фиолетовых градиентов и стеклянных карточек.</p>
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<main>
+
+  <!-- ══ SEC-01 | HERO ═════════════════════════════════════ -->
+  <section class="hero" aria-label="Главный блок">
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="ticker-item">★ SOUL DANCE</span>
+        <span class="ticker-item">★ ВСЕ ВОЗРАСТЫ — ОТ 6 ЛЕТ</span>
+        <span class="ticker-item">★ ПРОФЕССИОНАЛЬНЫЕ ХОРЕОГРАФЫ</span>
+        <span class="ticker-item">★ 8 НАПРАВЛЕНИЙ ТАНЦЕВ</span>
+        <span class="ticker-item">★ БЕЗОПАСНО И КОМФОРТНО</span>
+        <span class="ticker-item">★ С 2019 ГОДА</span>
+        <span class="ticker-item">★ ДЕТСКИЕ И ВЗРОСЛЫЕ ГРУППЫ</span>
+        <span class="ticker-item">★ МОСКВА</span>
+        <span class="ticker-item">★ SOUL DANCE</span>
+        <span class="ticker-item">★ ВСЕ ВОЗРАСТЫ — ОТ 6 ЛЕТ</span>
+        <span class="ticker-item">★ ПРОФЕССИОНАЛЬНЫЕ ХОРЕОГРАФЫ</span>
+        <span class="ticker-item">★ 8 НАПРАВЛЕНИЙ ТАНЦЕВ</span>
+        <span class="ticker-item">★ БЕЗОПАСНО И КОМФОРТНО</span>
+        <span class="ticker-item">★ С 2019 ГОДА</span>
+        <span class="ticker-item">★ ДЕТСКИЕ И ВЗРОСЛЫЕ ГРУППЫ</span>
+        <span class="ticker-item">★ МОСКВА</span>
       </div>
     </div>
 
-    <p class="colors-group-label">Фоны</p>
-    <div class="colors-grid">
-      <div class="color-swatch">
-        <div class="color-swatch-preview" style="background:#0d0d0d;border-bottom:1px solid #2e2020"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Фон страницы</div>
-          <div class="color-swatch-var">--color-bg</div>
-          <div class="color-swatch-hex">#0d0d0d</div>
+    <svg class="hero-deco hero-deco--tl" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
+      <path d="M24 0 L25.8 22.2 L48 24 L25.8 25.8 L24 48 L22.2 25.8 L0 24 L22.2 22.2 Z" fill="#febad0"/>
+    </svg>
+    <svg class="hero-deco hero-deco--tr" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 0 L17.2 14.8 L32 16 L17.2 17.2 L16 32 L14.8 17.2 L0 16 L14.8 14.8 Z" fill="#febad0"/>
+    </svg>
+    <svg class="hero-deco hero-deco--bl" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 0 L12.9 11.1 L24 12 L12.9 12.9 L12 24 L11.1 12.9 L0 12 L11.1 11.1 Z" fill="#febad0"/>
+    </svg>
+    <svg class="hero-deco hero-deco--br" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+      <path d="M20 0 L21.5 18.5 L40 20 L21.5 21.5 L20 40 L18.5 21.5 L0 20 L18.5 18.5 Z" fill="#febad0"/>
+    </svg>
+
+    <div class="container" style="flex:1;display:flex;align-items:stretch;">
+      <div class="hero-body">
+
+        <div class="hero-text">
+          <p class="hero-eyebrow" data-animate>Студия танцев в Москве</p>
+          <h1 class="hero-title" data-animate data-delay="1">
+            От первого шага<br>
+            <span class="line-pink">до своего стиля</span>
+          </h1>
+          <p class="hero-subtitle" data-animate data-delay="2">Собираем своих с 2019 года</p>
+          <div class="hero-actions" data-animate data-delay="3">
+            <button class="btn-primary" data-form-trigger>Оставить заявку</button>
+            <a href="#directions" class="btn-secondary">Направления</a>
+          </div>
         </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-preview" style="background:#161616"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Карточки, врезки</div>
-          <div class="color-swatch-var">--color-surface-1</div>
-          <div class="color-swatch-hex">#161616</div>
+
+        <div class="hero-mascot-col">
+          <div class="hero-mascot-wrap" id="mascot-wrap">
+            <div class="hero-mascot-glow"></div>
+            <div class="hero-mascot-inner" id="mascot-inner">
+              <img
+                src="assets/mascot/dobryy.png"
+                alt="Огонёк Soul Dance"
+                class="mascot-img"
+                id="mascot-img"
+                draggable="false"
+              >
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-preview" style="background:#1f1f1f"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Теги, плашки</div>
-          <div class="color-swatch-var">--color-surface-2</div>
-          <div class="color-swatch-hex">#1f1f1f</div>
-        </div>
+
       </div>
     </div>
+  </section>
 
-    <p class="colors-group-label">Текст</p>
-    <div class="colors-grid">
-      <div class="color-swatch">
-        <div class="color-swatch-preview" style="background:#f0ecea"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Основной текст</div>
-          <div class="color-swatch-var">--color-text</div>
-          <div class="color-swatch-hex">#f0ecea, контраст 15.3:1</div>
+  <!-- ══ SEC-02 | ЦИФРЫ ════════════════════════════════════ -->
+  <div class="stats-strip">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item" data-animate>
+          <span class="stat-number">2019</span>
+          <span class="stat-label">год основания</span>
         </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-preview" style="background:#9e8f8f"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Подписи, мета</div>
-          <div class="color-swatch-var">--color-muted</div>
-          <div class="color-swatch-hex">#9e8f8f, контраст 4.6:1</div>
+        <div class="stat-item" data-animate data-delay="1">
+          <span class="stat-number">7</span>
+          <span class="stat-label">залов</span>
         </div>
-      </div>
-    </div>
-
-    <p class="colors-group-label">Акцент единственный</p>
-    <div class="colors-grid">
-      <div class="color-swatch">
-        <div class="color-swatch-preview" style="background:#febad0"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Акцент</div>
-          <div class="color-swatch-var">--color-accent</div>
-          <div class="color-swatch-hex">#febad0, контраст 5.8:1</div>
+        <div class="stat-item" data-animate data-delay="2">
+          <span class="stat-number">4 500+</span>
+          <span class="stat-label">учеников за 7 лет</span>
         </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-preview" style="background:#e8a0b8"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Hover акцента</div>
-          <div class="color-swatch-var">--color-accent-hover</div>
-          <div class="color-swatch-hex">#e8a0b8</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-preview" style="background:#2a1a1f"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Мягкий акцент</div>
-          <div class="color-swatch-var">--color-accent-soft</div>
-          <div class="color-swatch-hex">#2a1a1f</div>
-        </div>
-      </div>
-    </div>
-
-    <p class="colors-group-label">Структура и семантика</p>
-    <div class="colors-grid">
-      <div class="color-swatch">
-        <div class="color-swatch-preview" style="background:#2e2020"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Разделители</div>
-          <div class="color-swatch-var">--color-border</div>
-          <div class="color-swatch-hex">#2e2020</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-preview" style="background:#4caf7d"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Успех</div>
-          <div class="color-swatch-var">--color-success</div>
-          <div class="color-swatch-hex">#4caf7d</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-preview" style="background:#c0544a"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Ошибка</div>
-          <div class="color-swatch-var">--color-error</div>
-          <div class="color-swatch-hex">#c0544a</div>
+        <div class="stat-item" data-animate data-delay="3">
+          <span class="stat-number">8</span>
+          <span class="stat-label">направлений</span>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ── 02 ШРИФТЫ ── -->
-<section class="section" id="typography">
+  <!-- ══ SEC-03 | НАПРАВЛЕНИЯ ══════════════════════════════ -->
+  <section class="section directions-section" id="directions" aria-labelledby="directions-title">
+
+    <div class="container">
+      <span class="section-label" data-animate>Что мы делаем</span>
+      <h2 id="directions-title" class="section-title" data-animate data-delay="1">Наши направления</h2>
+
+      <div class="directions-swiper">
+
+        <a href="kids/#modern-dance" class="direction-card" data-animate>
+          <span class="direction-card__num">01</span>
+          <h3 class="direction-card__title">Современные танцы</h3>
+          <p class="direction-card__text">Хип-хоп, локинг, афро, граффити и другие стили. Постановки, отчётные концерты — от 6 лет до взрослых групп</p>
+        </a>
+
+        <a href="adults/#kpop-intensive" class="direction-card" data-animate data-delay="1">
+          <span class="direction-card__num">02</span>
+          <h3 class="direction-card__title">К-поп</h3>
+          <p class="direction-card__text">Ставим проекты как у айдолов, дарим съёмку к спецкурсу. Или просто попробовать под к-поп — без обязательств</p>
+        </a>
+
+        <a href="adults/#contemp" class="direction-card" data-animate data-delay="2">
+          <span class="direction-card__num">03</span>
+          <h3 class="direction-card__title">Контемп</h3>
+          <p class="direction-card__text">Современная хореография. Пластика, динамика, работа с пространством</p>
+        </a>
+
+        <a href="adults/#heels" class="direction-card" data-animate data-delay="3">
+          <span class="direction-card__num">04</span>
+          <h3 class="direction-card__title">Хилсы</h3>
+          <p class="direction-card__text">Женственность и техника на каблуках. Для 16+</p>
+        </a>
+
+        <a href="adults/#stretching" class="direction-card" data-animate>
+          <span class="direction-card__num">05</span>
+          <h3 class="direction-card__title">Растяжка</h3>
+          <p class="direction-card__text">Гибкость, баланс и расслабление. Подходит любому уровню</p>
+        </a>
+
+        <a href="adults/#zumba" class="direction-card" data-animate data-delay="1">
+          <span class="direction-card__num">06</span>
+          <h3 class="direction-card__title">Зумба</h3>
+          <p class="direction-card__text">Латинские ритмы, кардио и настроение. Танцевать — значит жить</p>
+        </a>
+
+        <a href="adults/#individual" class="direction-card" data-animate data-delay="2">
+          <span class="direction-card__num">07</span>
+          <h3 class="direction-card__title">Персональные занятия</h3>
+          <p class="direction-card__text">Один на один с хореографом. Любой стиль, любой возраст, любой уровень</p>
+        </a>
+
+        <div class="direction-card direction-card--soon" data-animate data-delay="3" aria-hidden="true">
+          <span class="direction-card__num">08 <span class="tag tag-soon" style="font-size:10px;padding:2px 8px;vertical-align:middle;">Скоро</span></span>
+          <h3 class="direction-card__title">Курсы с нуля</h3>
+          <p class="direction-card__text">Хип-хоп, контемп, денсхолл и другие направления. Готовим — скоро</p>
+        </div>
+
+      </div>
+
+      <p class="directions-scroll-hint" aria-hidden="true">листай</p>
+    </div>
+  </section>
+
+  <!-- ══ SEC-04 | ПРОЧУВСТВУЙ АТМОСФЕРУ ════════════════════ -->
+  <section class="section" style="background:var(--color-surface-1);" aria-labelledby="rumtour-title">
+    <div class="container">
+      <span class="section-label" data-animate>Студия</span>
+      <h2 id="rumtour-title" class="section-title" data-animate data-delay="1">Прочувствуй атмосферу</h2>
+
+      <div class="video-wrap" style="margin-top:48px;" data-animate data-delay="2">
+        <!-- RUM_TOUR_VIDEO — вставить embed рум-тура -->
+        <div class="video-placeholder-stub">
+          <div class="video-placeholder-stub__icon">▶</div>
+          <span>[УТОЧНИТЬ] — видео рум-тура студии появится здесь</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SEC-05 | ХОРЕОГРАФЫ ═══════════════════════════════ -->
+  <section class="section" aria-labelledby="team-title">
+    <div class="container">
+      <span class="section-label" data-animate>Команда</span>
+      <h2 id="team-title" class="section-title" data-animate data-delay="1">Познакомься с командой</h2>
+
+      <div class="team-carousel-wrap">
+        <div class="team-carousel" role="list" aria-label="Хореографы Soul Dance">
+
+          <div class="team-card" role="listitem" data-animate>
+            <img src="assets/сайт/team/даня1.jpg" alt="Данила — хореограф, со-основатель" class="team-card__photo" loading="lazy">
+            <p class="team-card__name">Данила</p>
+            <p class="team-card__role">Хореограф · со-основатель</p>
+          </div>
+
+          <div class="team-card" role="listitem" data-animate data-delay="1">
+            <img src="assets/сайт/team/асми1.jpg" alt="Асмира — хореограф" class="team-card__photo" loading="lazy">
+            <p class="team-card__name">Асмира</p>
+            <p class="team-card__role">Хореограф</p>
+          </div>
+
+          <div class="team-card" role="listitem" data-animate data-delay="2">
+            <img src="assets/сайт/team/киор1.jpg" alt="Киор — хореограф" class="team-card__photo" loading="lazy">
+            <p class="team-card__name">Киор</p>
+            <p class="team-card__role">Хореограф</p>
+          </div>
+
+          <div class="team-card" role="listitem" data-animate data-delay="3">
+            <img src="assets/сайт/team/альмина1.jpg" alt="Альмина — хореограф" class="team-card__photo" loading="lazy">
+            <p class="team-card__name">Альмина</p>
+            <p class="team-card__role">Хореограф</p>
+          </div>
+
+          <div class="team-card" role="listitem" data-animate>
+            <img src="assets/сайт/team/влада1.jpg" alt="Влада — хореограф" class="team-card__photo" loading="lazy">
+            <p class="team-card__name">Влада</p>
+            <p class="team-card__role">Хореограф</p>
+          </div>
+
+          <div class="team-card" role="listitem" data-animate data-delay="1">
+            <img src="assets/сайт/team/ульяна1.jpg" alt="Ульяна — хореограф" class="team-card__photo" loading="lazy">
+            <p class="team-card__name">Ульяна</p>
+            <p class="team-card__role">Хореограф</p>
+          </div>
+
+          <div class="team-card" role="listitem" data-animate data-delay="2">
+            <img src="assets/сайт/team/даша1.jpg" alt="Даша — хореограф" class="team-card__photo" loading="lazy">
+            <p class="team-card__name">Даша</p>
+            <p class="team-card__role">Хореограф</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="team-carousel-footer" data-animate>
+        <a href="about.html#team" class="btn-secondary">Познакомиться со всей командой</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SEC-06 | ОТЗЫВЫ ═══════════════════════════════════ -->
+  <section class="section" style="background:var(--color-surface-1);" aria-labelledby="reviews-title">
+    <div class="container">
+      <span class="section-label" data-animate>Реальные отзывы</span>
+      <h2 id="reviews-title" class="section-title" data-animate data-delay="1">Что говорят о нас</h2>
+
+      <div class="video-reviews-grid">
+
+        <div class="video-review-card" data-animate>
+          <div class="video-review-embed">
+            <!-- VIDEO_REVIEW_1 — вставить embed Дзен/Rutube -->
+            <div class="video-review-stub">
+              <span class="video-review-stub__icon">▶</span>
+              <span>[УТОЧНИТЬ] видео-отзыв 1</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-review-card" data-animate data-delay="1">
+          <div class="video-review-embed">
+            <!-- VIDEO_REVIEW_2 — вставить embed Дзен/Rutube -->
+            <div class="video-review-stub">
+              <span class="video-review-stub__icon">▶</span>
+              <span>[УТОЧНИТЬ] видео-отзыв 2</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-review-card" data-animate data-delay="2">
+          <div class="video-review-embed">
+            <!-- VIDEO_REVIEW_3 — вставить embed Дзен/Rutube -->
+            <div class="video-review-stub">
+              <span class="video-review-stub__icon">▶</span>
+              <span>[УТОЧНИТЬ] видео-отзыв 3</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="reviews-footer" data-animate>
+        <a href="https://yandex.ru/maps/-/CPTPVF7S" class="btn-secondary" target="_blank" rel="noopener noreferrer">Смотреть больше на Яндекс.Картах</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SEC-07 | ФОРМА ЗАЯВКИ ═════════════════════════════ -->
+  <section class="lead-form-section" id="lead-form" aria-labelledby="lead-form-title">
+    <div class="container">
+      <span class="section-label" data-animate>Запись</span>
+      <h2 id="lead-form-title" class="section-title" data-animate data-delay="1">Оставить заявку</h2>
+
+      <div class="lead-form-layout">
+
+        <div data-animate data-delay="2">
+          <p class="lead-form-intro__title">Мы позвоним или напишем в рабочие часы</p>
+          <p class="lead-form-intro__text">
+            Расскажите кратко о себе — для кого ищете занятие, какое направление интересует.
+            Мы подберём подходящую группу и ответим на все вопросы
+          </p>
+        </div>
+
+        <div data-animate data-delay="3">
+          <form class="lead-form" id="lead-form-el" novalidate>
+            <div>
+              <label for="lf-name" style="display:block;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-muted);margin-bottom:6px;">Имя</label>
+              <input class="input" type="text" id="lf-name" name="name" placeholder="Как вас зовут?" autocomplete="given-name" required>
+            </div>
+            <div>
+              <label for="lf-phone" style="display:block;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-muted);margin-bottom:6px;">Телефон</label>
+              <input class="input" type="tel" id="lf-phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required>
+            </div>
+            <div>
+              <label style="display:block;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-muted);margin-bottom:10px;">Способ связи</label>
+              <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:15px;font-weight:500;">
+                  <input type="radio" name="contact_method" value="Звонок" checked style="accent-color:var(--color-accent);width:16px;height:16px;">
+                  Звонок
+                </label>
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:15px;font-weight:500;">
+                  <input type="radio" name="contact_method" value="MAX" style="accent-color:var(--color-accent);width:16px;height:16px;">
+                  MAX
+                </label>
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:15px;font-weight:500;">
+                  <input type="radio" name="contact_method" value="Telegram" style="accent-color:var(--color-accent);width:16px;height:16px;">
+                  Telegram
+                </label>
+              </div>
+              <p style="font-size:12px;color:var(--color-muted);margin-top:8px;line-height:1.5;">Если выбрали мессенджер — проверьте, что у вас включён поиск по номеру телефона, или дополнительно укажите юзернейм в поле «Телефон»</p>
+            </div>
+            <p class="lead-form__consent">
+              Нажимая кнопку, вы подтверждаете своё согласие с
+              <a href="assets/сайт/legal/Политика_конфиденциальности_сайта_Soul_Dance.pdf" target="_blank" rel="noopener">Политикой обработки персональных данных</a>
+            </p>
+            <button type="submit" class="btn-primary lead-form__btn">Оставить заявку</button>
+            <p class="lead-form__hours">Мы позвоним или напишем в рабочие часы студии:<br>Пн–Пт 15:00–22:00 · Сб–Вс 10:00–22:00</p>
+          </form>
+          <div class="lead-form__success" id="lead-form-success" hidden>
+            Спасибо! Мы прочитаем и свяжемся с вами в рабочие часы
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SEC-09 | СОЦСЕТИ ══════════════════════════════════ -->
+  <section class="section" aria-labelledby="social-title">
+    <div class="container" style="text-align:center;">
+      <span class="section-label" data-animate>Будь в курсе</span>
+      <h2 id="social-title" class="section-title" data-animate data-delay="1">Следи за жизнью студии</h2>
+
+      <div class="social-links" data-animate data-delay="2">
+        <a href="https://t.me/souldancemsk" class="social-card" target="_blank" rel="noopener noreferrer" aria-label="Telegram Soul Dance">
+          <i class="ph ph-telegram-logo" aria-hidden="true"></i>
+          <span class="social-card__label">Telegram</span>
+        </a>
+        <a href="https://max.ru/id743017545404_bot" class="social-card" target="_blank" rel="noopener noreferrer" aria-label="MAX Soul Dance">
+          <span class="max-icon" aria-hidden="true">MAX</span>
+          <span class="social-card__label">MAX</span>
+        </a>
+        <a href="https://vk.com/souldancemsk" class="social-card" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте Soul Dance">
+          <i class="ph ph-vk-logo" aria-hidden="true"></i>
+          <span class="social-card__label">ВКонтакте</span>
+        </a>
+        <a href="https://www.youtube.com/@souldancemsk" class="social-card" target="_blank" rel="noopener noreferrer" aria-label="YouTube Soul Dance">
+          <i class="ph ph-youtube-logo" aria-hidden="true"></i>
+          <span class="social-card__label">YouTube</span>
+        </a>
+        <a href="https://www.tiktok.com/@souldancemsk" class="social-card" target="_blank" rel="noopener noreferrer" aria-label="TikTok Soul Dance">
+          <i class="ph ph-tiktok-logo" aria-hidden="true"></i>
+          <span class="social-card__label">TikTok</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
   <div class="container">
-    <div class="section-header">
-      <span class="section-number">02</span>
-      <div>
-        <h2>Шрифты</h2>
-        <p class="section-desc">Russo One: заголовки и кнопки. Montserrat: весь остальной текст. Unbounded не использовать.</p>
+    <div class="footer-grid">
+      <div class="footer-col footer-col--brand">
+        <a href="index.html" class="footer-logo">
+          <img src="assets/logo/logo-white.png" alt="Soul Dance" height="36" loading="lazy">
+        </a>
+        <p class="footer-tagline">Студия танцев в Москве.<br>Собираем своих с 2019 года</p>
       </div>
-    </div>
-
-    <div class="type-block">
-      <div class="type-meta">
-        <span class="type-tag type-tag-accent">Russo One</span>
-        <span class="type-tag">--font-display</span>
-        <span class="type-tag">Заголовки · Кнопки · Теги</span>
-      </div>
-      <div class="type-scale">
-        <div class="type-scale-row">
-          <div class="type-scale-label">h1<br>56px / 1.05<br>uppercase</div>
-          <div style="font-family:'Russo One',sans-serif;font-size:56px;line-height:1.05;letter-spacing:0.02em;text-transform:uppercase">
-            Soul Dance
-          </div>
-        </div>
-        <div class="type-scale-row">
-          <div class="type-scale-label">h2<br>40px / 1.10<br>uppercase</div>
-          <div style="font-family:'Russo One',sans-serif;font-size:40px;line-height:1.1;letter-spacing:0.02em;text-transform:uppercase">
-            К-поп занятия
-          </div>
-        </div>
-        <div class="type-scale-row">
-          <div class="type-scale-label">h3<br>28px / 1.15<br>uppercase</div>
-          <div style="font-family:'Russo One',sans-serif;font-size:28px;line-height:1.15;letter-spacing:0.01em;text-transform:uppercase">
-            Stray Kids: группа
-          </div>
+      <nav class="footer-col footer-col--nav" aria-label="Навигация в подвале">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="kids/">Дети</a>
+        <a href="adults/">Взрослые</a>
+        <a href="prices/">Цены</a>
+        <a href="rental.html">Аренда залов</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <div class="footer-col footer-col--contacts">
+        <address>
+          <p>Москва, Шоссе Энтузиастов 54,<br>ТЦ «Мир Уюта», 2 этаж</p>
+          <p>Пн–Пт: 15:00–22:00<br>Сб–Вс: 10:00–22:00</p>
+        </address>
+        <div class="footer-social">
+          <a href="https://t.me/souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a href="https://max.ru/id743017545404_bot" class="footer-social-link" target="_blank" rel="noopener noreferrer">MAX</a>
+          <a href="https://vk.com/souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+          <a href="https://www.youtube.com/@souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://www.tiktok.com/@souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a href="mailto:souldancemsk@yandex.ru" class="footer-social-link">souldancemsk@yandex.ru</a>
         </div>
       </div>
     </div>
-
-    <div class="type-block">
-      <div class="type-meta">
-        <span class="type-tag type-tag-accent">Montserrat</span>
-        <span class="type-tag">--font-body</span>
-        <span class="type-tag">Текст · Интерфейс · Подписи</span>
+    <div class="footer-bottom">
+      <p class="footer-legal-info">ИП Попов Данила Андреевич · ИНН 743017545404 · ОГРНИП 324745600121280</p>
+      <div class="footer-legal-links">
+        <a href="assets/сайт/legal/Политика_конфиденциальности_сайта_Soul_Dance.pdf" target="_blank" rel="noopener">Политика конфиденциальности</a>
+        <a href="assets/сайт/legal/Публичная_оферта_Soul_Dance.pdf" target="_blank" rel="noopener">Публичная оферта</a>
+        <a href="assets/сайт/legal/Политика_Cookie_Soul_Dance.pdf" target="_blank" rel="noopener">Политика Cookie</a>
+        <a href="assets/сайт/legal/Пользовательское_соглашение_Soul_Dance.pdf" target="_blank" rel="noopener">Пользовательское соглашение</a>
+        <button class="btn-text" id="cookie-settings-btn">Настройки cookies</button>
       </div>
-      <div class="type-scale">
-        <div class="type-scale-row">
-          <div class="type-scale-label">.body-text<br>17px / 1.6<br>400</div>
-          <div style="font-family:'Montserrat',sans-serif;font-size:17px;line-height:1.6;letter-spacing:-0.01em;font-weight:400;max-width:540px;color:var(--color-text)">
-            Soul Dance — к-поп студия в Москве. Танцуем каверы, снимаем видео, собираем своих.
-          </div>
-        </div>
-        <div class="type-scale-row">
-          <div class="type-scale-label">.body-small<br>14px / 1.5<br>500</div>
-          <div style="font-family:'Montserrat',sans-serif;font-size:14px;line-height:1.5;font-weight:500;color:var(--color-muted)">
-            Москва, Шоссе Энтузиастов 54, ТЦ «Мир Уюта», 2 этаж
-          </div>
-        </div>
-        <div class="type-scale-row">
-          <div class="type-scale-label">.label<br>11px / 1.4<br>600 uppercase</div>
-          <div style="font-family:'Montserrat',sans-serif;font-size:11px;line-height:1.4;letter-spacing:0.16em;font-weight:600;text-transform:uppercase;color:var(--color-muted)">
-            Хореограф · 2&nbsp;часа · Видеосъёмка включена
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── 03 ЛОГОТИП ── -->
-<section class="section" id="logo">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-number">03</span>
-      <div>
-        <h2>Логотип</h2>
-        <p class="section-desc">Файлы в <code style="font-size:13px;color:var(--color-accent)">assets/logo/</code>. Не перекрашивать, не растягивать, не перерисовывать.</p>
-      </div>
-    </div>
-
-    <div class="logo-grid">
-      <div class="logo-card">
-        <div class="logo-card-preview logo-card-preview--dark">
-          <img src="assets/logo/logo-white.png" alt="Логотип белый">
-        </div>
-        <div class="logo-card-info">
-          <div class="logo-card-name">Белая версия</div>
-          <div class="logo-card-desc">На тёмном фоне, основное применение</div>
-        </div>
-      </div>
-
-      <div class="logo-card">
-        <div class="logo-card-preview logo-card-preview--light">
-          <img src="assets/logo/logo-black.png" alt="Логотип чёрный">
-        </div>
-        <div class="logo-card-info">
-          <div class="logo-card-name">Чёрная версия</div>
-          <div class="logo-card-desc">На светлом фоне (печать, мерч)</div>
-        </div>
-      </div>
-
-      <div class="logo-card">
-        <div class="logo-card-preview logo-card-preview--surface">
-          <img src="assets/logo/logo-no-bg-black.png" alt="Логотип без фона">
-        </div>
-        <div class="logo-card-info">
-          <div class="logo-card-name">Без фона</div>
-          <div class="logo-card-desc">Только символы, для наложения</div>
-        </div>
-      </div>
-
-      <div class="logo-card">
-        <div class="logo-card-preview logo-card-preview--dark">
-          <img src="assets/logo/logo-avatar.jpg" alt="Логотип аватарка">
-        </div>
-        <div class="logo-card-info">
-          <div class="logo-card-name">Аватарка</div>
-          <div class="logo-card-desc">Для соцсетей: ВКонтакте, Telegram</div>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top:24px;padding:20px 24px;background:var(--color-accent-soft);border:1px solid var(--color-accent);border-radius:var(--radius-md)">
-      <p style="font-size:13px;color:var(--color-accent);font-weight:600;margin-bottom:8px;font-family:var(--font-body);letter-spacing:0.04em">Охранное поле</p>
-      <p style="font-size:14px;color:var(--color-muted)">Минимальный отступ вокруг логотипа: высота буквы «S» со всех сторон. Не перекрашивать. Не растягивать непропорционально. На тёмном фоне белая версия, на светлом чёрная.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ── 04 МАСКОТ ── -->
-<section class="section" id="mascot">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-number">04</span>
-      <div>
-        <h2>Маскот огонёк</h2>
-        <p class="section-desc">Файлы в <code style="font-size:13px;color:var(--color-accent)">assets/mascot/</code>. Все PNG на чёрном фоне, использовать с <code style="font-size:13px;color:var(--color-accent)">mix-blend-mode: screen</code>.</p>
-      </div>
-    </div>
-
-    <div class="mascot-grid">
-      <div class="mascot-card">
-        <div class="mascot-preview">
-          <img src="assets/mascot/dobryy.png" alt="Маскот дружелюбный" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="mascot-placeholder" style="display:none">dobryy.png</div>
-        </div>
-        <div class="mascot-name">Дружелюбный</div>
-        <div class="mascot-desc">Основное состояние. Для большинства материалов.</div>
-      </div>
-
-      <div class="mascot-card">
-        <div class="mascot-preview">
-          <img src="assets/mascot/smuschaetsya.png" alt="Маскот смущается" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="mascot-placeholder" style="display:none">smuschaetsya.png</div>
-        </div>
-        <div class="mascot-name">Смущается</div>
-        <div class="mascot-desc">Застенчивый. Подходит к мягким объявлениям.</div>
-      </div>
-
-      <div class="mascot-card">
-        <div class="mascot-preview">
-          <img src="assets/mascot/so-zvezdochkoy.png" alt="Маскот восторженный" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="mascot-placeholder" style="display:none">so-zvezdochkoy.png</div>
-        </div>
-        <div class="mascot-name">Со звёздочкой</div>
-        <div class="mascot-desc">Восторг, для CTA и акций.</div>
-      </div>
-
-      <div class="mascot-card">
-        <div class="mascot-preview">
-          <img src="assets/mascot/napugannyy.png" alt="Маскот испуганный" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="mascot-placeholder" style="display:none">napugannyy.png</div>
-        </div>
-        <div class="mascot-name">Испуганный</div>
-        <div class="mascot-desc">Сиреневый. Для предупреждений, осторожно.</div>
-      </div>
-
-      <div class="mascot-card">
-        <div class="mascot-preview">
-          <img src="assets/mascot/plachet.png" alt="Маскот грустный" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="mascot-placeholder" style="display:none">plachet.png</div>
-        </div>
-        <div class="mascot-name">Плачет</div>
-        <div class="mascot-desc">Грустный. Очень редко, только когда уместно.</div>
-      </div>
-
-      <div class="mascot-card">
-        <div class="mascot-preview">
-          <img src="assets/mascot/zloy.png" alt="Маскот злой" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="mascot-placeholder" style="display:none">zloy.png</div>
-        </div>
-        <div class="mascot-name">Злой</div>
-        <div class="mascot-desc">Только для юмористического контента.</div>
-      </div>
-    </div>
-
-    <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px">
-      <div style="padding:12px 20px;background:rgba(192,84,74,0.08);border:1px solid rgba(192,84,74,0.25);border-radius:var(--radius-sm);font-size:13px;color:var(--color-error)">Белый прямоугольник вокруг PNG недопустим</div>
-      <div style="padding:12px 20px;background:rgba(192,84,74,0.08);border:1px solid rgba(192,84,74,0.25);border-radius:var(--radius-sm);font-size:13px;color:var(--color-error)">Масштаб меньше 80px по высоте, теряется мимика</div>
-      <div style="padding:12px 20px;background:rgba(192,84,74,0.08);border:1px solid rgba(192,84,74,0.25);border-radius:var(--radius-sm);font-size:13px;color:var(--color-error)">На светлом фоне без адаптации не использовать</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── 05 ДЕКОР ── -->
-<section class="section" id="decor">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-number">05</span>
-      <div>
-        <h2>Декоративные элементы</h2>
-        <p class="section-desc">Пять системных элементов. Не больше двух-трёх на одном макете. Ничего нового без осознанного решения.</p>
-      </div>
-    </div>
-
-    <div class="decor-grid">
-      <!-- Звёзды логотипа -->
-      <div class="decor-card">
-        <div class="decor-preview">
-          <svg width="100" height="80" viewBox="0 0 100 80" fill="none">
-            <!-- крупная -->
-            <path d="M55 15C55 15 58 30 68 37C78 44 85 47 85 47C85 47 78 50 68 57C58 64 55 79 55 79C55 79 52 64 42 57C32 50 25 47 25 47C25 47 32 44 42 37C52 30 55 15 55 15Z" fill="#febad0" opacity="0.9"/>
-            <!-- средняя -->
-            <path d="M22 22C22 22 24 31 30 35C36 39 40 41 40 41C40 41 36 43 30 47C24 51 22 60 22 60C22 60 20 51 14 47C8 43 4 41 4 41C4 41 8 39 14 35C20 31 22 22 22 22Z" fill="#febad0" opacity="0.55"/>
-            <!-- маленькая -->
-            <path d="M82 8C82 8 83 13 86 15C89 17 91 18 91 18C91 18 89 19 86 21C83 23 82 28 82 28C82 28 81 23 78 21C75 19 73 18 73 18C73 18 75 17 78 15C81 13 82 8 82 8Z" fill="#febad0" opacity="0.4"/>
-          </svg>
-        </div>
-        <div class="decor-name">Звёзды логотипа</div>
-        <div class="decor-rule">5-конечные скруглённые. Только группой из 2–3. Угол ±15°.</div>
-      </div>
-
-      <!-- Sparkle -->
-      <div class="decor-card">
-        <div class="decor-preview">
-          <svg width="100" height="80" viewBox="0 0 100 80" fill="none">
-            <!-- крупная -->
-            <path d="M50 20L53 38L71 41L53 44L50 62L47 44L29 41L47 38Z" fill="#febad0"/>
-            <!-- средняя -->
-            <path d="M22 10L24 20L34 22L24 24L22 34L20 24L10 22L20 20Z" fill="#f0ecea" opacity="0.7"/>
-            <!-- маленькая -->
-            <path d="M78 48L79.5 55L87 56.5L79.5 58L78 65L76.5 58L69 56.5L76.5 55Z" fill="#febad0" opacity="0.5"/>
-          </svg>
-        </div>
-        <div class="decor-name">Sparkle-звёздочки</div>
-        <div class="decor-rule">4-лучевые, острые. Группой до 3 штук. До 4 на макет.</div>
-      </div>
-
-      <!-- Blob star -->
-      <div class="decor-card">
-        <div class="decor-preview">
-          <svg width="100" height="80" viewBox="0 0 100 80" fill="none">
-            <path d="M50 8C50 8 58 20 70 26C82 32 92 36 92 36C92 36 82 40 70 46C58 52 50 64 50 64C50 64 42 52 30 46C18 40 8 36 8 36C8 36 18 32 30 26C42 20 50 8 50 8Z" fill="#febad0" opacity="0.85" style="filter:blur(0.5px)"/>
-          </svg>
-        </div>
-        <div class="decor-name">Клякса-звезда</div>
-        <div class="decor-rule">Пухлая 4-конечная. Одна на макет. От 40px, мельче теряет форму.</div>
-      </div>
-
-      <!-- Волнистые линии -->
-      <div class="decor-card">
-        <div class="decor-preview">
-          <svg width="100" height="80" viewBox="0 0 100 80" fill="none">
-            <path d="M0 20C10 20 15 10 25 10C35 10 40 20 50 20C60 20 65 10 75 10C85 10 90 20 100 20" stroke="#febad0" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.45"/>
-            <path d="M0 38C10 38 15 28 25 28C35 28 40 38 50 38C60 38 65 28 75 28C85 28 90 38 100 38" stroke="#febad0" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.3"/>
-            <path d="M0 56C10 56 15 46 25 46C35 46 40 56 50 56C60 56 65 46 75 46C85 46 90 56 100 56" stroke="#febad0" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.18"/>
-          </svg>
-        </div>
-        <div class="decor-name">Волнистые линии</div>
-        <div class="decor-rule">По краям макета, не поверх текста. Opacity 0.3–0.5. Толщина 3–6px.</div>
-      </div>
-
-      <!-- Диагональный паттерн -->
-      <div class="decor-card">
-        <div class="decor-preview" style="width:100%">
-          <div style="width:100%;height:80px;background:var(--color-surface-2);background-image:repeating-linear-gradient(45deg,rgba(254,186,208,0.08) 0px,rgba(254,186,208,0.08) 1px,transparent 1px,transparent 16px);border-radius:var(--radius-sm)"></div>
-        </div>
-        <div class="decor-name">Диагональный паттерн</div>
-        <div class="decor-rule">Угол строго 45° или −45°. Едва заметный. Фоновая текстура карточек.</div>
-      </div>
-    </div>
-
-    <div style="margin-top:32px">
-      <p class="colors-group-label">Рабочие сочетания</p>
-      <div style="overflow-x:auto">
-        <table style="width:100%;border-collapse:collapse;min-width:500px">
-          <thead>
-            <tr>
-              <th style="text-align:left;padding:10px 16px;font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-muted);border-bottom:1px solid var(--color-border)">Тип контента</th>
-              <th style="text-align:left;padding:10px 16px;font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-muted);border-bottom:1px solid var(--color-border)">Элементы</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td style="padding:12px 16px;font-size:14px;color:var(--color-text);border-bottom:1px solid var(--color-border)">Анонс занятия / события</td><td style="padding:12px 16px;font-size:14px;color:var(--color-muted);border-bottom:1px solid var(--color-border)">Волны по краям + sparkle у заголовка</td></tr>
-            <tr><td style="padding:12px 16px;font-size:14px;color:var(--color-text);border-bottom:1px solid var(--color-border)">Прайс / информация</td><td style="padding:12px 16px;font-size:14px;color:var(--color-muted);border-bottom:1px solid var(--color-border)">Диагональный паттерн + звёзды логотипа</td></tr>
-            <tr><td style="padding:12px 16px;font-size:14px;color:var(--color-text);border-bottom:1px solid var(--color-border)">Сертификат / подарок</td><td style="padding:12px 16px;font-size:14px;color:var(--color-muted);border-bottom:1px solid var(--color-border)">Blob star + sparkle + диагональный паттерн</td></tr>
-            <tr><td style="padding:12px 16px;font-size:14px;color:var(--color-text);border-bottom:1px solid var(--color-border)">Обновления / новости</td><td style="padding:12px 16px;font-size:14px;color:var(--color-muted);border-bottom:1px solid var(--color-border)">Волны + sparkle</td></tr>
-            <tr><td style="padding:12px 16px;font-size:14px;color:var(--color-text)">Серьёзный контент / текст</td><td style="padding:12px 16px;font-size:14px;color:var(--color-muted)">Чистый тёмный #0d0d0d без декора</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── 06 КОМПОНЕНТЫ ── -->
-<section class="section" id="components">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-number">06</span>
-      <div>
-        <h2>Компоненты</h2>
-        <p class="section-desc">Каждый интерактивный элемент должен иметь все состояния: default, hover, active, focus, disabled.</p>
-      </div>
-    </div>
-
-    <!-- Кнопки -->
-    <div class="comp-section">
-      <p class="comp-label">Кнопки</p>
-      <div class="comp-card-demo">
-        <div style="margin-bottom:24px">
-          <p style="font-size:12px;color:var(--color-muted);margin-bottom:16px;font-family:'Courier New',monospace">.btn-primary: основная</p>
-          <div class="comp-row">
-            <button class="btn-primary">Записаться на занятие</button>
-            <button class="btn-primary" style="background:var(--color-accent-hover)">Hover</button>
-            <button class="btn-primary btn-demo-disabled" disabled>Disabled</button>
-          </div>
-        </div>
-        <div>
-          <p style="font-size:12px;color:var(--color-muted);margin-bottom:16px;font-family:'Courier New',monospace">.btn-secondary: вторичная (ghost)</p>
-          <div class="comp-row">
-            <button class="btn-secondary">Смотреть расписание</button>
-            <button class="btn-secondary" style="border-color:var(--color-accent);color:var(--color-accent)">Hover</button>
-          </div>
-        </div>
-        <div class="comp-spec">
-          <code>
-            <strong>Формула текста кнопки:</strong> глагол + объект<br>
-            «Записаться на интенсив» да<br>
-            «Подробнее», «Начать», «Отправить» нет<br>
-            <br>
-            padding: 16px 32px · min-height: 48px<br>
-            font-family: Russo One · font-size: 15px<br>
-            letter-spacing: 0.06em · text-transform: uppercase
-          </code>
-        </div>
-      </div>
-    </div>
-
-    <!-- Теги -->
-    <div class="comp-section">
-      <p class="comp-label">Теги и бейджи</p>
-      <div class="comp-card-demo">
-        <div class="comp-row" style="margin-bottom:16px">
-          <span class="tag">Spécialiste</span>
-          <span class="tag">2 часа</span>
-          <span class="tag">8 участников</span>
-          <span class="tag tag-accent">Запись открыта</span>
-          <span class="tag tag-accent">Новый курс</span>
-        </div>
-        <div class="comp-spec">
-          <code>
-            .tag: background: surface-2 · color: muted<br>
-            .tag-accent: background: accent-soft · color: accent<br>
-            font-size: 11px · letter-spacing: 0.12em · text-transform: uppercase
-          </code>
-        </div>
-      </div>
-    </div>
-
-    <!-- Карточка -->
-    <div class="comp-section">
-      <p class="comp-label">Карточка</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">
-        <div class="card">
-          <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
-            <span class="tag tag-accent">STRAY KIDS</span>
-            <span class="tag">8 участников</span>
-          </div>
-          <h3 style="font-family:var(--font-display);font-size:22px;line-height:1.2;letter-spacing:0.01em;text-transform:uppercase;margin-bottom:12px">Даша</h3>
-          <p style="font-size:14px;color:var(--color-muted);line-height:1.5;margin-bottom:24px">2 часа, видеосъёмка кавера включена бесплатно.</p>
-          <button class="btn-primary" style="width:100%;justify-content:center">Записаться на занятие</button>
-        </div>
-
-        <div class="card">
-          <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
-            <span class="tag tag-accent">LE SSERAFIM</span>
-            <span class="tag">6 участников</span>
-          </div>
-          <h3 style="font-family:var(--font-display);font-size:22px;line-height:1.2;letter-spacing:0.01em;text-transform:uppercase;margin-bottom:12px">Влада</h3>
-          <p style="font-size:14px;color:var(--color-muted);line-height:1.5;margin-bottom:24px">2 часа, видеосъёмка кавера включена бесплатно.</p>
-          <button class="btn-secondary" style="width:100%;justify-content:center">Написать менеджеру</button>
-        </div>
-      </div>
-      <div class="comp-spec" style="margin-top:16px">
-        <code>
-          background: surface-1 · border: 1px solid border<br>
-          border-radius: radius-lg (16px) · padding: 32px<br>
-          hover: border-color → accent-soft (200ms ease)
-        </code>
-      </div>
-    </div>
-
-    <!-- Поле ввода -->
-    <div class="comp-section">
-      <p class="comp-label">Поля ввода</p>
-      <div class="comp-card-demo">
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:16px">
-          <div>
-            <p style="font-size:11px;color:var(--color-muted);letter-spacing:0.1em;text-transform:uppercase;font-weight:600;margin-bottom:8px;font-family:var(--font-body)">Default</p>
-            <input class="input" type="text" placeholder="Твоё имя">
-          </div>
-          <div>
-            <p style="font-size:11px;color:var(--color-muted);letter-spacing:0.1em;text-transform:uppercase;font-weight:600;margin-bottom:8px;font-family:var(--font-body)">Focus</p>
-            <input class="input" type="text" value="Яна" style="border-color:var(--color-accent)">
-          </div>
-          <div>
-            <p style="font-size:11px;color:var(--color-muted);letter-spacing:0.1em;text-transform:uppercase;font-weight:600;margin-bottom:8px;font-family:var(--font-body)">Error</p>
-            <input class="input error" type="text" value="неверный формат">
-          </div>
-        </div>
-        <div class="comp-spec">
-          <code>
-            background: surface-1 · border: 1px solid border<br>
-            border-radius: radius-sm (8px) · padding: 12px 16px<br>
-            focus: border-color → accent · error: border-color → error
-          </code>
-        </div>
-      </div>
-    </div>
-
-    <!-- Чекбоксы -->
-    <div class="comp-section">
-      <p class="comp-label">Чекбоксы (152-ФЗ): все три в каждой форме</p>
-      <div class="comp-card-demo">
-        <div style="display:flex;flex-direction:column;gap:16px">
-          <label class="checkbox-wrapper">
-            <input type="checkbox" name="consent-personal">
-            <label>Я согласен(а) на <a href="#">обработку персональных данных</a></label>
-          </label>
-          <label class="checkbox-wrapper">
-            <input type="checkbox" name="consent-offer">
-            <label>Я принимаю условия <a href="#">публичной оферты</a></label>
-          </label>
-          <label class="checkbox-wrapper">
-            <input type="checkbox" name="consent-marketing">
-            <label>Я согласен(а) получать информационные рассылки</label>
-          </label>
-        </div>
-        <div class="comp-spec" style="margin-top:24px">
-          <code>
-            Три чекбокса в каждой форме на сайте (152-ФЗ)<br>
-            Первые два: required, без них форма не отправляется<br>
-            Третий: необязательный, рекламная рассылка<br>
-            <strong>Все три по умолчанию НЕ отмечены</strong>
-          </code>
-        </div>
-      </div>
-    </div>
-
-    <!-- Отступы -->
-    <div class="comp-section">
-      <p class="comp-label">Шкала отступов: только эти значения</p>
-      <div class="comp-card-demo">
-        <div class="spacing-grid">
-          <div class="spacing-item"><div class="spacing-bar" style="height:4px"></div><div class="spacing-val">4px</div></div>
-          <div class="spacing-item"><div class="spacing-bar" style="height:8px"></div><div class="spacing-val">8px</div></div>
-          <div class="spacing-item"><div class="spacing-bar" style="height:12px"></div><div class="spacing-val">12px</div></div>
-          <div class="spacing-item"><div class="spacing-bar" style="height:16px"></div><div class="spacing-val">16px</div></div>
-          <div class="spacing-item"><div class="spacing-bar" style="height:24px"></div><div class="spacing-val">24px</div></div>
-          <div class="spacing-item"><div class="spacing-bar" style="height:32px"></div><div class="spacing-val">32px</div></div>
-          <div class="spacing-item"><div class="spacing-bar" style="height:48px"></div><div class="spacing-val">48px</div></div>
-          <div class="spacing-item"><div class="spacing-bar" style="height:64px"></div><div class="spacing-val">64px</div></div>
-          <div class="spacing-item"><div class="spacing-bar" style="height:80px"></div><div class="spacing-val">96px</div></div>
-          <div class="spacing-item"><div class="spacing-bar" style="height:96px"></div><div class="spacing-val">128px</div></div>
-        </div>
-        <div class="comp-spec" style="margin-top:24px">
-          <code>
-            Любое другое значение запрещено. 20px → берём 16 или 24.<br>
-            Внутри карточки: 24px / 32px<br>
-            Между секциями: 96px / 128px (десктоп) · 48px / 64px (мобайл)
-          </code>
-        </div>
-      </div>
-    </div>
-
-    <!-- Скругления -->
-    <div class="comp-section">
-      <p class="comp-label">Скругления</p>
-      <div class="comp-card-demo">
-        <div class="radius-grid">
-          <div class="radius-item">
-            <div class="radius-box" style="border-radius:8px"></div>
-            <div class="radius-label">--radius-sm<br>8px<br>Поля ввода, теги</div>
-          </div>
-          <div class="radius-item">
-            <div class="radius-box" style="border-radius:12px"></div>
-            <div class="radius-label">--radius-md<br>12px<br>Кнопки, карточки</div>
-          </div>
-          <div class="radius-item">
-            <div class="radius-box" style="border-radius:16px"></div>
-            <div class="radius-label">--radius-lg<br>16px<br>Крупные карточки</div>
-          </div>
-          <div class="radius-item">
-            <div class="radius-box" style="border-radius:24px"></div>
-            <div class="radius-label">--radius-xl<br>24px<br>Hero-блоки, баннеры</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── 07 ИКОНКИ ── -->
-<section class="section" id="icons">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-number">07</span>
-      <div>
-        <h2>Иконки</h2>
-        <p class="section-desc">Только Phosphor Icons, стиль regular. Не смешивать с другими наборами. Не заменять эмодзи.</p>
-      </div>
-    </div>
-
-    <div class="icons-grid" style="margin-bottom:32px">
-      <!-- Phosphor SVG иконки, regular стиль, нарисованы вручную чтобы не тянуть CDN в брендбук -->
-      <div class="icon-cell">
-        <svg width="24" height="24" viewBox="0 0 256 256" fill="none"><path d="M128 24C70.562 24 24 70.562 24 128s46.562 104 104 104 104-46.562 104-104S185.438 24 128 24Zm0 192a88 88 0 1 1 0-176 88 88 0 0 1 0 176Z" fill="currentColor"/><path d="M128 72a56 56 0 1 0 56 56 56.063 56.063 0 0 0-56-56Zm0 96a40 40 0 1 1 40-40 40.045 40.045 0 0 1-40 40Z" fill="currentColor" opacity=".4"/></svg>
-        <span class="icon-name">Target<br>32px</span>
-      </div>
-      <div class="icon-cell">
-        <svg width="24" height="24" viewBox="0 0 256 256" fill="none"><path d="M221.656 133.656l-72 72a8 8 0 0 1-11.312-11.312L196.687 136H40a8 8 0 0 1 0-16h156.687l-58.343-58.344a8 8 0 0 1 11.312-11.312l72 72a8 8 0 0 1 0 11.312Z" fill="currentColor"/></svg>
-        <span class="icon-name">ArrowRight<br>24px</span>
-      </div>
-      <div class="icon-cell">
-        <svg width="24" height="24" viewBox="0 0 256 256" fill="none"><path d="M224 48H32a8 8 0 0 0-8 8v136a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a8 8 0 0 0-8-8Zm-96 85.15L52.57 64h150.86ZM98.71 128 40 181.81V74.19Zm11.84 10.85 12.16 10.39a8 8 0 0 0 10.58 0l12.16-10.39L208.43 192H47.57Zm36.74-10.85L216 74.19v107.62Z" fill="currentColor"/></svg>
-        <span class="icon-name">Envelope<br>24px</span>
-      </div>
-      <div class="icon-cell">
-        <svg width="24" height="24" viewBox="0 0 256 256" fill="none"><path d="M222.37 158.46l-47.11-21.11-.13-.06a16 16 0 0 0-15.17 1.4 8.12 8.12 0 0 0-.75.56L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-25.2a7.93 7.93 0 0 0 .56-.75 16 16 0 0 0 1.32-15.06v-.12L96.54 33.64a16 16 0 0 0-16.62-9.52A56.26 56.26 0 0 0 32 80c0 79.4 64.6 144 144 144a56.26 56.26 0 0 0 55.88-47.92 16 16 0 0 0-9.51-17.62Z" fill="currentColor"/></svg>
-        <span class="icon-name">Phone<br>24px</span>
-      </div>
-      <div class="icon-cell">
-        <svg width="24" height="24" viewBox="0 0 256 256" fill="none"><path d="M128 16a96 96 0 1 0 96 96A96.108 96.108 0 0 0 128 16Zm0 176a80 80 0 1 1 80-80 80.091 80.091 0 0 1-80 80Zm0-144a64 64 0 1 0 64 64 64.072 64.072 0 0 0-64-64Zm0 112a48 48 0 1 1 48-48 48.054 48.054 0 0 1-48 48Z" fill="currentColor"/></svg>
-        <span class="icon-name">Record<br>24px</span>
-      </div>
-      <div class="icon-cell icon-cell-accent">
-        <svg width="24" height="24" viewBox="0 0 256 256" fill="none"><path d="M230.92 212c-15.23-26.33-38.7-45.21-66.09-54.16a72 72 0 1 0-73.66 0C63.78 166.78 40.31 185.66 25.08 212a8 8 0 1 0 13.85 8c18.84-32.56 52.14-52 89.07-52s70.23 19.44 89.07 52a8 8 0 1 0 13.85-8ZM72 96a56 56 0 1 1 56 56 56.063 56.063 0 0 1-56-56Z" fill="currentColor"/></svg>
-        <span class="icon-name">User<br>акцент</span>
-      </div>
-      <div class="icon-cell icon-cell-muted">
-        <svg width="24" height="24" viewBox="0 0 256 256" fill="none"><path d="M208 32H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16Zm0 176H48V48h160ZM136 80v48h48a8 8 0 0 1 0 16h-48v48a8 8 0 0 1-16 0v-48H72a8 8 0 0 1 0-16h48V80a8 8 0 0 1 16 0Z" fill="currentColor"/></svg>
-        <span class="icon-name">Plus<br>muted</span>
-      </div>
-      <div class="icon-cell">
-        <svg width="24" height="24" viewBox="0 0 256 256" fill="none"><path d="M128 24a104 104 0 1 0 104 104A104.118 104.118 0 0 0 128 24Zm0 192a88 88 0 1 1 88-88 88.1 88.1 0 0 1-88 88Zm16-40a8 8 0 0 1-8 8 16 16 0 0 1-16-16v-40a8 8 0 0 1 0-16 16 16 0 0 1 16 16v40a8 8 0 0 1 8 8Zm-32-92a12 12 0 1 1 12 12 12 12 0 0 1-12-12Z" fill="currentColor"/></svg>
-        <span class="icon-name">Info<br>24px</span>
-      </div>
-    </div>
-
-    <div style="padding:20px 24px;background:var(--color-surface-1);border:1px solid var(--color-border);border-radius:var(--radius-md)">
-      <p style="font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-muted);margin-bottom:12px">Размеры иконок</p>
-      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
-        <div style="display:flex;align-items:center;gap:8px">
-          <svg width="16" height="16" viewBox="0 0 256 256" fill="none"><path d="M216 48H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Zm0 64H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Zm0 64H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Z" fill="#9e8f8f"/></svg>
-          <span style="font-size:12px;color:var(--color-muted);font-family:'Courier New',monospace">16px: внутри текста</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <svg width="20" height="20" viewBox="0 0 256 256" fill="none"><path d="M216 48H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Zm0 64H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Zm0 64H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Z" fill="#9e8f8f"/></svg>
-          <span style="font-size:12px;color:var(--color-muted);font-family:'Courier New',monospace">20px: интерфейс, кнопки</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <svg width="24" height="24" viewBox="0 0 256 256" fill="none"><path d="M216 48H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Zm0 64H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Zm0 64H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Z" fill="#f0ecea"/></svg>
-          <span style="font-size:12px;color:var(--color-muted);font-family:'Courier New',monospace">24px: основной в карточках</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <svg width="32" height="32" viewBox="0 0 256 256" fill="none"><path d="M216 48H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Zm0 64H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Zm0 64H40a8 8 0 0 0 0 16h176a8 8 0 0 0 0-16Z" fill="#febad0"/></svg>
-          <span style="font-size:12px;color:var(--color-muted);font-family:'Courier New',monospace">32px: акцент в секциях</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── 08 ГОЛОС БРЕНДА ── -->
-<section class="section" id="voice">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-number">08</span>
-      <div>
-        <h2>Голос бренда</h2>
-        <p class="section-desc">Тёплый, живой, немного игривый, как подруга, которая разбирается в к-попе и искренне рада тебя видеть.</p>
-      </div>
-    </div>
-
-    <!-- Стоп-слова -->
-    <div style="margin-bottom:48px">
-      <p class="comp-label">Стоп-слова: запрещены везде</p>
-      <div style="background:var(--color-surface-1);border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden">
-        <table class="stopwords-table">
-          <thead>
-            <tr>
-              <th>Нельзя писать</th>
-              <th>Правильно</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>урок</td><td>занятие</td></tr>
-            <tr><td>класс</td><td>занятие</td></tr>
-            <tr><td>ученик</td><td>участник</td></tr>
-            <tr><td>пробное занятие</td><td>первое занятие</td></tr>
-            <tr><td>преподаватель</td><td>хореограф</td></tr>
-            <tr><td>образовательная программа</td><td>программа / курс</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p style="margin-top:12px;font-size:13px;color:var(--color-muted)">Soul Dance: развлекательная площадка, не образовательное учреждение. Это влияет на каждую формулировку.</p>
-    </div>
-
-    <!-- Правила голоса -->
-    <div style="margin-bottom:48px">
-      <p class="comp-label">Кнопки: формула «глагол + объект»</p>
-      <div class="rules-grid">
-        <div class="rule-card rule-card--no">
-          <div class="rule-card-title">Нельзя</div>
-          <ul class="rule-list">
-            <li>Купить</li>
-            <li>Отправить</li>
-            <li>Узнать больше</li>
-            <li>Подробнее</li>
-            <li>Начать сейчас</li>
-            <li>Записаться</li>
-          </ul>
-        </div>
-        <div class="rule-card rule-card--yes">
-          <div class="rule-card-title">Правильно</div>
-          <ul class="rule-list">
-            <li>Записаться на интенсив</li>
-            <li>Отправить заявку</li>
-            <li>Смотреть расписание</li>
-            <li>Выбрать курс</li>
-            <li>Прийти на занятие</li>
-            <li>Записаться на интенсив</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Тон в ситуациях -->
-    <div>
-      <p class="comp-label">Тон в разных ситуациях</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
-        <div style="background:var(--color-surface-1);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:24px">
-          <div class="tag tag-accent" style="margin-bottom:16px">Посты и сторис</div>
-          <p style="font-size:14px;color:var(--color-text);line-height:1.6;margin-bottom:8px">«На скз осталось 8 местечек, кто заберёт оставшиеся? 😈»</p>
-          <p style="font-size:12px;color:var(--color-muted)">Игривый, живой. Зажечь, не продать.</p>
-        </div>
-        <div style="background:var(--color-surface-1);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:24px">
-          <div class="tag tag-accent" style="margin-bottom:16px">Ответ в личке</div>
-          <p style="font-size:14px;color:var(--color-text);line-height:1.6;margin-bottom:8px">«Привет! Конечно разберёмся, напиши когда тебе удобно~»</p>
-          <p style="font-size:12px;color:var(--color-muted)">Тёплый, по делу. Как подруга, не бот.</p>
-        </div>
-        <div style="background:var(--color-surface-1);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:24px">
-          <div class="tag tag-accent" style="margin-bottom:16px">Негативный отзыв</div>
-          <p style="font-size:14px;color:var(--color-text);line-height:1.6;margin-bottom:8px">«Привет, напиши нам в личку, разберёмся~»</p>
-          <p style="font-size:12px;color:var(--color-muted)">Спокойный, участливый. В личку, без споров.</p>
-        </div>
-      </div>
-
-      <div style="margin-top:16px;padding:20px 24px;background:rgba(192,84,74,0.08);border:1px solid rgba(192,84,74,0.25);border-radius:var(--radius-md)">
-        <p style="font-size:13px;color:var(--color-error);font-weight:600;margin-bottom:8px;font-family:var(--font-body);letter-spacing:0.04em">Никогда</p>
-        <p style="font-size:14px;color:var(--color-muted);line-height:1.6">Не давить и не торопить («только сегодня», «последний шанс» только если правда). Не использовать пафос («уникальный», «лучший», «топовый»). Не обещать результат, который зависит от участника.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Футер -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-inner">
-      <span class="footer-note">Soul Dance: внутренняя документация бренда. Не для публикации.</span>
-      <span class="footer-version">v1.0 · 2026</span>
     </div>
   </div>
 </footer>
 
+<!-- МОДАЛЬНОЕ ОКНО -->
+<div class="modal-overlay" id="messenger-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-dialog">
+    <button class="modal-close" id="modal-close-btn" aria-label="Закрыть">&times;</button>
+    <h3 class="modal-title" id="modal-title">Выбери удобный мессенджер</h3>
+    <div class="modal-actions">
+      <a href="https://t.me/souldancemsk" class="btn-primary modal-btn" target="_blank" rel="noopener noreferrer">Telegram @souldancemsk</a>
+      <a href="https://max.ru/id743017545404_bot" class="btn-secondary modal-btn" target="_blank" rel="noopener noreferrer">MAX</a>
+    </div>
+  </div>
+</div>
+
+<!-- COOKIE-БАННЕР -->
+<div class="cookie-banner" id="cookie-banner" hidden>
+  <div class="container">
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">
+        Мы используем cookies для корректной работы сайта.
+        <a href="assets/сайт/legal/Политика_Cookie_Soul_Dance.pdf" target="_blank" rel="noopener">Политика Cookie</a>
+      </p>
+      <div class="cookie-banner__actions">
+        <button class="btn-primary" id="cookie-accept-all">Принять все</button>
+        <button class="btn-secondary" id="cookie-accept-minimal">Только необходимые</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- МОБИЛЬНАЯ STICKY-КНОПКА -->
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <button class="btn-primary" tabindex="-1" data-form-trigger>Оставить заявку</button>
+</div>
+
+<!-- SCRIPTS -->
+<script src="src/js/main.js"></script>
+<script src="src/js/modal.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ── Маскот ──────────────────────────────────────────── */
+  var mascotImg   = document.getElementById('mascot-img');
+  var mascotInner = document.getElementById('mascot-inner');
+  var mascotWrap  = document.getElementById('mascot-wrap');
+  var hero        = document.querySelector('.hero');
+
+  if (mascotImg) {
+    var SRC = {
+      default : 'assets/mascot/dobryy.png',
+      shy     : 'assets/mascot/smuschaetsya.png',
+      star    : 'assets/mascot/so-zvezdochkoy.png'
+    };
+
+    var FLOAT_ANIM = 'mascot-float 3.2s ease-in-out infinite';
+    var JUMP_ANIM  = 'mascot-jump 0.65s ease-out forwards';
+    var isClicked  = false;
+    var clickTimer = null;
+
+    mascotImg.addEventListener('mouseenter', function () { if (!isClicked) mascotImg.src = SRC.shy; });
+    mascotImg.addEventListener('mouseleave', function () { if (!isClicked) mascotImg.src = SRC.default; });
+
+    mascotImg.addEventListener('click', function (e) {
+      if (isClicked) return;
+      isClicked = true;
+      mascotImg.src = SRC.star;
+      mascotInner.style.animation = JUMP_ANIM;
+      spawnSparkles(e);
+      clearTimeout(clickTimer);
+      clickTimer = setTimeout(function () {
+        mascotInner.style.animation = FLOAT_ANIM;
+        mascotImg.src = SRC.default;
+        isClicked = false;
+      }, 1500);
+    });
+
+    mascotInner.addEventListener('animationend', function (e) {
+      if (e.animationName === 'mascot-jump') mascotInner.style.animation = FLOAT_ANIM;
+    });
+
+    if (hero && window.matchMedia('(hover: hover)').matches) {
+      hero.addEventListener('mousemove', function (e) {
+        var rect = hero.getBoundingClientRect();
+        var x = ((e.clientX - rect.left) / rect.width  - 0.5) * 32;
+        var y = ((e.clientY - rect.top)  / rect.height - 0.5) * 18;
+        mascotWrap.style.transform = 'translate(' + x.toFixed(1) + 'px, ' + y.toFixed(1) + 'px)';
+      });
+      hero.addEventListener('mouseleave', function () { mascotWrap.style.transform = 'translate(0, 0)'; });
+    }
+
+    function spawnSparkles(e) {
+      var rect = mascotImg.getBoundingClientRect();
+      var cx = rect.left + rect.width  * 0.5;
+      var cy = rect.top  + rect.height * 0.4;
+      for (var i = 0; i < 12; i++) {
+        (function (idx) {
+          var angle = (idx / 12) * Math.PI * 2;
+          var dist  = 55 + Math.random() * 55;
+          var tx    = (Math.cos(angle) * dist).toFixed(1) + 'px';
+          var ty    = (Math.sin(angle) * dist).toFixed(1) + 'px';
+          var size  = (6 + Math.random() * 8).toFixed(0) + 'px';
+          var delay = (idx * 30) + 'ms';
+          var el    = document.createElement('div');
+          el.className = 'sparkle-particle';
+          el.style.cssText = [
+            'left:' + cx + 'px', 'top:' + cy + 'px',
+            'width:' + size, 'height:' + size,
+            'margin-left:calc(-' + size + '/2)', 'margin-top:calc(-' + size + '/2)',
+            '--tx:' + tx, '--ty:' + ty, 'animation-delay:' + delay
+          ].join(';');
+          document.body.appendChild(el);
+          setTimeout(function () { el.remove(); }, 750);
+        })(i);
+      }
+    }
+  }
+
+  /* ── Форма заявки ─────────────────────────────────────── */
+  var TG_TOKEN = ''; /* TELEGRAM_BOT_TOKEN */
+  var TG_CHAT  = ''; /* TELEGRAM_CHAT_ID   */
+
+  var form        = document.getElementById('lead-form-el');
+  var formSection = document.getElementById('lead-form');
+  var successMsg  = document.getElementById('lead-form-success');
+
+  /* Кнопки-триггеры прокручивают к форме */
+  document.querySelectorAll('[data-form-trigger]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () { document.getElementById('lf-name').focus(); }, 600);
+    });
+  });
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      var name   = document.getElementById('lf-name').value.trim();
+      var phone  = document.getElementById('lf-phone').value.trim();
+      var method = (form.querySelector('[name="contact_method"]:checked') || {}).value || 'Звонок';
+
+      if (TG_TOKEN && TG_CHAT) {
+        var text = 'Новая заявка с сайта Soul Dance\n\nИмя: ' + name + '\nТелефон: ' + phone + '\nСпособ связи: ' + method;
+        fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: TG_CHAT, text: text })
+        }).catch(function () {});
+      }
+
+      form.hidden = true;
+      successMsg.hidden = false;
+    });
+  }
+
+  /* ── Sticky-кнопка (мобайл) ──────────────────────────── */
+  var stickyCta = document.getElementById('sticky-cta');
+  if (stickyCta && window.IntersectionObserver) {
+    var heroSection = document.querySelector('.hero');
+    var stickyHide  = function (entries) {
+      entries.forEach(function (entry) {
+        var btn = stickyCta.querySelector('button');
+        if (entry.isIntersecting) {
+          stickyCta.classList.add('is-hidden');
+          stickyCta.setAttribute('aria-hidden', 'true');
+          if (btn) btn.tabIndex = -1;
+        } else {
+          stickyCta.classList.remove('is-hidden');
+          stickyCta.removeAttribute('aria-hidden');
+          if (btn) btn.tabIndex = 0;
+        }
+      });
+    };
+    var heroObs = new IntersectionObserver(stickyHide, { threshold: 0.1 });
+    if (heroSection) heroObs.observe(heroSection);
+    if (formSection) {
+      var formObs = new IntersectionObserver(stickyHide, { threshold: 0.2 });
+      formObs.observe(formSection);
+    }
+  }
+
+})();
+</script>
 </body>
 </html>

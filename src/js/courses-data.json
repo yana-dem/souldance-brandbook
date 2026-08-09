@@ -1,0 +1,49 @@
+{
+  "courses": [
+    {
+      "id": "katseye",
+      "group": "KATSEYE",
+      "choreographer": "Влада",
+      "duration": 120,
+      "maxParticipants": 6,
+      "videoIncluded": true,
+      "active": true
+    },
+    {
+      "id": "oneus",
+      "group": "ONEUS",
+      "choreographer": "Асмира",
+      "duration": 120,
+      "maxParticipants": 6,
+      "videoIncluded": true,
+      "active": true
+    },
+    {
+      "id": "stray-kids",
+      "group": "STRAY KIDS",
+      "choreographer": "Даша",
+      "duration": 120,
+      "maxParticipants": 8,
+      "videoIncluded": true,
+      "active": true
+    },
+    {
+      "id": "le-sserafim",
+      "group": "LE SSERAFIM",
+      "choreographer": "Влада",
+      "duration": 120,
+      "maxParticipants": 6,
+      "videoIncluded": true,
+      "active": true
+    },
+    {
+      "id": "enhypen",
+      "group": "ENHYPEN",
+      "choreographer": "Асмира",
+      "duration": 120,
+      "maxParticipants": 7,
+      "videoIncluded": true,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,415 @@
+/* Soul Dance — components.css */
+
+/* ── Кнопки ──────────────────────────────────────────────── */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent);
+  color: #0d0d0d;
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: background 150ms ease, transform 100ms ease;
+  min-height: 48px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-primary:hover  { background: var(--color-accent-hover); }
+.btn-primary:active { transform: scale(0.98); }
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color 150ms ease, color 150ms ease, transform 100ms ease;
+  min-height: 48px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.btn-secondary:active { transform: scale(0.98); }
+
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  font-size: 13px;
+  cursor: pointer;
+  transition: color 150ms ease;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.btn-text:hover { color: var(--color-accent); }
+
+/* ── Карточка ────────────────────────────────────────────── */
+
+.card {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: border-color 200ms ease;
+}
+
+.card:hover { border-color: var(--color-accent-soft); }
+
+/* ── Теги / бейджи ───────────────────────────────────────── */
+
+.tag {
+  display: inline-block;
+  background: var(--color-surface-2);
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.tag-accent {
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+
+.tag-soon {
+  background: var(--color-surface-2);
+  color: var(--color-muted);
+}
+
+/* ── Поле ввода ──────────────────────────────────────────── */
+
+.input {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  padding: 12px 16px;
+  width: 100%;
+  transition: border-color 150ms ease;
+}
+
+.input::placeholder { color: var(--color-muted); }
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.input.is-error { border-color: var(--color-error); }
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+}
+
+.input-error {
+  font-size: 12px;
+  color: var(--color-error);
+}
+
+/* ── Чекбоксы (152-ФЗ) ───────────────────────────────────── */
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.checkbox-wrapper label,
+.checkbox-wrapper span {
+  font-size: 13px;
+  color: var(--color-muted);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.checkbox-wrapper a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ── Модальное окно ──────────────────────────────────────── */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-dialog {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 48px;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  transform: translateY(16px);
+  transition: transform 200ms ease;
+}
+
+.modal-overlay.is-open .modal-dialog {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  font-size: 24px;
+  border-radius: var(--radius-sm);
+  transition: color 150ms ease;
+}
+
+.modal-close:hover { color: var(--color-text); }
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .modal-dialog {
+    padding: 32px 24px;
+  }
+}
+
+/* ── Cookie-баннер ───────────────────────────────────────── */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-surface-1);
+  border-top: 1px solid var(--color-border);
+  z-index: 900;
+  padding: 16px 0;
+}
+
+.cookie-banner__inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cookie-banner__text {
+  flex: 1;
+  font-size: 14px;
+  color: var(--color-muted);
+  line-height: 1.5;
+  min-width: 200px;
+}
+
+.cookie-banner__text a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .cookie-banner__inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cookie-banner__actions {
+    flex-direction: column;
+  }
+}
+
+/* ── Форма ───────────────────────────────────────────────── */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-consents {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-success {
+  display: none;
+  padding: 24px;
+  background: var(--color-accent-soft);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  color: var(--color-accent);
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ── Маскот ──────────────────────────────────────────────── */
+
+.mascot {
+  mix-blend-mode: screen;
+}
+
+.hero-mascot {
+  mix-blend-mode: screen;
+  overflow: visible;
+}
+
+/* ── Карточки курсов ─────────────────────────────────────── */
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.course-card__header {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.course-card__title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.course-card__choreographer {
+  color: var(--color-muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.course-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.course-card__details li {
+  font-size: 14px;
+  color: var(--color-muted);
+  padding-left: 16px;
+  position: relative;
+}
+
+.course-card__details li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+.course-card__footer {
+  margin-top: auto;
+  padding-top: 16px;
+}

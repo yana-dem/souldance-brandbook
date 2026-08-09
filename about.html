@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О нас — Soul Dance</title>
+  <meta name="description" content="История студии танцев Soul Dance и знакомство с командой хореографов. Москва, с 2019 года.">
+  <link rel="canonical" href="https://yana-dem.github.io/souldance-site/about.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yana-dem.github.io/souldance-site/about.html">
+  <meta property="og:title" content="О нас — Soul Dance">
+  <meta property="og:description" content="История студии танцев Soul Dance и знакомство с командой хореографов. Москва, с 2019 года.">
+  <meta property="og:locale" content="ru_RU">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Montserrat:wght@400;500;600;700&display=swap"></noscript>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="src/css/variables.css">
+  <link rel="stylesheet" href="src/css/base.css">
+  <link rel="stylesheet" href="src/css/components.css">
+  <link rel="stylesheet" href="src/css/layout.css">
+
+  <style>
+    /* ══════════════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════════════ */
+    .about-hero {
+      padding: 96px 0 64px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .about-hero__eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 16px;
+      font-family: var(--font-body);
+    }
+
+    .about-hero__title {
+      font-family: var(--font-display);
+      font-size: 80px;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .about-hero__sub {
+      font-size: 20px;
+      color: var(--color-muted);
+    }
+
+    @media (max-width: 768px) {
+      .about-hero__title { font-size: 48px; }
+      .about-hero { padding: 64px 0 48px; }
+    }
+
+    /* ══════════════════════════════════════════════════════
+       STATS
+    ══════════════════════════════════════════════════════ */
+    .stats-strip {
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 48px 0;
+      background: var(--color-surface-1);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 0 32px;
+      border-right: 1px solid var(--color-border);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 48px;
+      line-height: 1;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--color-muted);
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--color-border); }
+      .stat-item { background: var(--color-surface-1); border-right: none; padding: 24px 16px; }
+      .stat-number { font-size: 36px; }
+    }
+
+    /* ══════════════════════════════════════════════════════
+       HISTORY
+    ══════════════════════════════════════════════════════ */
+    .history-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 64px;
+      align-items: start;
+      margin-top: 48px;
+    }
+
+    .history-text p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--color-text);
+      margin-bottom: 20px;
+    }
+
+    .history-text p:last-child { margin-bottom: 0; }
+
+    .history-photo {
+      position: sticky;
+      top: 96px;
+    }
+
+    .history-photo img {
+      width: 100%;
+      border-radius: var(--radius-xl);
+      display: block;
+    }
+
+    .history-photo-caption {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--color-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 1024px) {
+      .history-layout { grid-template-columns: 1fr; }
+      .history-photo { position: static; max-width: 400px; }
+    }
+
+    /* ══════════════════════════════════════════════════════
+       PRINCIPLES
+    ══════════════════════════════════════════════════════ */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .principle-card {
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: border-color 200ms ease;
+    }
+
+    .principle-card:hover { border-color: var(--color-accent-soft); }
+
+    .principle-num {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--color-accent);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .principle-text {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 1024px) { .principles-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { .principles-grid { grid-template-columns: 1fr; } }
+
+    /* ══════════════════════════════════════════════════════
+       TEAM CARDS
+    ══════════════════════════════════════════════════════ */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .team-card {
+      cursor: pointer;
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      text-align: left;
+      transition: border-color 200ms ease, transform 200ms ease;
+    }
+
+    .team-card:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-4px);
+    }
+
+    .team-card:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    .team-card__img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      background: var(--color-surface-2);
+    }
+
+    .team-card__body { padding: 16px; }
+
+    .team-card__name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .team-card__role {
+      font-size: 12px;
+      color: var(--color-muted);
+      font-weight: 500;
+    }
+
+    .team-card__hint {
+      font-size: 11px;
+      color: var(--color-accent);
+      margin-top: 8px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .team-intro {
+      max-width: 760px;
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .team-intro p {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--color-muted);
+    }
+
+    @media (max-width: 1024px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .team-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+    @media (max-width: 420px)  { .team-grid { grid-template-columns: 1fr; } }
+
+    /* ══════════════════════════════════════════════════════
+       TEAM MODAL
+    ══════════════════════════════════════════════════════ */
+    .team-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 600;
+      background: rgba(13, 13, 13, 0.88);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 250ms ease;
+    }
+
+    .team-modal-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .team-modal {
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      width: 100%;
+      max-width: 860px;
+      max-height: 90vh;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      transform: translateY(24px);
+      transition: transform 250ms ease;
+    }
+
+    .team-modal-overlay.is-open .team-modal {
+      transform: translateY(0);
+    }
+
+    /* Галерея */
+    .team-modal__gallery {
+      position: relative;
+      background: var(--color-surface-2);
+      border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .gallery-slides {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+    }
+
+    .gallery-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 300ms ease;
+    }
+
+    .gallery-slide.is-active { opacity: 1; }
+
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .gallery-nav {
+      position: absolute;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    .gallery-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 200ms ease;
+    }
+
+    .gallery-dot.is-active { background: var(--color-accent); }
+
+    .gallery-prev,
+    .gallery-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(13,13,13,0.7);
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--color-text);
+      font-size: 18px;
+      z-index: 2;
+      transition: background 150ms ease;
+      line-height: 1;
+    }
+
+    .gallery-prev:hover, .gallery-next:hover { background: var(--color-surface-1); }
+    .gallery-prev { left: 12px; }
+    .gallery-next { right: 12px; }
+
+    /* Контент */
+    .team-modal__content {
+      padding: 36px 32px;
+      overflow-y: auto;
+      position: relative;
+      max-height: 90vh;
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-border) transparent;
+    }
+
+    .team-modal__close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      color: var(--color-muted);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: border-color 150ms ease, color 150ms ease;
+    }
+
+    .team-modal__close:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .team-modal__name {
+      font-family: var(--font-display);
+      font-size: 26px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      padding-right: 44px;
+    }
+
+    .team-modal__role {
+      font-size: 12px;
+      color: var(--color-accent);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .team-modal__section { margin-bottom: 16px; }
+
+    .team-modal__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 4px;
+    }
+
+    .team-modal__value {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--color-text);
+    }
+
+    .team-modal__quote {
+      margin-top: 20px;
+      padding: 16px 20px;
+      border-left: 2px solid var(--color-accent);
+      background: var(--color-accent-soft);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--color-text);
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .team-modal {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        overflow-y: auto;
+      }
+      .team-modal__gallery {
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      }
+      .gallery-slides { min-height: 280px; }
+      .team-modal__content { max-height: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="assets/logo/logo-white.png" alt="Soul Dance" height="40">
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+        <a href="about.html" class="nav-link is-active">О нас</a>
+        <a href="kids/" class="nav-link">Дети</a>
+        <a href="adults/" class="nav-link">Взрослые</a>
+        <a href="prices/" class="nav-link">Цены</a>
+        <a href="rental.html" class="nav-link">Аренда залов</a>
+        <a href="contacts.html" class="nav-link">Контакты</a>
+      </nav>
+
+      <button class="btn-primary header-cta" onclick="location.href='index.html#lead-form'">Оставить заявку</button>
+
+      <button class="burger-btn" id="burger-btn" aria-label="Открыть меню" aria-expanded="false">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<main>
+
+  <!-- ══════════════════════════════════════════════════════
+       SEC-01 | HERO
+  ══════════════════════════════════════════════════════ -->
+  <section class="about-hero">
+    <div class="container">
+      <p class="about-hero__eyebrow" data-animate>О нас</p>
+      <h1 class="about-hero__title" data-animate data-delay="1">Soul Dance</h1>
+      <p class="about-hero__sub" data-animate data-delay="2">Студия танцев в Москве с 2019 года</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SEC-02 | ЦИФРЫ
+  ══════════════════════════════════════════════════════ -->
+  <div class="stats-strip">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item" data-animate>
+          <span class="stat-number">2019</span>
+          <span class="stat-label">год основания</span>
+        </div>
+        <div class="stat-item" data-animate data-delay="1">
+          <span class="stat-number">7</span>
+          <span class="stat-label">залов</span>
+        </div>
+        <div class="stat-item" data-animate data-delay="2">
+          <span class="stat-number">4 500+</span>
+          <span class="stat-label">учеников за 7 лет</span>
+        </div>
+        <div class="stat-item" data-animate data-delay="3">
+          <span class="stat-number">8</span>
+          <span class="stat-label">направлений</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       SEC-03 | ИСТОРИЯ
+  ══════════════════════════════════════════════════════ -->
+  <section class="section" id="history" aria-labelledby="history-title">
+    <div class="container">
+      <span class="section-label" data-animate>История</span>
+      <h2 id="history-title" class="section-title" data-animate data-delay="1">Студия, рождённая из любви</h2>
+
+      <div class="history-layout">
+        <div class="history-text" data-animate data-delay="2">
+          <p>Soul Dance — это не просто танцевальная студия. Это место, которое появилось благодаря любви. Любви к танцам, к музыке, к людям и друг к другу.</p>
+
+          <p>История Soul Dance началась задолго до открытия студии. Яна и Данила познакомились на танцевальном мастер-классе по игре Just Dance. Данила — чемпион России 2017 по Just Dance — проводил занятие, а Яна была среди участников. Тогда никто из них ещё не знал, что эта случайная встреча станет началом большой истории.</p>
+
+          <p>Они начали общаться, проводить время вместе, делиться своими увлечениями и мечтами. Яна всегда любила танцы и мечтала создать пространство, связанное с ними. Данила уже вёл собственные группы и занимался с ребятами через Just Dance. А ещё Яна очень любила к-поп и сама занималась каверденсом.</p>
+
+          <p>Однажды появилась идея: «А что, если попробовать проводить занятия по к-попу вместе?» Данила взял на себя хореографию, а Яна — организацию. Так появился первый шаг к тому, что сегодня называется Soul Dance.</p>
+
+          <p>24 октября 2019 года мы провели свои первые мастер-классы. Тогда ещё студия называлась JDance — в честь игры Just Dance, с которой всё началось. На первое занятие пришло гораздо больше людей, чем мы ожидали. Это был момент, когда мы поняли: всё не зря.</p>
+
+          <p>С тех пор студия росла вместе с нами. Менялись форматы занятий, появлялись новые направления, команда пополнялась талантливыми хореографами, а небольшие арендованные залы постепенно превратились в собственное большое пространство, где каждый день собираются люди, объединённые одной любовью — любовью к танцам.</p>
+
+          <p>Со временем пути внутри студии тоже разделились. Яна полностью взяла на себя управление, развитие и организацию всех процессов. Данила продолжил заниматься творческой частью, хореографией и работой с учениками.</p>
+
+          <p>А параллельно росло и то, с чего всё началось. Любовь. Позже Яна и Данила стали мужем и женой, а студия стала неотъемлемой частью их общей жизни.</p>
+
+          <p>Мы никогда не хотели создать просто место, где учат танцевать. Мы мечтали создать место, куда хочется возвращаться. Место, где тебя знают по имени. Где тебя ждут. Где не нужно быть идеальным. Где неважно, сколько тебе лет, как ты выглядишь, какой у тебя опыт или уровень подготовки. Место, где можно чувствовать себя своим.</p>
+
+          <p>Мы верим, что танцы — это не только движения под музыку. Это способ находить друзей. Способ становиться увереннее. Способ переживать сложные периоды жизни. Способ быть собой.</p>
+
+          <p>Поэтому главная ценность нашей студии — люди. Мы стараемся сделать всё возможное, чтобы каждый человек чувствовал себя здесь комфортно, безопасно и по-настоящему нужным.</p>
+
+          <p>За годы работы через нашу студию прошли тысячи учеников. Кто-то нашёл здесь друзей. Кто-то впервые вышел на сцену. Кто-то обрёл уверенность в себе. А кто-то просто нашёл место, где можно быть собой. И именно ради этого существует Soul Dance.</p>
+
+          <p><em>С любовью, Яна и Данила</em></p>
+        </div>
+
+        <div class="history-photo" data-animate data-delay="3">
+          <img
+            src="assets/сайт/team/yana-danila.PNG"
+            alt="Яна и Данила — основатели Soul Dance"
+            loading="lazy"
+          >
+          <p class="history-photo-caption">Яна и Данила — основатели Soul Dance</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SEC-04 | ПРИНЦИПЫ
+  ══════════════════════════════════════════════════════ -->
+  <section class="section" style="background:var(--color-surface-1);" aria-labelledby="principles-title">
+    <div class="container">
+      <span class="section-label" data-animate>Мы верим</span>
+      <h2 id="principles-title" class="section-title" data-animate data-delay="1">Наши принципы</h2>
+
+      <div class="principles-grid">
+        <div class="principle-card" data-animate>
+          <span class="principle-num" aria-hidden="true">01</span>
+          <p class="principle-text">Танцы доступны каждому</p>
+        </div>
+        <div class="principle-card" data-animate data-delay="1">
+          <span class="principle-num" aria-hidden="true">02</span>
+          <p class="principle-text">Атмосфера важнее конкуренции</p>
+        </div>
+        <div class="principle-card" data-animate data-delay="2">
+          <span class="principle-num" aria-hidden="true">03</span>
+          <p class="principle-text">Ошибаться — нормально</p>
+        </div>
+        <div class="principle-card" data-animate>
+          <span class="principle-num" aria-hidden="true">04</span>
+          <p class="principle-text">Уважение к каждому человеку</p>
+        </div>
+        <div class="principle-card" data-animate data-delay="1">
+          <span class="principle-num" aria-hidden="true">05</span>
+          <p class="principle-text">Поддержка вместо осуждения</p>
+        </div>
+        <div class="principle-card" data-animate data-delay="2">
+          <span class="principle-num" aria-hidden="true">06</span>
+          <p class="principle-text">Любовь к танцам начинается с любви к людям</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SEC-05 | КОМАНДА
+  ══════════════════════════════════════════════════════ -->
+  <section class="section" id="team" aria-labelledby="team-title">
+    <div class="container">
+      <span class="section-label" data-animate>Команда</span>
+      <h2 id="team-title" class="section-title" data-animate data-delay="1">Наша команда</h2>
+
+      <div class="team-intro" data-animate data-delay="2">
+        <p>Мы не берём хореографов «с улицы». Каждый, кто сейчас преподаёт в Soul Dance, прошёл большой кастинг и несколько этапов отбора. Дальше — тестовый период: мы следим за обратной связью каждого ученика, подводим итоги, и только после этого руководители студии лично принимают решение — продолжает хореограф работу с нами или нет.</p>
+        <p>Но и это не всё. Каждый хореограф проходит отдельное обучение: работа с детьми, построение постановок, работа с телом — у нас даже есть свой стандарт разминки. Обучение обширное, и после него мы уверены: педагог транслирует наши ценности, а его работа с учениками будет максимально эффективной.</p>
+      </div>
+
+      <div class="team-grid">
+
+        <button class="team-card" data-team="danila" aria-label="Подробнее о Даниле" data-animate>
+          <img src="assets/сайт/team/даня1.jpg" alt="Данила" class="team-card__img" loading="lazy">
+          <div class="team-card__body">
+            <p class="team-card__name">Данила</p>
+            <p class="team-card__role">Основатель · старший хореограф</p>
+            <p class="team-card__hint">Узнать подробнее</p>
+          </div>
+        </button>
+
+        <button class="team-card" data-team="asmi" aria-label="Подробнее об Асмире" data-animate data-delay="1">
+          <img src="assets/сайт/team/асми1.jpg" alt="Асмира" class="team-card__img" loading="lazy">
+          <div class="team-card__body">
+            <p class="team-card__name">Асмира</p>
+            <p class="team-card__role">Хореограф</p>
+            <p class="team-card__hint">Узнать подробнее</p>
+          </div>
+        </button>
+
+        <button class="team-card" data-team="kior" aria-label="Подробнее о Киор" data-animate data-delay="2">
+          <img src="assets/сайт/team/киор1.jpg" alt="Киор" class="team-card__img" loading="lazy">
+          <div class="team-card__body">
+            <p class="team-card__name">Киор</p>
+            <p class="team-card__role">Хореограф</p>
+            <p class="team-card__hint">Узнать подробнее</p>
+          </div>
+        </button>
+
+        <button class="team-card" data-team="almina" aria-label="Подробнее об Альмине" data-animate data-delay="3">
+          <img src="assets/сайт/team/альмина1.jpg" alt="Альмина" class="team-card__img" loading="lazy">
+          <div class="team-card__body">
+            <p class="team-card__name">Альмина</p>
+            <p class="team-card__role">Хореограф</p>
+            <p class="team-card__hint">Узнать подробнее</p>
+          </div>
+        </button>
+
+        <button class="team-card" data-team="vlada" aria-label="Подробнее о Владе" data-animate>
+          <img src="assets/сайт/team/влада1.jpg" alt="Влада" class="team-card__img" loading="lazy">
+          <div class="team-card__body">
+            <p class="team-card__name">Влада</p>
+            <p class="team-card__role">Хореограф</p>
+            <p class="team-card__hint">Узнать подробнее</p>
+          </div>
+        </button>
+
+        <button class="team-card" data-team="ulyana" aria-label="Подробнее об Ульяне" data-animate data-delay="1">
+          <img src="assets/сайт/team/ульяна1.jpg" alt="Ульяна" class="team-card__img" loading="lazy">
+          <div class="team-card__body">
+            <p class="team-card__name">Ульяна</p>
+            <p class="team-card__role">Хореограф</p>
+            <p class="team-card__hint">Узнать подробнее</p>
+          </div>
+        </button>
+
+        <button class="team-card" data-team="dasha" aria-label="Подробнее о Даше" data-animate data-delay="2">
+          <img src="assets/сайт/team/даша1.jpg" alt="Даша" class="team-card__img" loading="lazy">
+          <div class="team-card__body">
+            <p class="team-card__name">Даша</p>
+            <p class="team-card__role">Хореограф</p>
+            <p class="team-card__hint">Узнать подробнее</p>
+          </div>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-col--brand">
+        <a href="index.html" class="footer-logo">
+          <img src="assets/logo/logo-white.png" alt="Soul Dance" height="36" loading="lazy">
+        </a>
+        <p class="footer-tagline">Студия танцев в Москве.<br>Собираем своих с 2019 года</p>
+      </div>
+      <nav class="footer-col footer-col--nav" aria-label="Навигация в подвале">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="kids/">Дети</a>
+        <a href="adults/">Взрослые</a>
+        <a href="prices/">Цены</a>
+        <a href="rental.html">Аренда залов</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <div class="footer-col footer-col--contacts">
+        <address>
+          <p>Москва, Шоссе Энтузиастов 54,<br>ТЦ «Мир Уюта», 2 этаж</p>
+          <p>Пн–Пт: 15:00–22:00<br>Сб–Вс: 10:00–22:00</p>
+        </address>
+        <div class="footer-social">
+          <a href="https://t.me/souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a href="https://max.ru/id743017545404_bot" class="footer-social-link" target="_blank" rel="noopener noreferrer">MAX</a>
+          <a href="https://vk.com/souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+          <a href="https://www.youtube.com/@souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://www.tiktok.com/@souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a href="mailto:souldancemsk@yandex.ru" class="footer-social-link">souldancemsk@yandex.ru</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal-info">ИП Попов Данила Андреевич · ИНН 743017545404 · ОГРНИП 324745600121280</p>
+      <div class="footer-legal-links">
+        <a href="assets/сайт/legal/Политика_конфиденциальности_сайта_Soul_Dance.pdf" target="_blank" rel="noopener">Политика конфиденциальности</a>
+        <a href="assets/сайт/legal/Публичная_оферта_Soul_Dance.pdf" target="_blank" rel="noopener">Публичная оферта</a>
+        <a href="assets/сайт/legal/Политика_Cookie_Soul_Dance.pdf" target="_blank" rel="noopener">Политика Cookie</a>
+        <a href="assets/сайт/legal/Пользовательское_соглашение_Soul_Dance.pdf" target="_blank" rel="noopener">Пользовательское соглашение</a>
+        <button class="btn-text" id="cookie-settings-btn">Настройки cookies</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- МОДАЛКА МЕССЕНДЖЕРА -->
+<div class="modal-overlay" id="messenger-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-dialog">
+    <button class="modal-close" id="modal-close-btn" aria-label="Закрыть">&times;</button>
+    <h3 class="modal-title" id="modal-title">Выбери удобный мессенджер</h3>
+    <div class="modal-actions">
+      <a href="https://t.me/souldancemsk" class="btn-primary modal-btn" target="_blank" rel="noopener noreferrer">Telegram @souldancemsk</a>
+      <a href="https://max.ru/id743017545404_bot" class="btn-secondary modal-btn" target="_blank" rel="noopener noreferrer">MAX</a>
+    </div>
+  </div>
+</div>
+
+<!-- МОДАЛКА ХОРЕОГРАФА -->
+<div class="team-modal-overlay" id="team-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="team-modal-name">
+  <div class="team-modal" id="team-modal">
+
+    <div class="team-modal__gallery">
+      <div class="gallery-slides" id="gallery-slides"></div>
+      <button class="gallery-prev" id="gallery-prev" aria-label="Предыдущее фото">&#8249;</button>
+      <button class="gallery-next" id="gallery-next" aria-label="Следующее фото">&#8250;</button>
+      <div class="gallery-nav" id="gallery-dots"></div>
+    </div>
+
+    <div class="team-modal__content">
+      <button class="team-modal__close" id="team-modal-close" aria-label="Закрыть">&times;</button>
+      <h3 class="team-modal__name" id="team-modal-name"></h3>
+      <p class="team-modal__role" id="team-modal-role"></p>
+
+      <div class="team-modal__section">
+        <p class="team-modal__label">Опыт</p>
+        <p class="team-modal__value" id="team-modal-exp"></p>
+      </div>
+      <div class="team-modal__section">
+        <p class="team-modal__label">Специализация</p>
+        <p class="team-modal__value" id="team-modal-spec"></p>
+      </div>
+      <div class="team-modal__section">
+        <p class="team-modal__value" id="team-modal-desc"></p>
+      </div>
+      <div class="team-modal__section">
+        <p class="team-modal__label">Достижения</p>
+        <p class="team-modal__value" id="team-modal-path"></p>
+      </div>
+      <div class="team-modal__section">
+        <p class="team-modal__label">Интересный факт</p>
+        <p class="team-modal__value" id="team-modal-fact"></p>
+      </div>
+      <blockquote class="team-modal__quote" id="team-modal-quote"></blockquote>
+    </div>
+
+  </div>
+</div>
+
+<!-- COOKIE-БАННЕР -->
+<div class="cookie-banner" id="cookie-banner" hidden>
+  <div class="container">
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">
+        Мы используем cookies для корректной работы сайта.
+        <a href="assets/сайт/legal/Политика_Cookie_Soul_Dance.pdf" target="_blank" rel="noopener">Политика Cookie</a>
+      </p>
+      <div class="cookie-banner__actions">
+        <button class="btn-primary" id="cookie-accept-all">Принять все</button>
+        <button class="btn-secondary" id="cookie-accept-minimal">Только необходимые</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="src/js/main.js"></script>
+<script src="src/js/modal.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var TEAM = {
+    danila: {
+      name: 'Данила',
+      role: 'Основатель Soul Dance · старший хореограф',
+      photos: ['assets/сайт/team/даня1.jpg','assets/сайт/team/даня2.jpg','assets/сайт/team/даня3.jpg'],
+      exp:   '14 лет в танцах / 8 лет преподавания',
+      spec:  'К-поп, хип-хоп, паппинг, вейвинг, Just Dance, масштабные групповые проекты',
+      desc:  'Человек, который превратил игру Just Dance в профессию — и никому не смешно. Знает про танцы всё, говорит по делу, результат даёт всегда.',
+      path:  'Чемпион России по Just Dance, представлял Россию на чемпионате во Франции 2017, победитель CoverLand 2022, руководитель проектов до 32 человек',
+      fact:  'Работал охранником в 15 лет, в коллекции 12 игровых приставок',
+      quote: '«Будь собой в танце»'
+    },
+    asmi: {
+      name: 'Асмира',
+      role: 'Хореограф',
+      photos: ['assets/сайт/team/асми1.jpg','assets/сайт/team/асми2.jpg','assets/сайт/team/асми3.jpg'],
+      exp:   '17 лет в танцах / 3 года в каверденсе / 3 года преподавания',
+      spec:  'К-поп, контемп, хип-хоп, вог, народные, классика/балет, электро',
+      desc:  'Когда она входит в зал, уровень энергии в комнате автоматически повышается. Танцует всё — от балета до вога. Судит чемпионаты. И при этом говорит, что цель одна — просто наслаждаться.',
+      path:  'Закончила хореографический театр, танцевала в основе на VK Fest 2025, 1 место Solo Young Fest 2024, 1 место Girls Cover 1Y Fest 2025, 1 место Solo 1Y Fest 2025, лидер команд ONE-X и planB, судья на 10+ чемпионатах',
+      fact:  'Амбидекстер, волосы были всех цветов радуги',
+      quote: '«Танцы должны приносить только удовольствие. Неважно — начинаете вы или уже имеете успехи. Цель одна — наслаждаться процессом»'
+    },
+    dasha: {
+      name: 'Даша',
+      role: 'Хореограф',
+      photos: ['assets/сайт/team/даша1.jpg','assets/сайт/team/даша2.jpg','assets/сайт/team/даша3.jpg'],
+      exp:   '10 лет в танцах / 8 лет в каверденсе',
+      spec:  'К-поп',
+      desc:  'Пишет код и ставит каверы — и в обоих случаях с одинаковой точностью. Говорит, что танцы и программирование не так уж сильно отличаются. Возможно, она права.',
+      path:  'YOUR IDOL SOLO CHAMP — 4 место, за плечами художественная гимнастика',
+      fact:  'Основное образование — программист, обожает тирамису, любит кошек, меломан',
+      quote: '«Не бойтесь начинать и наслаждайтесь процессом и своими результатами»'
+    },
+    vlada: {
+      name: 'Влада',
+      role: 'Хореограф',
+      photos: ['assets/сайт/team/влада1.jpg','assets/сайт/team/влада2.jpg','assets/сайт/team/влада3.jpg'],
+      exp:   '12 лет в танцах / 3 года каверденс',
+      spec:  'К-поп, хип-хоп хорео, джаз-фанк',
+      desc:  'Говорит на языке поколения альфа — и они её обожают. Снялась в клипе ведущего Европы Плюс и рассказывает об этом как о чём-то совершенно обычном.',
+      path:  'Снялась в клипе ведущего Европы Плюс, победитель и призёр VENOM Fest, DANCE TOUR K&K, Geek Vision, ADF, 3й Открытый кубок Москвы по к-поп, MOVE FORWARD, Dweezh Contest, танцует в команде EXISS',
+      fact:  'Не может заснуть, если не будет обнимать что-нибудь',
+      quote: '«Танцы — это язык тела, способ выражать себя. Не бойтесь проявлять свою уникальность. Кайфуйте — жизнь одна»'
+    },
+    kior: {
+      name: 'Киор',
+      role: 'Хореограф',
+      photos: ['assets/сайт/team/киор1.jpg','assets/сайт/team/киор2.jpg','assets/сайт/team/киор3.jpg'],
+      exp:   '17 лет в танцах / 5 лет в каверденсе',
+      spec:  'К-поп, паппинг, денсхолл, афро, крамп, хип-хоп, локинг',
+      desc:  'Пока другие выбирали один стиль — она собрала коллекцию. Паппинг, афро, денсхолл, крамп — и всё это с точностью часового механизма.',
+      path:  '10 лет балета, победитель и призёр Coverland, KDOM, BananaBattle, ANM, DeepFest, ADF, участница Juste Debout USA и Red Bull BC One Korea Cypher',
+      fact:  'Выросла в Швейцарии, два родных языка — русский и немецкий, очень любит собак',
+      quote: '«Главное делать всё для себя. Танцевать так как чувствуешь ты. Сделай рывок и пойми — ты уже молодец»'
+    },
+    almina: {
+      name: 'Альмина',
+      role: 'Хореограф',
+      photos: ['assets/сайт/team/альмина1.jpg','assets/сайт/team/альмина2.jpg','assets/сайт/team/альмина3.jpg'],
+      exp:   '14 лет в танцах / 5 лет каверденс',
+      spec:  'К-поп, спортивно-бальные, латиноамериканские, народные танцы',
+      desc:  '«Самая обычная девочка» — так она сама себя называет. Просто не говорит вслух, что за этим стоят 9 лет бальных турниров и три вида народных танцев.',
+      path:  '9 лет спортивно-бальные, победитель и призёр BLOODBORN CHAMP 2023, K-POP EVOLUTION FEST 2022 и 2024, Red Lights Party 2022, K-POP COVER BATTLE Пятигорск 2022 и 2024, команды CAPTURE и GRATIA',
+      fact:  'Участвовала в турнире ЮФО, танцевала русские, кавказские и калмыцкие народные танцы',
+      quote: '«Начинать всегда сложно, но это того стоит. В танце есть вы — а это самое главное»'
+    },
+    ulyana: {
+      name: 'Ульяна',
+      role: 'Хореограф',
+      photos: ['assets/сайт/team/ульяна1.jpg','assets/сайт/team/ульяна2.jpg','assets/сайт/team/ульяна3.jpg'],
+      exp:   '5 лет в танцах / 5 лет к-поп',
+      spec:  'К-поп, корейские традиционные танцы',
+      desc:  'Организует фестивали, учит корейский и параллельно не забывает английский с французским. Иногда путает русские слова — но в танце всё всегда понятно без слов.',
+      path:  'Организатор DEEPFEST и BANANABATTLE, призёр Asian Dragon Fest, участник и призёр Fire Champ, Coverland, Idolcon, DeepFest, LAM, Fire Academy, танцор на Volga Champ 2026, участник STAR DANCE 2025',
+      fact:  'Ходила на мастер-класс в студии JustJerk в Корее, начинала с корейских традиционных танцев',
+      quote: '«Всегда тяжело выходить из зоны комфорта, но только так возможно развитие. Давай просто танцевать и улучшаться вместе»'
+    }
+  };
+
+  var overlay  = document.getElementById('team-modal-overlay');
+  var closeBtn = document.getElementById('team-modal-close');
+  var prevBtn  = document.getElementById('gallery-prev');
+  var nextBtn  = document.getElementById('gallery-next');
+  var slidesEl = document.getElementById('gallery-slides');
+  var dotsEl   = document.getElementById('gallery-dots');
+
+  var currentSlide = 0;
+  var slides = [];
+  var dots   = [];
+  var lastFocus = null;
+
+  function setSlide(idx) {
+    slides[currentSlide].classList.remove('is-active');
+    dots[currentSlide].classList.remove('is-active');
+    currentSlide = (idx + slides.length) % slides.length;
+    slides[currentSlide].classList.add('is-active');
+    dots[currentSlide].classList.add('is-active');
+  }
+
+  function openTeamModal(key) {
+    var d = TEAM[key];
+    if (!d) return;
+    lastFocus = document.activeElement;
+
+    document.getElementById('team-modal-name').textContent  = d.name;
+    document.getElementById('team-modal-role').textContent  = d.role;
+    document.getElementById('team-modal-exp').textContent   = d.exp;
+    document.getElementById('team-modal-spec').textContent  = d.spec;
+    document.getElementById('team-modal-desc').textContent  = d.desc;
+    document.getElementById('team-modal-path').textContent  = d.path;
+    document.getElementById('team-modal-fact').textContent  = d.fact;
+    document.getElementById('team-modal-quote').textContent = d.quote;
+
+    slidesEl.innerHTML = '';
+    dotsEl.innerHTML   = '';
+    slides = [];
+    dots   = [];
+    currentSlide = 0;
+
+    d.photos.forEach(function (src, i) {
+      var slide = document.createElement('div');
+      slide.className = 'gallery-slide' + (i === 0 ? ' is-active' : '');
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = d.name + ' — фото ' + (i + 1);
+      img.loading = 'lazy';
+      slide.appendChild(img);
+      slidesEl.appendChild(slide);
+      slides.push(slide);
+
+      var dot = document.createElement('button');
+      dot.className = 'gallery-dot' + (i === 0 ? ' is-active' : '');
+      dot.setAttribute('aria-label', 'Фото ' + (i + 1));
+      (function (idx) {
+        dot.addEventListener('click', function () { setSlide(idx); });
+      })(i);
+      dotsEl.appendChild(dot);
+      dots.push(dot);
+    });
+
+    var single = d.photos.length < 2;
+    prevBtn.style.display = single ? 'none' : '';
+    nextBtn.style.display = single ? 'none' : '';
+    dotsEl.style.display  = single ? 'none' : '';
+
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () { closeBtn.focus(); }, 50);
+  }
+
+  function closeTeamModal() {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  prevBtn.addEventListener('click', function () { setSlide(currentSlide - 1); });
+  nextBtn.addEventListener('click', function () { setSlide(currentSlide + 1); });
+  closeBtn.addEventListener('click', closeTeamModal);
+
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeTeamModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (!overlay.classList.contains('is-open')) return;
+    if (e.key === 'Escape')      closeTeamModal();
+    if (e.key === 'ArrowLeft')   setSlide(currentSlide - 1);
+    if (e.key === 'ArrowRight')  setSlide(currentSlide + 1);
+  });
+
+  document.querySelectorAll('.team-card[data-team]').forEach(function (card) {
+    card.addEventListener('click', function () {
+      openTeamModal(card.dataset.team);
+    });
+  });
+
+})();
+</script>
+</body>
+</html>

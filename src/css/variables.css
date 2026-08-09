@@ -1,8 +1,8 @@
 :root {
   /* Фоны */
-  --color-bg:           #141414;
-  --color-surface-1:    #1c1c1c;
-  --color-surface-2:    #222222;
+  --color-bg:           #0d0d0d;
+  --color-surface-1:    #161616;
+  --color-surface-2:    #1f1f1f;
 
   /* Текст */
   --color-text:         #f0ecea;

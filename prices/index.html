@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Цены — Soul Dance</title>
+  <meta name="description" content="Цены на занятия танцами в Москве. Абонементы от 3 800 ₽, к-поп спецкурсы, подарочные сертификаты, программы лояльности. Soul Dance, Шоссе Энтузиастов 54.">
+  <link rel="canonical" href="https://yana-dem.github.io/souldance-site/prices/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Цены — Soul Dance">
+  <meta property="og:description" content="Абонементы от 3 800 ₽, к-поп интенсивы от 150 ₽, подарочные сертификаты, лояльность. Soul Dance, Москва.">
+  <meta property="og:locale" content="ru_RU">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Montserrat:wght@400;500;600;700&display=swap"></noscript>
+
+  <link rel="stylesheet" href="../src/css/variables.css">
+  <link rel="stylesheet" href="../src/css/base.css">
+  <link rel="stylesheet" href="../src/css/components.css">
+  <link rel="stylesheet" href="../src/css/layout.css">
+
+  <style>
+    /* ══ HERO ══════════════════════════════════════════════════ */
+    .pricing-hero { padding: 96px 0 80px; border-bottom: 1px solid var(--color-border); }
+    .pricing-hero__eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 16px; font-family: var(--font-body); }
+    .pricing-hero__title { font-family: var(--font-display); font-size: 64px; line-height: 1.05; letter-spacing: 0.01em; text-transform: uppercase; margin-bottom: 16px; }
+    .pricing-hero__sub { font-size: 18px; color: var(--color-muted); max-width: 560px; line-height: 1.6; }
+    @media (max-width: 768px) { .pricing-hero { padding: 64px 0 48px; } .pricing-hero__title { font-size: 40px; } }
+
+    /* ══ ANCHOR OFFSET ══════════════════════════════════════════ */
+    .pricing-section { scroll-margin-top: 80px; padding: 64px 0; border-bottom: 1px solid var(--color-border); }
+    .pricing-section:last-of-type { border-bottom: none; }
+
+    /* ══ АБОНЕМЕНТЫ ══════════════════════════════════════════ */
+    .applies-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .applies-chip { background: var(--color-surface-2); border: 1px solid var(--color-border); border-radius: 100px; padding: 6px 16px; font-size: 13px; font-weight: 600; color: var(--color-muted); }
+
+    .abon-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
+    .abon-card { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 32px 24px; display: flex; flex-direction: column; gap: 12px; position: relative; }
+    .abon-card--featured { border-color: var(--color-accent); background: linear-gradient(160deg, var(--color-accent-soft) 0%, var(--color-surface-1) 60%); }
+    .abon-card__badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-accent); color: #0d0d0d; font-family: var(--font-display); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
+    .abon-card__count { font-family: var(--font-display); font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
+    .abon-card__price { font-family: var(--font-display); font-size: 48px; line-height: 1; color: var(--color-accent); }
+    .abon-card__currency { font-size: 24px; }
+    .abon-card__per { font-size: 13px; color: var(--color-muted); }
+    .abon-card__validity { font-size: 12px; color: var(--color-muted); border-top: 1px solid var(--color-border); padding-top: 12px; margin-top: auto; }
+    @media (max-width: 1024px) { .abon-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .abon-grid { grid-template-columns: 1fr; } .abon-card__price { font-size: 40px; } }
+
+    .trial-block { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 32px 40px; margin-top: 24px; display: flex; gap: 48px; flex-wrap: wrap; }
+    .trial-item__label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 8px; }
+    .trial-item__value { font-family: var(--font-display); font-size: 32px; color: var(--color-accent); }
+    .trial-item__note { font-size: 13px; color: var(--color-muted); margin-top: 4px; }
+    @media (max-width: 600px) { .trial-block { padding: 24px; gap: 24px; } }
+
+    /* Правила */
+    .rules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 32px; }
+    .rule-card { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 28px 32px; }
+    .rule-card__title { font-family: var(--font-display); font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 12px; }
+    .rule-card__text { font-size: 14px; color: var(--color-muted); line-height: 1.7; }
+    .rule-card__text strong { color: var(--color-text); }
+    @media (max-width: 768px) { .rules-grid { grid-template-columns: 1fr; } }
+
+    /* Индивидуальные */
+    .personal-single { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 28px 32px; margin-bottom: 24px; }
+    .personal-single__title { font-family: var(--font-display); font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px; }
+    .price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--color-border); }
+    .price-row:last-of-type { border-bottom: none; }
+    .price-row__type { font-size: 13px; color: var(--color-muted); font-weight: 500; }
+    .price-row__amount { font-family: var(--font-display); font-size: 22px; color: var(--color-accent); white-space: nowrap; }
+
+    .p-abon-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .p-abon-card { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 28px 24px; position: relative; }
+    .p-abon-card--featured { border-color: var(--color-accent); background: linear-gradient(160deg, var(--color-accent-soft) 0%, var(--color-surface-1) 60%); }
+    .p-abon-card__badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-accent); color: #0d0d0d; font-family: var(--font-display); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
+    .p-abon-card__name { font-family: var(--font-display); font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 2px; }
+    .p-abon-card__validity { font-size: 12px; color: var(--color-muted); margin-bottom: 16px; }
+    .p-abon-price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+    .p-abon-price-row:last-of-type { border-bottom: none; }
+    .p-abon-price-row__type { font-size: 12px; color: var(--color-muted); }
+    .p-abon-price-row__amount { font-family: var(--font-display); font-size: 20px; color: var(--color-accent); white-space: nowrap; }
+    .pricing-note { margin-top: 24px; padding: 16px 20px; background: var(--color-surface-2); border-radius: var(--radius-md); font-size: 13px; color: var(--color-muted); line-height: 1.6; }
+    @media (max-width: 1024px) { .p-abon-grid { grid-template-columns: 1fr; } }
+
+    /* ══ К-ПОП ══════════════════════════════════════════════ */
+    .intensive-prices { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 48px; }
+    .intensive-price-card { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 32px 40px; flex: 1; min-width: 200px; }
+    .intensive-price-card__label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 12px; }
+    .intensive-price-card__amount { font-family: var(--font-display); font-size: 56px; color: var(--color-accent); line-height: 1; }
+    .intensive-price-card__currency { font-size: 28px; }
+    .intensive-note { margin-top: 24px; padding: 16px 20px; background: var(--color-surface-2); border-radius: var(--radius-md); font-size: 13px; color: var(--color-muted); line-height: 1.6; }
+    @media (max-width: 640px) { .intensive-price-card__amount { font-size: 40px; } }
+
+    .courses-notice-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--color-accent-soft); border: 1px solid var(--color-accent); border-radius: var(--radius-md); padding: 10px 16px; font-size: 14px; font-weight: 600; color: var(--color-text); margin: 32px 0; }
+    .courses-notice-tag::before { content: '\2605'; color: var(--color-accent); }
+
+    .price-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .price-card { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 32px 28px; display: flex; flex-direction: column; position: relative; }
+    .price-card--featured { border-color: var(--color-accent); background: linear-gradient(160deg, var(--color-accent-soft) 0%, var(--color-surface-1) 60%); }
+    .price-card__badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-accent); color: #0d0d0d; font-family: var(--font-display); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
+    .price-card__name { font-family: var(--font-display); font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 4px; }
+    .price-card__sessions { font-size: 13px; color: var(--color-muted); margin-bottom: 24px; }
+    @media (max-width: 1024px) { .price-cards-grid { grid-template-columns: 1fr; gap: 24px; } }
+
+    .single-lesson-block { margin-top: 24px; background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 20px 24px; }
+    .single-lesson-block__title { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+    .single-lesson-block__row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
+    .single-lesson-block__row span:last-child { font-weight: 600; color: var(--color-accent); }
+    .single-lesson-block__note { margin-top: 10px; font-size: 12px; color: var(--color-muted); line-height: 1.5; }
+
+    .kids-note-card { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 32px 40px; display: flex; gap: 24px; align-items: flex-start; margin-top: 32px; }
+    .kids-note-card__icon { font-family: var(--font-display); font-size: 40px; color: var(--color-accent); flex-shrink: 0; line-height: 1; }
+    .kids-note-card__title { font-family: var(--font-display); font-size: 20px; letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 12px; }
+    .kids-note-card__text { font-size: 15px; color: var(--color-muted); line-height: 1.7; }
+    .kids-note-card__text a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 600px) { .kids-note-card { flex-direction: column; padding: 24px; } }
+
+    /* ══ ПОДАРОЧНЫЕ СЕРТИФИКАТЫ ════════════════════════════ */
+    .cert-params { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 48px; margin-bottom: 40px; }
+    .cert-param { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 20px 24px; display: flex; gap: 16px; align-items: flex-start; }
+    .cert-param__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); flex-shrink: 0; margin-top: 6px; }
+    .cert-param__key { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 4px; }
+    .cert-param__val { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    @media (max-width: 768px) { .cert-params { grid-template-columns: 1fr; } }
+
+    .cert-widget { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 48px; min-height: 180px; display: flex; align-items: center; justify-content: center; color: var(--color-muted); font-size: 14px; }
+    @media (max-width: 600px) { .cert-widget { padding: 32px 20px; } }
+
+    /* ══ ЛОЯЛЬНОСТЬ ══════════════════════════════════════════ */
+    .loyalty-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .loyalty-card { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 36px 32px; display: flex; flex-direction: column; gap: 20px; transition: border-color 250ms ease; }
+    .loyalty-card:hover { border-color: var(--color-accent); }
+    .loyalty-card__header { display: flex; align-items: center; gap: 16px; }
+    .loyalty-card__num { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--color-accent); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 18px; color: var(--color-accent); flex-shrink: 0; }
+    .loyalty-card__title { font-family: var(--font-display); font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.15; }
+    .loyalty-card__body { font-size: 15px; line-height: 1.65; color: var(--color-muted); flex: 1; }
+    .loyalty-card__body strong { color: var(--color-text); font-weight: 600; }
+    .loyalty-card__tiers { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+    .loyalty-card__tiers li { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+    .loyalty-card__tiers li:last-child { border-bottom: none; }
+    .loyalty-card__tiers li span:last-child { font-family: var(--font-display); font-size: 18px; color: var(--color-accent); }
+    .loyalty-card__note { font-size: 12px; color: var(--color-muted); opacity: 0.75; line-height: 1.5; }
+    @media (max-width: 1024px) { .loyalty-grid { grid-template-columns: 1fr; max-width: 560px; } }
+    @media (max-width: 768px) { .loyalty-grid { gap: 16px; } .loyalty-card { padding: 28px 24px; } }
+
+    /* ══ ВКЛАДКИ ══════════════════════════════════════════════════ */
+    .tabs-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+    }
+    .tabs-nav {
+      border-right: 1px solid var(--color-border);
+      padding: 48px 0;
+      position: sticky;
+      top: 72px;
+      align-self: start;
+      max-height: calc(100vh - 72px);
+      overflow-y: auto;
+    }
+    .tab-btn {
+      display: block;
+      width: 100%;
+      padding: 14px 32px;
+      text-align: left;
+      background: none;
+      border: none;
+      border-left: 2px solid transparent;
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      cursor: pointer;
+      line-height: 1.4;
+      transition: color 200ms, border-color 200ms, background 200ms;
+    }
+    .tab-btn:hover { color: var(--color-text); background: var(--color-surface-1); }
+    .tab-btn.is-active { color: var(--color-accent); border-left-color: var(--color-accent); background: var(--color-accent-soft); }
+    .tab-btn .soon-tag { display: inline-block; margin-left: 6px; font-size: 9px; background: var(--color-accent); color: #0d0d0d; border-radius: 100px; padding: 2px 8px; vertical-align: middle; }
+    .tabs-content { min-width: 0; }
+    .tab-panel { display: none; padding: 48px; }
+    .tab-panel.is-active { display: block; }
+    @media (max-width: 1024px) {
+      .tabs-layout { grid-template-columns: 1fr; }
+      .tabs-nav { position: static; max-height: none; border-right: none; border-bottom: 1px solid var(--color-border); padding: 0; display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .tab-btn { flex-shrink: 0; border-left: none; border-bottom: 2px solid transparent; padding: 14px 20px; white-space: nowrap; font-size: 11px; }
+      .tab-btn.is-active { border-left-color: transparent; border-bottom-color: var(--color-accent); }
+      .tab-panel { padding: 32px 24px; }
+    }
+    @media (max-width: 600px) {
+      .tab-panel { padding: 24px 16px; }
+    }
+
+  </style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="../index.html" class="header-logo">
+        <img src="../assets/logo/logo-white.png" alt="Soul Dance" height="40">
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+        <a href="../about.html" class="nav-link">О нас</a>
+        <a href="../kids/" class="nav-link">Дети</a>
+        <a href="../adults/" class="nav-link">Взрослые</a>
+        <a href="./" class="nav-link is-active">Цены</a>
+        <a href="../rental.html" class="nav-link">Аренда залов</a>
+        <a href="../contacts.html" class="nav-link">Контакты</a>
+      </nav>
+      <button class="btn-primary header-cta" data-modal="messenger">Записаться</button>
+      <button class="burger-btn" id="burger-btn" aria-label="Открыть меню" aria-expanded="false">
+        <span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="pricing-hero">
+    <div class="container">
+      <p class="pricing-hero__eyebrow" data-animate>Soul Dance</p>
+      <h1 class="pricing-hero__title" data-animate data-delay="1">Цены</h1>
+      <p class="pricing-hero__sub" data-animate data-delay="2">Абонементы, к-поп, индивидуальные занятия, подарочные сертификаты и программы лояльности — всё в одном месте.</p>
+    </div>
+  </section>
+
+  <!-- ══ ВСЕ ЗАНЯТИЯ ════════════════════════════════════════════ -->
+  <div class="tabs-layout">
+    <nav class="tabs-nav" aria-label="Разделы">
+      <button class="tab-btn" data-tab="all">Все занятия</button>
+      <button class="tab-btn" data-tab="kpop">К-поп</button>
+      <button class="tab-btn" data-tab="gift-certificates">Подарочные сертификаты</button>
+      <button class="tab-btn" data-tab="loyalty">Акции и лояльность</button>
+    </nav>
+    <div class="tabs-content">
+  <div class="tab-panel" data-panel="all">
+    <div class="container">
+      <span class="section-label" data-animate>Групповые занятия</span>
+      <h2 class="section-title" data-animate data-delay="1">Все занятия</h2>
+      <p style="color:var(--color-muted);margin-top:12px;font-size:15px;" data-animate data-delay="2">Один абонемент — любые направления из списка ниже. Никаких скрытых платежей.</p>
+
+      <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-muted);margin-top:40px;" data-animate>Этот прайс действует на</p>
+      <div class="applies-chips" data-animate>
+        <span class="applies-chip">Современные танцы (дети)</span>
+        <span class="applies-chip">Современные танцы (взрослые)</span>
+        <span class="applies-chip">К-поп группы для детей</span>
+        <span class="applies-chip">Растяжка</span>
+        <span class="applies-chip">Зумба</span>
+        <span class="applies-chip">Контемп</span>
+        <span class="applies-chip">Хилсы</span>
+      </div>
+
+      <div class="abon-grid">
+        <div class="abon-card" data-animate>
+          <p class="abon-card__count">4 занятия</p>
+          <p class="abon-card__price">3 800 <span class="abon-card__currency">₽</span></p>
+          <p class="abon-card__per">950 ₽ за занятие</p>
+          <p class="abon-card__validity">Срок действия — 30 дней</p>
+        </div>
+        <div class="abon-card abon-card--featured" data-animate data-delay="1">
+          <span class="abon-card__badge">Самый популярный</span>
+          <p class="abon-card__count">8 занятий</p>
+          <p class="abon-card__price">7 400 <span class="abon-card__currency">₽</span></p>
+          <p class="abon-card__per">925 ₽ за занятие</p>
+          <p class="abon-card__validity">Срок действия — 45 дней</p>
+        </div>
+        <div class="abon-card" data-animate data-delay="2">
+          <p class="abon-card__count">12 занятий</p>
+          <p class="abon-card__price">10 300 <span class="abon-card__currency">₽</span></p>
+          <p class="abon-card__per">858 ₽ за занятие</p>
+          <p class="abon-card__validity">Срок действия — 60 дней</p>
+        </div>
+        <div class="abon-card" data-animate data-delay="3">
+          <p class="abon-card__count">16 занятий</p>
+          <p class="abon-card__price">12 700 <span class="abon-card__currency">₽</span></p>
+          <p class="abon-card__per">794 ₽ за занятие</p>
+          <p class="abon-card__validity">Срок действия — 60 дней</p>
+        </div>
+      </div>
+
+      <div class="trial-block" data-animate>
+        <div class="trial-item">
+          <p class="trial-item__label">Первое занятие — Дети</p>
+          <p class="trial-item__value">Бесплатно</p>
+          <p class="trial-item__note">6–14 лет, все группы</p>
+        </div>
+        <div class="trial-item">
+          <p class="trial-item__label">Первое занятие — Взрослые</p>
+          <p class="trial-item__value">600 ₽</p>
+          <p class="trial-item__note">От 15 лет</p>
+        </div>
+      </div>
+
+      <h3 style="font-family:var(--font-display);font-size:16px;letter-spacing:0.04em;text-transform:uppercase;margin:48px 0 16px;" data-animate>Заморозка и пропуски</h3>
+      <div class="rules-grid">
+        <div class="rule-card" data-animate>
+          <h4 class="rule-card__title">Заморозка абонемента</h4>
+          <p class="rule-card__text">Один раз за время действия абонемента — пауза <strong>до 7 дней</strong> без объяснения причины. Срок действия продлевается на количество дней заморозки.<br><br>Не действует на абонемент на 4 занятия.</p>
+        </div>
+        <div class="rule-card" data-animate data-delay="1">
+          <h4 class="rule-card__title">Если не получилось прийти</h4>
+          <p class="rule-card__text">Стоимость пропущенного занятия не возвращается, но можно воспользоваться заморозкой <strong>по любой причине</strong> — без справок и объяснений.</p>
+        </div>
+      </div>
+
+      <h3 style="font-family:var(--font-display);font-size:16px;letter-spacing:0.04em;text-transform:uppercase;margin:48px 0 16px;" data-animate>Индивидуальные занятия</h3>
+      <div class="personal-single" data-animate>
+        <p class="personal-single__title">Разовое занятие (1 час)</p>
+        <div class="price-row">
+          <span class="price-row__type">Хореограф студии</span>
+          <span class="price-row__amount">2 800 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row__type">Старший хореограф</span>
+          <span class="price-row__amount">3 300 ₽</span>
+        </div>
+      </div>
+
+      <div class="p-abon-grid">
+        <div class="p-abon-card" data-animate>
+          <p class="p-abon-card__name">4 занятия</p>
+          <p class="p-abon-card__validity">Срок действия — 30 дней</p>
+          <div class="p-abon-price-row">
+            <span class="p-abon-price-row__type">Хореограф студии</span>
+            <span class="p-abon-price-row__amount">10 400 ₽</span>
+          </div>
+          <div class="p-abon-price-row">
+            <span class="p-abon-price-row__type">Старший хореограф</span>
+            <span class="p-abon-price-row__amount">12 400 ₽</span>
+          </div>
+        </div>
+        <div class="p-abon-card p-abon-card--featured" data-animate data-delay="1">
+          <span class="p-abon-card__badge">Самый популярный</span>
+          <p class="p-abon-card__name">8 занятий</p>
+          <p class="p-abon-card__validity">Срок действия — 60 дней</p>
+          <div class="p-abon-price-row">
+            <span class="p-abon-price-row__type">Хореограф студии</span>
+            <span class="p-abon-price-row__amount">19 600 ₽</span>
+          </div>
+          <div class="p-abon-price-row">
+            <span class="p-abon-price-row__type">Старший хореограф</span>
+            <span class="p-abon-price-row__amount">23 600 ₽</span>
+          </div>
+        </div>
+        <div class="p-abon-card" data-animate data-delay="2">
+          <p class="p-abon-card__name">16 занятий</p>
+          <p class="p-abon-card__validity">Срок действия — 90 дней</p>
+          <div class="p-abon-price-row">
+            <span class="p-abon-price-row__type">Хореограф студии</span>
+            <span class="p-abon-price-row__amount">36 800 ₽</span>
+          </div>
+          <div class="p-abon-price-row">
+            <span class="p-abon-price-row__type">Старший хореограф</span>
+            <span class="p-abon-price-row__amount">44 800 ₽</span>
+          </div>
+        </div>
+      </div>
+      <p class="pricing-note" data-animate>Отмена менее чем за 24 часа — следующая запись по 100% предоплате. Первое занятие для детей — бесплатно, для взрослых — 600 ₽.</p>
+    </div>
+  </div>
+
+  <!-- ══ К-ПОП ══════════════════════════════════════════════════ -->
+  <div class="tab-panel" data-panel="kpop">
+    <div class="container">
+      <span class="section-label" data-animate>К-поп</span>
+      <h2 class="section-title" data-animate data-delay="1">К-поп: интенсивы и спецкурсы</h2>
+      <p style="color:var(--color-muted);margin-top:12px;font-size:15px;max-width:560px;line-height:1.6;" data-animate data-delay="2">Интенсивы и спецкурсы — отдельный формат со своей механикой. Профессиональная съёмка кавера включена в любой спецкурс.</p>
+
+      <h3 style="font-family:var(--font-display);font-size:16px;letter-spacing:0.04em;text-transform:uppercase;margin:48px 0 0;" data-animate>К-поп интенсивы · 1 час</h3>
+      <div class="intensive-prices">
+        <div class="intensive-price-card" data-animate>
+          <p class="intensive-price-card__label">Первое занятие</p>
+          <p class="intensive-price-card__amount">150 <span class="intensive-price-card__currency">₽</span></p>
+        </div>
+        <div class="intensive-price-card" data-animate data-delay="1">
+          <p class="intensive-price-card__label">Повторное занятие</p>
+          <p class="intensive-price-card__amount">550 <span class="intensive-price-card__currency">₽</span></p>
+        </div>
+      </div>
+      <p class="intensive-note" data-animate>Интенсив — разовый формат. Каждое занятие оплачивается отдельно. Абонементы на интенсивы не действуют.</p>
+
+      <h3 style="font-family:var(--font-display);font-size:16px;letter-spacing:0.04em;text-transform:uppercase;margin:48px 0 0;" data-animate>К-поп спецкурсы · 2 часа</h3>
+      <p class="courses-notice-tag" data-animate>Съёмка кавера включена в любой абонемент</p>
+
+      <div class="price-cards-grid">
+        <div class="price-card" data-animate>
+          <p class="price-card__name">В ритме</p>
+          <p class="price-card__sessions">4 занятия × 2 часа</p>
+          <div class="price-row">
+            <span class="price-row__type">Хореограф студии</span>
+            <span class="price-row__amount">4 290 ₽</span>
+          </div>
+          <div class="price-row">
+            <span class="price-row__type">Старший хореограф</span>
+            <span class="price-row__amount">4 590 ₽</span>
+          </div>
+        </div>
+        <div class="price-card price-card--featured" data-animate data-delay="1">
+          <span class="price-card__badge">Самый популярный</span>
+          <p class="price-card__name">Полный курс</p>
+          <p class="price-card__sessions">8 занятий × 2 часа</p>
+          <div class="price-row">
+            <span class="price-row__type">Хореограф студии</span>
+            <span class="price-row__amount">7 190 ₽</span>
+          </div>
+          <div class="price-row">
+            <span class="price-row__type">Старший хореограф</span>
+            <span class="price-row__amount">7 990 ₽</span>
+          </div>
+        </div>
+        <div class="price-card" data-animate data-delay="2">
+          <p class="price-card__name">Максимум</p>
+          <p class="price-card__sessions">16 занятий × 2 часа</p>
+          <div class="price-row">
+            <span class="price-row__type">Хореограф студии</span>
+            <span class="price-row__amount">13 490 ₽</span>
+          </div>
+          <div class="price-row">
+            <span class="price-row__type">Старший хореограф</span>
+            <span class="price-row__amount">14 790 ₽</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="single-lesson-block" data-animate>
+        <p class="single-lesson-block__title">Разовое занятие</p>
+        <div class="single-lesson-block__row"><span>Хореограф студии</span><span>1 190 ₽</span></div>
+        <div class="single-lesson-block__row"><span>Старший хореограф</span><span>1 390 ₽</span></div>
+        <p class="single-lesson-block__note">Разовое занятие доступно только если до конца курса осталось не более 2 занятий и абонемент закончился</p>
+      </div>
+
+      <div class="kids-note-card" data-animate>
+        <div class="kids-note-card__icon" aria-hidden="true">6+</div>
+        <div>
+          <h3 class="kids-note-card__title">Детский к-поп — по общему прайсу</h3>
+          <p class="kids-note-card__text">К-поп группы для детей (6–12 и 12–15 лет) занимаются по обычному расписанию и оплачиваются по стандартным абонементам — без съёмки кавера и без тарифов спецкурсов. Это обычные танцевальные занятия в к-поп стиле.<br><br>Смотреть абонементы → <a href="#all">Цены на все занятия</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ПОДАРОЧНЫЕ СЕРТИФИКАТЫ ════════════════════════════════ -->
+  <div class="tab-panel" data-panel="gift-certificates">
+    <div class="container">
+      <span class="section-label" data-animate>Подарок</span>
+      <h2 class="section-title" data-animate data-delay="1">Подарочные сертификаты</h2>
+      <p style="color:var(--color-muted);margin-top:12px;font-size:15px;" data-animate data-delay="2">От 500 до 15 000 ₽ — на любой формат занятий в Soul Dance</p>
+
+      <div class="cert-params">
+        <div class="cert-param" data-animate>
+          <div class="cert-param__dot" aria-hidden="true"></div>
+          <div>
+            <p class="cert-param__key">Номинал</p>
+            <p class="cert-param__val">от 500 до 15 000 ₽</p>
+          </div>
+        </div>
+        <div class="cert-param" data-animate data-delay="1">
+          <div class="cert-param__dot" aria-hidden="true"></div>
+          <div>
+            <p class="cert-param__key">Срок действия</p>
+            <p class="cert-param__val">1 год с момента покупки</p>
+          </div>
+        </div>
+        <div class="cert-param" data-animate data-delay="2">
+          <div class="cert-param__dot" aria-hidden="true"></div>
+          <div>
+            <p class="cert-param__key">Цифровой</p>
+            <p class="cert-param__val">Оплата через виджет ниже</p>
+          </div>
+        </div>
+        <div class="cert-param" data-animate data-delay="3">
+          <div class="cert-param__dot" aria-hidden="true"></div>
+          <div>
+            <p class="cert-param__key">В подарочном конверте</p>
+            <p class="cert-param__val">+200 ₽ — оформление на ресепшене</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-widget" data-animate>
+        <span>[УТОЧНИТЬ] — здесь будет виджет оплаты сертификатов YClients</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ АКЦИИ И ЛОЯЛЬНОСТЬ ════════════════════════════════════ -->
+  <div class="tab-panel" data-panel="loyalty">
+    <div class="container">
+      <span class="section-label" data-animate>Программы лояльности</span>
+      <h2 class="section-title" data-animate data-delay="1">Три способа сэкономить</h2>
+      <p style="color:var(--color-muted);margin-top:12px;font-size:15px;" data-animate data-delay="2">Быть с нами теперь ещё выгоднее</p>
+
+      <div class="loyalty-grid">
+        <div class="loyalty-card" data-animate>
+          <div class="loyalty-card__header">
+            <div class="loyalty-card__num">1</div>
+            <h3 class="loyalty-card__title">Приведи друга</h3>
+          </div>
+          <div class="loyalty-card__body">
+            Приводишь друга в студию — получаешь <strong>250 ₽</strong> на карту лояльности.
+            Твой друг тоже получает скидку <strong>250 ₽</strong>.
+          </div>
+          <p class="loyalty-card__note">Не суммируется с ценой первого занятия за 150 ₽</p>
+        </div>
+
+        <div class="loyalty-card" data-animate data-delay="1">
+          <div class="loyalty-card__header">
+            <div class="loyalty-card__num">2</div>
+            <h3 class="loyalty-card__title">Скидка на день рождения</h3>
+          </div>
+          <div class="loyalty-card__body">
+            <strong>10%</strong> скидка в твой день рождения и <strong>7 дней</strong> после.
+            Просто покажи документ администратору студии.
+          </div>
+        </div>
+
+        <div class="loyalty-card" data-animate data-delay="2">
+          <div class="loyalty-card__header">
+            <div class="loyalty-card__num">3</div>
+            <h3 class="loyalty-card__title">Чем чаще ты с нами</h3>
+          </div>
+          <div class="loyalty-card__body">
+            Скидка на абонемент растёт вместе с твоими визитами:
+          </div>
+          <ul class="loyalty-card__tiers">
+            <li><span>20 занятий</span><span>5%</span></li>
+            <li><span>40 занятий</span><span>8%</span></li>
+            <li><span>60 занятий</span><span>12%</span></li>
+          </ul>
+          <p class="loyalty-card__note">Скидка обнуляется, если не появляться в студии 3 месяца подряд</p>
+        </div>
+      </div>
+
+      <div style="margin-top:48px;text-align:center;" data-animate>
+        <button class="btn-primary" data-modal="messenger">Оставить заявку</button>
+      </div>
+    </div>
+  </div>
+
+    </div><!-- /tabs-content -->
+  </div><!-- /tabs-layout -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-col--brand">
+        <a href="../index.html" class="footer-logo"><img src="../assets/logo/logo-white.png" alt="Soul Dance" height="36" loading="lazy"></a>
+        <p class="footer-tagline">Студия танцев в Москве.<br>Собираем своих с 2019 года</p>
+      </div>
+      <nav class="footer-col footer-col--nav" aria-label="Навигация в подвале">
+        <a href="../index.html">Главная</a>
+        <a href="../about.html">О нас</a>
+        <a href="../kids/">Дети</a>
+        <a href="../adults/">Взрослые</a>
+        <a href="./">Цены</a>
+        <a href="../rental.html">Аренда залов</a>
+        <a href="../contacts.html">Контакты</a>
+      </nav>
+      <div class="footer-col footer-col--contacts">
+        <address>
+          <p>Москва, Шоссе Энтузиастов 54,<br>ТЦ «Мир Уюта», 2 этаж</p>
+          <p>Пн–Пт: 15:00–22:00<br>Сб–Вс: 10:00–22:00</p>
+        </address>
+        <div class="footer-social">
+          <a href="https://t.me/souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a href="https://max.ru/id743017545404_bot" class="footer-social-link" target="_blank" rel="noopener noreferrer">MAX</a>
+          <a href="https://vk.com/souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+          <a href="https://www.youtube.com/@souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://www.tiktok.com/@souldancemsk" class="footer-social-link" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a href="mailto:souldancemsk@yandex.ru" class="footer-social-link">souldancemsk@yandex.ru</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal-info">ИП Попов Данила Андреевич · ИНН 743017545404 · ОГРНИП 324745600121280</p>
+      <div class="footer-legal-links">
+        <a href="../assets/сайт/legal/Политика_конфиденциальности_сайта_Soul_Dance.pdf" target="_blank" rel="noopener">Политика конфиденциальности</a>
+        <a href="../assets/сайт/legal/Публичная_оферта_Soul_Dance.pdf" target="_blank" rel="noopener">Публичная оферта</a>
+        <a href="../assets/сайт/legal/Политика_Cookie_Soul_Dance.pdf" target="_blank" rel="noopener">Политика Cookie</a>
+        <a href="../assets/сайт/legal/Пользовательское_соглашение_Soul_Dance.pdf" target="_blank" rel="noopener">Пользовательское соглашение</a>
+        <button class="btn-text" id="cookie-settings-btn">Настройки cookies</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="messenger-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-dialog">
+    <button class="modal-close" id="modal-close-btn" aria-label="Закрыть">&times;</button>
+    <h3 class="modal-title" id="modal-title">Выбери удобный мессенджер</h3>
+    <div class="modal-actions">
+      <a href="https://t.me/souldancemsk" class="btn-primary modal-btn" target="_blank" rel="noopener noreferrer">Telegram @souldancemsk</a>
+      <a href="https://max.ru/id743017545404_bot" class="btn-secondary modal-btn" target="_blank" rel="noopener noreferrer">MAX</a>
+    </div>
+  </div>
+</div>
+<div class="cookie-banner" id="cookie-banner" hidden>
+  <div class="container"><div class="cookie-banner__inner">
+    <p class="cookie-banner__text">Мы используем cookies. <a href="../assets/сайт/legal/Политика_Cookie_Soul_Dance.pdf" target="_blank" rel="noopener">Политика Cookie</a></p>
+    <div class="cookie-banner__actions"><button class="btn-primary" id="cookie-accept-all">Принять все</button><button class="btn-secondary" id="cookie-accept-minimal">Только необходимые</button></div>
+  </div></div>
+</div>
+
+<script src="../src/js/main.js"></script>
+<script>
+(function () {
+  var nav = document.querySelector('.tabs-nav');
+  var btns = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.tab-panel');
+  if (!btns.length) return;
+  function activate(id) {
+    btns.forEach(function (b) { b.classList.remove('is-active'); });
+    panels.forEach(function (p) { p.classList.remove('is-active'); });
+    var btn = document.querySelector('.tab-btn[data-tab="' + id + '"]');
+    var panel = document.querySelector('.tab-panel[data-panel="' + id + '"]');
+    if (btn) { btn.classList.add('is-active'); var nav = document.querySelector('.tabs-nav');
+      if (nav && nav.scrollWidth > nav.clientWidth) {
+        var btnCenter = btn.offsetLeft + btn.offsetWidth / 2;
+        nav.scrollLeft = Math.max(0, btnCenter - nav.clientWidth / 2);
+      } }
+    if (panel) panel.classList.add('is-active');
+    history.replaceState(null, '', '#' + id);
+  }
+  btns.forEach(function (b) { b.addEventListener('click', function () { activate(b.dataset.tab); }); });
+  var hash = location.hash.slice(1);
+  if (hash && document.querySelector('.tab-btn[data-tab="' + hash + '"]')) {
+    activate(hash);
+  } else {
+    activate(btns[0].dataset.tab);
+  }
+})();
+</script>
+</body>
+</html>
